@@ -1,6 +1,7 @@
 select * from tab;
 select * from MEMBER;
 select * from news;
+select * from tip;
 create sequence news_seq;
 create sequence live_seq;
 create sequence qa_seq;
@@ -15,3 +16,28 @@ insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페�
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
+
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
+insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);

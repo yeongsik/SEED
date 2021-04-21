@@ -75,7 +75,6 @@ String sql="insert into tip values(tip_seq.nextval,?,?,?,?,sysdate,?,?,?)";
 			rs = pstmt.executeQuery();				// SQL문 실행
 			
 			if(rs.next()) {
-//				result = rs.getInt(1);
 				result = rs.getInt("count(*)");
 			}
 			

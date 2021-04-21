@@ -73,7 +73,7 @@ public class SeedFrontController extends HttpServlet {
 		}else if(command.equals("/BoardForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/TipBoard/tip_write.jsp");
+			forward.setPath("/tip/board_tip_write.jsp");
 			
 			
 		// 글 목록

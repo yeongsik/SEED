@@ -50,13 +50,10 @@ public class TipListAction implements SeedAction{
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		
-		
-		SeedActionForward forward = new SeedActionForward();
-		
+		SeedActionForward forward = new SeedActionForward();	
 		// dispatcher 방식으로 포워딩되어야 view 페이지에서 공유한 값에 접근할 수있다.
 		forward.setRedirect(false);
-		forward.setPath("./tip/tip_board_list.jsp");
+		forward.setPath("./tip/board_tip_list.jsp");
 		
 		return forward;
 	}
