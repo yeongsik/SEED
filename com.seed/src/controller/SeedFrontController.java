@@ -17,6 +17,8 @@ import service.news.NewsDetailAction;
 import service.news.NewsListAction;
 import service.news.NewsModify;
 import service.news.NewsModifyAction;
+import service.tip.TipAddAction;
+import service.tip.TipListAction;
 
 /**
  * Servlet implementation class SeedFrontController
@@ -56,6 +58,35 @@ public class SeedFrontController extends HttpServlet {
 		}
 		
 		// tip ( 승국님 ) 
+		
+		// 글작성
+		
+		if(command.equals("/TipAddAction.seed")) {
+			try {
+				action = new TipAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 글작성 폼
+		}else if(command.equals("/BoardForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/TipBoard/tip_write.jsp");
+			
+			
+		// 글 목록
+		}else if(command.equals("/TipListAction.seed")) {
+			try {
+				action = new TipListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 		
 		// free ( 혜영님 ) 
 		

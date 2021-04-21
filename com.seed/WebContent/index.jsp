@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<script>
+		location.href="./TipListAction.seed";
+	</script>
 </body>
 </html>
