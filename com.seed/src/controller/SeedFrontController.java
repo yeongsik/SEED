@@ -55,16 +55,27 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
+		
+		
+		
 		// tip ( 승국님 ) 
+		
+		
 		
 		// free ( 혜영님 ) 
 		
+		
+		
 		// live ( 유중님 ) 
+		
+		
 		
 		// qa ( 수환님 ) 
 		
 		
-		// news 게시판 ( ys )
+		
+		
+		// news 게시판 ( 영식 )
 		// news write form
 		if ( command.equals("/NewsAddActionForm.seed")) {
 			forward = new SeedActionForward();
