@@ -32,9 +32,9 @@
 <tr>
 	<td>
 		<input type="button" value="수정"
-		onClick = "location.href='./NewsModifyAction.news?board_num=${board.board_num}&page=${page}'">
+		onClick = "location.href='./NewsModifyAction.seed?board_num=${board.board_num}&page=${page}'">
 		<input type="button" value="글목록"
-		onClick = "location.href='./NewsListAction.news?page=${page}'">
+		onClick = "location.href='./NewsListAction.seed?page=${page}'">
 	</td>
 </tr>
 </table>

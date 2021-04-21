@@ -13,7 +13,10 @@ import service.SeedAction;
 import service.SeedActionForward;
 import service.member.MemberLogIn;
 import service.news.NewsAddAction;
+import service.news.NewsDetailAction;
 import service.news.NewsListAction;
+import service.news.NewsModify;
+import service.news.NewsModifyAction;
 
 /**
  * Servlet implementation class SeedFrontController
@@ -37,7 +40,7 @@ public class SeedFrontController extends HttpServlet {
 		SeedActionForward forward = null;
 		
 		// Member 
-		// login 폼
+		// login form
 		if (command.equals("/MemberLogInForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
@@ -52,17 +55,23 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
+		// tip ( 승국님 ) 
+		
+		// free ( 혜영님 ) 
+		
+		// live ( 유중님 ) 
+		
+		// qa ( 수환님 ) 
 		
 		
-	
-		// news 게시판 
-		// 글 작성 폼
+		// news 게시판 ( ys )
+		// news write form
 		if ( command.equals("/NewsAddActionForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./news/board_news_write.jsp");
 		
-		// 글 작성
+		// news write 
 		} else if ( command.equals("/NewsAddAction.seed")) {
 			try {
 				action = new NewsAddAction();
@@ -70,12 +79,36 @@ public class SeedFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		// 글 리스트 
+		// news list 
 		} else if (command.equals("/NewsListAction.seed")) {
 			try {
 				action = new NewsListAction();
 				forward = action.execute(request, response);
 			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// news view 
+		} else if (command.equals("/NewsDetailAction.seed")) {
+			try {
+				action = new NewsDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e ) {
+				e.printStackTrace();
+			}
+		// news modify form
+		} else if (command.equals("/NewsModifyAction.seed")) {
+			try {
+				action = new NewsModifyAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				
+			}
+		// news modify
+		} else if (command.equals("/NewsModify.seed")) {
+			try {
+				action = new NewsModify();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
