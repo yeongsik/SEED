@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.SeedAction;
 import service.SeedActionForward;
+import service.member.MemberLogIn;
+import service.news.NewsAddAction;
+import service.news.NewsListAction;
 
 /**
  * Servlet implementation class SeedFrontController
@@ -33,24 +36,66 @@ public class SeedFrontController extends HttpServlet {
 		SeedAction action = null;
 		SeedActionForward forward = null;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		if ( forward != null) {
-			if (forward.isRedirect()) {
-				response.sendRedirect(forward.getPath());
+		// Member 
+		// login 폼
+		if (command.equals("/MemberLogInForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/loginform.jsp");
+		} else if (command.equals("/MemberLogIn.seed")) {
+			try {
+				action = new MemberLogIn();
+				forward = action.execute(request, response);
 				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	
+		// news 게시판 
+		// 글 작성 폼
+		if ( command.equals("/NewsAddActionForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./news/board_news_write.jsp");
+		
+		// 글 작성
+		} else if ( command.equals("/NewsAddAction.seed")) {
+			try {
+				action = new NewsAddAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		// 글 리스트 
+		} else if (command.equals("/NewsListAction.seed")) {
+			try {
+				action = new NewsListAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+				
+		
+		
+		
+		if (forward != null) {
+			if(forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
 			} else {
 				RequestDispatcher dispatcher =
 						request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
-		}	
+		}
+		
+		
+		
+		
 	
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
