@@ -5,6 +5,7 @@
 
 <a href="./BoardForm.seed">글쓰기</a> <br>
 글 개수 : ${listcount} 개 <br>
+<div>
 	<div style="border:1px solid; width:800;height:650 ; textalign:center; margin:0 auto;">
 		<h1 style="text-align: center;">게시판 목록</h1><hr>
 		<ul style="list-style-type: none;">
@@ -38,7 +39,7 @@
 
 <!-- 페이징 처리 -->
 	<div style="margin:0 auto;">
-		<c:if test="${listcount > 0 }">			
+		<c:if test="${listcount >0 }"><!-- ${listcount > 0 } 인식못함? -->			
 			<!-- 1페이지로 이동 -->	
 			<a href="./TipListAction.seed?page=1" style="text-decoration: none;"> << </a>			
 			<!-- 이전 블럭으로 이동 -->
@@ -62,5 +63,5 @@
 			<a href="./TipListAction.seed?page=${pageCount}" style="text-decoration:none"> >> </a>
 		</c:if>
 	</div>
-
+</div>
 
