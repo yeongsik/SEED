@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.SeedActionForward;
+import service.free.FreeAddAction;
+import service.free.FreeDetailAction;
+import service.free.FreeListAction;
+import service.free.FreeModifyAction;
 import service.SeedAction;
 import service.SeedActionForward;
 import service.member.MemberLogIn;
@@ -57,8 +62,54 @@ public class SeedFrontController extends HttpServlet {
 		
 		// tip ( 승국님 ) 
 		
-		// free ( 혜영님 ) 
 		
+		// free ( 혜영님 ) 
+		// free write 		첨부파일 및 내용 수정
+		if(command.equals("/FreeAddAction.do")) {
+			try {
+				action = new FreeAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// free write form 
+		}else if(command.equals("/BoardForm.do")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/freeboard/free_board_write.jsp");
+			
+		// free list	위치 설정 변경
+		}else if(command.equals("/FreeListAction.do")) {
+			try {
+				action = new FreeListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// free view		위치 설정 변경
+		}else if(command.equals("/FreeDetailAction.do")) {
+			try {
+				action = new FreeDetailAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// free modify form		위치 설정 변경
+		} else if(command.equals("/FreeModifyAction.do")) {
+			try {
+				action = new FreeModifyAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+			
+			
+			
+			
 		// live ( 유중님 ) 
 		
 		// qa ( 수환님 ) 
