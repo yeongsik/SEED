@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.SeedAction;
 import service.SeedActionForward;
+import service.live.LiveAddAction;
+import service.live.LiveDelete;
+import service.live.LiveDetailAction;
+import service.live.LiveListAction;
+import service.live.LiveModify;
+import service.live.LiveModifyAction;
 import service.member.MemberLogIn;
 import service.news.NewsAddAction;
 import service.news.NewsDetailAction;
@@ -60,7 +66,72 @@ public class SeedFrontController extends HttpServlet {
 		// free ( 혜영님 ) 
 		
 		// live ( 유중님 ) 
-		
+				// 글작성
+				if(command.equals("LiveAddAction.seed")) {
+					try {
+						action = new LiveAddAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				// 글작성 폼	
+				}else if(command.equals("/live_board_write.seed")) {
+					forward = new SeedActionForward();
+					forward.setRedirect(false);
+					forward.setPath("liveboard/live_board_write.jsp");
+					
+				// 글목록	
+				}else if(command.equals("/LiveListAction.seed")) {
+					try {
+						action = new LiveListAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				// 상세 페이지	
+				}else if(command.equals("LiveDetailAction.seed")) {
+					try {
+						action = new LiveDetailAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+				}
+				//수정 폼	
+					
+				  }else if(command.equals("/LiveModifyAction.seed")) { 
+					 try { action = new LiveModifyAction(); 
+					 	 forward = action.execute(request, response);
+				  
+				  }catch(Exception e) { 
+					    e.printStackTrace(); 
+				  }
+				 
+				  // 수정 
+				  }else if(command.equals("/LiveModify.seed")) {
+				  	 try { action = new LiveModify(); 
+				  		 forward = action.execute(request, response); 
+				  
+				  	 } catch(Exception e) { 
+				  		 e.printStackTrace(); 
+				  	}
+				  
+				  // 삭제 폼 
+				  }else if(command.equals("/LiveDeleteAction.seed")) { 
+					  forward = new SeedActionForward(); 
+					  forward.setRedirect(false); 
+					  forward.setPath("./live_board_delete.jsp");
+				  
+				  // 삭제 
+				  }else if(command.equals("/LiveDelete.seed")) { 
+					  try { action = new LiveDelete(); 
+					  forward = action.execute(request, response); 
+					  
+					  } catch(Exception e) { 
+						  e.printStackTrace(); }
+				 
+				  }	
 		// qa ( 수환님 ) 
 		
 		
