@@ -136,6 +136,67 @@ String sql="insert into tip values(tip_seq.nextval,?,?,?,?,sysdate,?,?,?)";
 		return list;
 	}
 	
+	// 조회수 증가
+	public void readcountUpdate(int board_num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			String sql="update tip set board_view=board_view+1 ";
+					sql+="where board_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+		
+	}
+	
+	// 상세 페이지 (select문을 사용하기 위해서는 메소드 앞에 자료형이 반드시 와야하는데 한사람이 작성한 상세정보를 돌려줄때는 DTO 두개 이상일경우는 LIST 사용)
+	public TipDTO getDetail(int board_num) {
+		TipDTO dto = new TipDTO();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="select * from tip where board_num=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);			// 형변환 했기 때문에 int로 받을 수 있음
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setBoard_num(rs.getInt("board_num"));
+				dto.setBoard_category(rs.getString("board_category"));
+				dto.setName(rs.getString("name"));
+				dto.setBoard_subject(rs.getString("board_subject"));
+				dto.setBoard_content(rs.getString("board_content"));
+				dto.setBoard_register(rs.getTimestamp("board_register"));
+				dto.setBoard_view(rs.getInt("board_view"));
+				dto.setBoard_like(rs.getInt("board_like"));
+				dto.setBoard_hate(rs.getInt("board_hate"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try {rs.close();}catch(Exception e) {}
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+
+		return dto;
+	}
+	
 	
 	
 }

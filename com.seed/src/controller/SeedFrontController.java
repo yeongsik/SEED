@@ -18,7 +18,10 @@ import service.news.NewsListAction;
 import service.news.NewsModify;
 import service.news.NewsModifyAction;
 import service.tip.TipAddAction;
+import service.tip.TipDetailAction;
 import service.tip.TipListAction;
+import service.tip.TipModify;
+import service.tip.TipModifyAction;
 
 /**
  * Servlet implementation class SeedFrontController
@@ -84,7 +87,37 @@ public class SeedFrontController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		
+		// 상세 페이지
+		}else if(command.equals("/TipDetailAction.seed")) {
+			try {
+				action = new TipDetailAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 수정 폼
+		}else if(command.equals("/TipModifyAction.seed")) {
+			try {
+				action = new TipModifyAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 수정
+		}else if(command.equals("/TipModify.seed")) {
+			try {
+				action = new TipModify();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
+		
 		
 		
 		

@@ -6,7 +6,7 @@
 <a href="./BoardForm.seed">글쓰기</a> <br>
 글 개수 : ${listcount} 개 <br>
 <div>
-	<div style="border:1px solid; width:800;height:650 ; textalign:center; margin:0 auto;">
+	<div style="border:1px solid; width:800;height:550 ; textalign:center;">
 		<h1 style="text-align: center;">게시판 목록</h1><hr>
 		<ul style="list-style-type: none;">
 			<li style="float: left;">번호&emsp;</li>
@@ -23,8 +23,9 @@
 <%-- 			<div>${num}	<!-- 후행연산 -- 를 사용할 수없기 때문에 아래 코드를 추가 -->
 				<c:set var="num" value="${num-1 }"/>
 			</div> --%>
+			
 			<div style="display: inline-block;">&emsp;&emsp;${b.board_num}&emsp;&emsp;</div>
-			<div style="display: inline-block;">&emsp;&emsp;&emsp;${b.board_subject}&emsp;&emsp;&emsp;</div>
+			<div style="display: inline-block;"><a href="./TipDetailAction.seed?board_num=${b.board_num}&page=${page }" style="text-decoration:none">&emsp;&emsp;&emsp;${b.board_subject}&emsp;&emsp;&emsp;</a></div>
 			<div style="display: inline-block;">&emsp;&emsp;${b.name}&emsp;&emsp;</div>
 			<div style="display: inline-block;">
 				<fmt:formatDate value="${b.board_register}" pattern="MM-dd HH:mm"/>
@@ -38,8 +39,8 @@
 	</div><br><br>
 
 <!-- 페이징 처리 -->
-	<div style="margin:0 auto;">
-		<c:if test="${listcount >0 }"><!-- ${listcount > 0 } 인식못함? -->			
+	<div>
+		<%-- <c:if test="${listcount >0 }"><!-- ${listcount > 0 } 인식못함? --> --%>
 			<!-- 1페이지로 이동 -->	
 			<a href="./TipListAction.seed?page=1" style="text-decoration: none;"> << </a>			
 			<!-- 이전 블럭으로 이동 -->
@@ -61,7 +62,7 @@
 			</c:if>
 			<!-- 마지막 페이지로 이동 -->
 			<a href="./TipListAction.seed?page=${pageCount}" style="text-decoration:none"> >> </a>
-		</c:if>
+		<%-- </c:if> --%>
 	</div>
 </div>
 
