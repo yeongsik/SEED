@@ -15,3 +15,12 @@ insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페�
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
+
+
+select * from (select rownum rnum , board.* from
+					 (select * from news 
+					 where board_register between sysdate-7 and sysdate
+					 order by board_view desc) board )
+					 where rnum >= 1 and rnum <=5;
+					 
+ select  board_category , board_subject , name , board_view from news where board_register between sysdate-7 and sysdate order by board_view desc;
