@@ -197,6 +197,59 @@ String sql="insert into tip values(tip_seq.nextval,?,?,?,?,sysdate,?,?,?)";
 		return dto;
 	}
 	
+	// 글 수정
+	public int update(TipDTO dto) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="update tip set board_category=?, board_subject=?, board_content=? ";
+					sql+=" where board_num=? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getBoard_category());
+			pstmt.setString(2, dto.getBoard_subject());
+			pstmt.setString(3, dto.getBoard_content());
+			pstmt.setInt(4, dto.getBoard_num());
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
 	
+	// 글삭제 ( pw가 MemberDAO에 있어서 그쪽에서 참조하는 바람에 일단 만들고 여기는 사본)
+	// 글 상세 페이지에 pw가 없기 때문에 공통으로 포함된 부분이 없음.
+	// 다른 부분으로 확인하거나 삭제시 비교구문 자체를 사용하지 않아야?
+	public int delete(int board_num) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="delete from tip where board_num=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			result = pstmt.executeUpdate();
+			System.out.println("삭제된 갯수:"+result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt !=null ) try {pstmt.close(); } catch (Exception e) {}
+			if(con !=null) try {con.close(); } catch (Exception e) {}
+		}
+		
+		return result;
+	}
 	
 }

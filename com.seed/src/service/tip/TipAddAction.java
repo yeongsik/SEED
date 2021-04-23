@@ -18,17 +18,17 @@ public class TipAddAction implements SeedAction{
 		
 		
 		//DTO 생성
-		TipDTO board = new TipDTO();
+		TipDTO dto = new TipDTO();
 
-		board.setBoard_category(request.getParameter("board_category"));
-		board.setName("name1");
-		board.setBoard_subject(request.getParameter("board_subject"));
-		board.setBoard_content(request.getParameter("board_content"));
+		dto.setBoard_category(request.getParameter("board_category"));
+		dto.setName("name1");
+		dto.setBoard_subject(request.getParameter("board_subject"));
+		dto.setBoard_content(request.getParameter("board_content"));
 		
 		//DAO 생성
 		TipDAO dao = TipDAO.getInstance();
 
-		int result = dao.insert(board);
+		int result = dao.insert(dto);
 
 		if(result == 1) {
 			System.out.println("글작성 성공");

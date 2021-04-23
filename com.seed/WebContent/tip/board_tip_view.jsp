@@ -12,7 +12,8 @@
 	<div>
 		<input type="button" value="수정"
 		onClick = "location.href='./TipModifyAction.seed?board_num=${dto.board_num }&page=${page}'">
-		<input type="button" value="삭제">
+		<input type="button" value="삭제"
+		onClick = "location.href='./TipDeleteAction.seed?board_num=${dto.board_num }&page=${page}'">
 		<input type="button" value="목록"
 		onClick = "location.href='./TipListAction.seed?&page=${page}'">
 	

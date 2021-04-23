@@ -18,6 +18,7 @@ import service.news.NewsListAction;
 import service.news.NewsModify;
 import service.news.NewsModifyAction;
 import service.tip.TipAddAction;
+import service.tip.TipDelete;
 import service.tip.TipDetailAction;
 import service.tip.TipListAction;
 import service.tip.TipModify;
@@ -110,6 +111,25 @@ public class SeedFrontController extends HttpServlet {
 		}else if(command.equals("/TipModify.seed")) {
 			try {
 				action = new TipModify();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 삭제 폼
+		}else if(command.equals("/TipDeleteAction.seed")) {
+			try {
+				forward = new SeedActionForward();
+				forward.setRedirect(false);// param 사용하기위해서 false
+				forward.setPath("./tip/board_tip_delete.jsp");
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 삭제
+		}else if(command.equals("/TipDelete.seed")) {
+			try {
+				action = new TipDelete();
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
