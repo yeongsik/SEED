@@ -37,7 +37,7 @@ public class LiveModify implements SeedAction{
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/LiveDetailAction.seed?board_num="+board_num+"&page="+page);
+		forward.setPath("./live/LiveDetailAction.seed?board_num="+board_num+"&page="+page);
 		
 		return forward;
 	}

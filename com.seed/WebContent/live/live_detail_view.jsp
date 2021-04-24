@@ -31,8 +31,6 @@
 	</tr>
 	<tr><td>내용</td>
 		<td>
-			<%-- <pre>${board.board_content }</pre> --%>
-				
 			${board_content}
 		</td>	
 	</tr>
@@ -43,17 +41,12 @@
 	</tr>
 	<tr><td colspan=2 align=center>
 	
-				<input type="button" value="댓글" 
-onClick="location.href='/LiveReplyAction.liveb?board_num=${board.board_num}&page=${page}' ">
 				
 				<input type="button" value="수정" 
-onClick="location.href='/LiveModifyAction.liveb?board_num=${board.board_num}&page=${page}' ">
-				
-				<input type="button" value="삭제" 
-onClick="location.href='/LiveDeleteAction.liveb?board_num=${board.board_num}&page=${page}' ">
+onClick="location.href='/live/LiveModifyAction.seed?board_num=${board.board_num}&page=${page}' ">
 				
 				<input type="button" value="목록" 
-onClick="location.href='/LiveListAction.liveb?page=${page}' ">
+onClick="location.href='/live/LiveListAction.seed?page=${page}' ">
 				
 		</td>
 	</tr>

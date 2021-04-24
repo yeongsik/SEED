@@ -36,7 +36,8 @@
 	</c:forEach>
 </table>
 <center>
-<c:if test="${listcount >0 }">
+
+<c:if test="${listcount > 0 }">
 	<a href="./NewsListAction.seed?page=1" style="text-decoration :none"><<</a>
 	<c:if test="${startPage > 10 }">
 	<a href="./NewsListAction.seed?page=${startPage-10 }" style="text-decoration :none">[이전]</a>

@@ -3,6 +3,7 @@ package service.live;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import dao.LiveDAO;
 import model.LiveDTO;
 import service.SeedAction;
@@ -15,9 +16,9 @@ public class LiveAddAction implements SeedAction {
 	public SeedActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("LiveAddAction옴");
-		request.setCharacterEncoding("utf-8");
-		LiveDTO live = new LiveDTO();
+		request.setCharacterEncoding("utf-8"); 
 		
+		LiveDTO live = new LiveDTO();
 		live.setBoard_category(request.getParameter("board_category"));
 		live.setName("name1");
 		live.setBoard_subject(request.getParameter("board_subject"));
@@ -33,9 +34,9 @@ public class LiveAddAction implements SeedAction {
 		}
 		
 		SeedActionForward forward = new SeedActionForward();
-		forward.setRedirect(false);
+		forward.setRedirect(true);
 		System.out.println("리스트액션");
-		forward.setPath("LiveListAction.seed");
+		forward.setPath("./live/LiveListAction.seed");
 		
 		return forward;
 	}

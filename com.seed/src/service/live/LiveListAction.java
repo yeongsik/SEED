@@ -20,7 +20,7 @@ public class LiveListAction implements SeedAction{
 		request.setCharacterEncoding("utf-8");
 		
 		int page = 1; 		
-		int limit = 20;     
+		int limit = 15;     
 		
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
@@ -52,10 +52,9 @@ public class LiveListAction implements SeedAction{
 		request.setAttribute("endPage", endPage);
 		
 		SeedActionForward forward = new SeedActionForward();
-		
 		forward.setRedirect(false); 
-		System.out.println("리스트 총페이지");
-		forward.setPath("/live_board_list.jsp");
+		System.out.println("리스트 총 페이지");
+		forward.setPath("./live/live_board_write.jsp");
 		
 		return forward;
 	}

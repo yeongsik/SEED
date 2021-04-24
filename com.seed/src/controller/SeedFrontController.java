@@ -66,8 +66,14 @@ public class SeedFrontController extends HttpServlet {
 		// free ( 혜영님 ) 
 		
 		// live ( 유중님 ) 
-				// 글작성
-				if(command.equals("LiveAddAction.seed")) {
+				// 글작성 폼	
+				if(command.equals("/LiveAddActionForm.seed")) {
+						forward = new SeedActionForward();
+						forward.setRedirect(false);
+						forward.setPath("/live_board_write.jsp");
+		
+				// 글작성		
+				}else if(command.equals("/LiveAddAction.seed")) {
 					try {
 						action = new LiveAddAction();
 						forward = action.execute(request, response);
@@ -75,11 +81,7 @@ public class SeedFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 					
-				// 글작성 폼	
-				}else if(command.equals("/live_board_write.seed")) {
-					forward = new SeedActionForward();
-					forward.setRedirect(false);
-					forward.setPath("liveboard/live_board_write.jsp");
+				
 					
 				// 글목록	
 				}else if(command.equals("/LiveListAction.seed")) {
@@ -91,7 +93,7 @@ public class SeedFrontController extends HttpServlet {
 					}
 					
 				// 상세 페이지	
-				}else if(command.equals("LiveDetailAction.seed")) {
+				}else if(command.equals("/LiveDetailAction.seed")) {
 					try {
 						action = new LiveDetailAction();
 						forward = action.execute(request, response);
@@ -116,12 +118,14 @@ public class SeedFrontController extends HttpServlet {
 				  	 } catch(Exception e) { 
 				  		 e.printStackTrace(); 
 				  	}
-				  
-				  // 삭제 폼 
+				  	 // 삭제 폼
 				  }else if(command.equals("/LiveDeleteAction.seed")) { 
-					  forward = new SeedActionForward(); 
-					  forward.setRedirect(false); 
-					  forward.setPath("./live_board_delete.jsp");
+						 try { action = new LiveModifyAction(); 
+						 	 forward = action.execute(request, response);
+					  
+					  }catch(Exception e) { 
+						    e.printStackTrace(); 
+					  }	 
 				  
 				  // 삭제 
 				  }else if(command.equals("/LiveDelete.seed")) { 
@@ -202,16 +206,20 @@ public class SeedFrontController extends HttpServlet {
 		
 	
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("get");
 		doProcess(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("post");
 		doProcess(request, response);

@@ -34,7 +34,7 @@ public class LiveDetailAction implements SeedAction{
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);  
-		forward.setPath("/live_detail_view.jsp");
+		forward.setPath("./live/live_detail_view.jsp");
 		
 		return forward;
 	}
