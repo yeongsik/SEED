@@ -29,13 +29,15 @@
 <tr>
 	<td>글제목</td>
 	<td>
-		<input type="text" id="board_subject" , name="board_subject" value="${news.board_subject}">
+		<input type="text" id="board_subject" name="board_subject" value="${news.board_subject}">
 	</td>
 </tr>
 <tr>
 	<td>글내용</td>
 	<td>
+	<textarea rows="3" cols="5" id="board_content" name="board_content">
 		${news.board_content }
+	</textarea>
 	</td>
 </tr>
 <tr>

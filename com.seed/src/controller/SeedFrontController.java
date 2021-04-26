@@ -13,6 +13,7 @@ import service.SeedAction;
 import service.SeedActionForward;
 import service.member.MemberLogIn;
 import service.news.NewsAddAction;
+import service.news.NewsDelete;
 import service.news.NewsDetailAction;
 import service.news.NewsListAction;
 import service.news.NewsModify;
@@ -68,14 +69,18 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
+		
+		
+		
 		// tip ( 승국님 ) 
-		 
+
 		// free ( 혜영님 ) 
+		
+		
 		
 		// live ( 유중님 ) 
 		
-		// -------------------------------------------------------------------------------------
-		// -------------------------------------------------------------------------------------
+    
 		// qa ( 수환님 ) 
 		if(command.equals("/AddAction.seed")) {
 			try {
@@ -178,15 +183,18 @@ public class SeedFrontController extends HttpServlet {
 			}
 		} 
 		
+
 		// -------------------------------------------------------------------------------------
 		// -------------------------------------------------------------------------------------
 		// news 게시판 ( ys )
+
+		// news 게시판 ( 영식 )
+
 		// news write form
 		if ( command.equals("/NewsAddActionForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(true);
 			forward.setPath("./news/board_news_write.jsp");
-		
 		// news write 
 		} else if ( command.equals("/NewsAddAction.seed")) {
 			try {
@@ -218,7 +226,7 @@ public class SeedFrontController extends HttpServlet {
 				action = new NewsModifyAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				
+
 			}
 		// news modify
 		} else if (command.equals("/NewsModify.seed")) {
@@ -227,7 +235,22 @@ public class SeedFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		// news delete form 	
+		} else if (command.equals("/NewsDeleteAction.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./news/board_news_delete.jsp");
+		// news delete	
+		} else if (command.equals("/NewsDelete.seed")) {
+			try {
+				action = new NewsDelete();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
+	
 				
 		
 		
