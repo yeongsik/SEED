@@ -18,6 +18,9 @@ import service.news.NewsListAction;
 import service.news.NewsModify;
 import service.news.NewsModifyAction;
 import service.qna.AddAction;
+import service.qna.CommentAddAction;
+import service.qna.CommentDeleteAction;
+import service.qna.CommentModifyAction;
 import service.qna.DeleteAction;
 import service.qna.DetailAction;
 import service.qna.HateDownUpdate;
@@ -82,6 +85,13 @@ public class SeedFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		
+		} else if(command.equals("/CommentAddAction.seed")){
+			try {
+				action = new CommentAddAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/BoardWrite.seed")) { 
 			forward = new SeedActionForward();
 			forward.setRedirect(true);
@@ -115,6 +125,14 @@ public class SeedFrontController extends HttpServlet {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/CommentModifyAction.seed")) {
+			try {
+				action = new CommentModifyAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
 		} else if(command.equals("/LikeUpdate.seed"))  { 
 			try {
 				action = new LikeUpdate();
@@ -144,6 +162,13 @@ public class SeedFrontController extends HttpServlet {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/CommentDeleteAction.seed")) {
+			try {
+				action = new CommentDeleteAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/DeleteAction.seed")) {
 			try {
 				action = new DeleteAction();
@@ -151,7 +176,7 @@ public class SeedFrontController extends HttpServlet {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} 
 		
 		// -------------------------------------------------------------------------------------
 		// -------------------------------------------------------------------------------------

@@ -49,6 +49,15 @@ public class ListAction implements SeedAction {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
+		// ------------------------------------------------------------------- Weekly Best
+		
+		QnADAO second_dao = QnADAO.getInstance();
+		List<QnADTO> weeklybest = second_dao.getWeeklyBest();
+		System.out.println("weeklybest : " + weeklybest);
+		
+		request.setAttribute("weeklybest", weeklybest);
+		
+		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./qna/qna_board_list.jsp");

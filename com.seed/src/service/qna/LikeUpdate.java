@@ -40,9 +40,6 @@ public class LikeUpdate implements SeedAction {
 		 
 		return null;
 		
-		
-//		
-		
 	}
 
 }

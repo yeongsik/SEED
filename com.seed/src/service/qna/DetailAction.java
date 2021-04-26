@@ -1,5 +1,7 @@
 package service.qna;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +32,13 @@ public class DetailAction implements SeedAction {
 		request.setAttribute("board_content", board_content);
 		request.setAttribute("board", board);
 		request.setAttribute("page", page);
+		
+		// ------------------------------------------------------------------------
+		
+		QnADAO second_dao = QnADAO.getInstance();
+		List<QnADTO> comment = second_dao.getComment(board_num); 
+		
+		request.setAttribute("user_comment", comment);
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);

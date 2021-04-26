@@ -16,6 +16,7 @@ insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페�
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 select * from qa;
+select * from qa_re;
 
 insert into MEMBER values('hama@naver.com','하마','1234',SYSDATE,'프로필사진');
 
@@ -25,3 +26,10 @@ create sequence board_num_seq
 	start with 1
 	increment by 1
 	nocache;
+
+-- qa_re 댓글 번호 seq.
+	
+create sequence re_num_seq
+	start with 1
+		increment by 1
+		nocache;

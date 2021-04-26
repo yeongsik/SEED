@@ -34,7 +34,7 @@
         </div>
         
         <div class="section_body_content">
-          <textarea id=smartEditor name="smartEditor" rows="7" style="width:700px; height:350px;" title="내용"></textarea>
+          <textarea id=smartEditor name="smartEditor" rows="7" style="width:700px; height:350px;" title="내용">내용을 입력해주세요</textarea>
         </div>
         <div class="section_body_btn">
         	<input type="submit" id="submit_btn" value="작성">
@@ -44,7 +44,7 @@
 
     <aside></aside>
     <footer></footer>
-    <script defer src="./smarteditor.js"></script>
+   <script defer src="<%=request.getContextPath() %>/qna/smarteditor.js"></script>
   </form>
 </body>
 </html>
