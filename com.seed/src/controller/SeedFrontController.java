@@ -18,6 +18,19 @@ import service.news.NewsDetailAction;
 import service.news.NewsListAction;
 import service.news.NewsModify;
 import service.news.NewsModifyAction;
+import service.qna.AddAction;
+import service.qna.CommentAddAction;
+import service.qna.CommentDeleteAction;
+import service.qna.CommentModifyAction;
+import service.qna.DeleteAction;
+import service.qna.DetailAction;
+import service.qna.HateDownUpdate;
+import service.qna.HateUpdate;
+import service.qna.LikeDownUpdate;
+import service.qna.LikeUpdate;
+import service.qna.ListAction;
+import service.qna.ModifyAction;
+import service.qna.ModifyFormAction;
 
 /**
  * Servlet implementation class SeedFrontController
@@ -60,23 +73,123 @@ public class SeedFrontController extends HttpServlet {
 		
 		
 		// tip ( 승국님 ) 
-		
-		
-		
+
 		// free ( 혜영님 ) 
 		
 		
 		
 		// live ( 유중님 ) 
 		
-		
-		
+    
 		// qa ( 수환님 ) 
+		if(command.equals("/AddAction.seed")) {
+			try {
+				action = new AddAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		
+		} else if(command.equals("/CommentAddAction.seed")){
+			try {
+				action = new CommentAddAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/BoardWrite.seed")) { 
+			forward = new SeedActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./qna/qna_board_write.jsp");
+			
+		} else if(command.equals("/ListAction.seed")) {
+			try {
+				action = new ListAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/DetailAction.seed")) {
+			try {
+				action = new DetailAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/ModifyFormAction.seed")) {
+			try {
+				action = new ModifyFormAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/ModifyAction.seed")) {
+			try {
+				action = new ModifyAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/CommentModifyAction.seed")) {
+			try {
+				action = new CommentModifyAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/LikeUpdate.seed"))  { 
+			try {
+				action = new LikeUpdate();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/LikeDownUpdate.seed")) {
+			try {
+				action = new LikeDownUpdate();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/HateUpdate.seed")) { 
+			try {
+				action = new HateUpdate();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/HateDownUpdate.seed")) {
+			try {
+				action = new HateDownUpdate();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/CommentDeleteAction.seed")) {
+			try {
+				action = new CommentDeleteAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/DeleteAction.seed")) {
+			try {
+				action = new DeleteAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
-		
-		System.out.println("영식");
+
+		// -------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------
+		// news 게시판 ( ys )
+
 		// news 게시판 ( 영식 )
+
 		// news write form
 		if ( command.equals("/NewsAddActionForm.seed")) {
 			forward = new SeedActionForward();
