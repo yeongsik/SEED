@@ -31,8 +31,12 @@
 </tr>
 <tr>
 	<td>
+		<c:if test="${sessionScope.name == news.name  }">
 		<input type="button" value="수정"
-		onClick = "location.href='./NewsModifyAction.seed?board_num=${board.board_num}&page=${page}'">
+		onClick = "location.href='./NewsModifyAction.seed?board_num=${news.board_num}&page=${page}'">
+		<input type="button" value="삭제"
+		onClick = "location.href='./NewsDeleteAction.seed?board_num=${news.board_num}&page=${page}'">
+		</c:if>
 		<input type="button" value="글목록"
 		onClick = "location.href='./NewsListAction.seed?page=${page}'">
 	</td>
