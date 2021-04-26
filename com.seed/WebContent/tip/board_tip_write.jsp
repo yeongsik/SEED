@@ -5,7 +5,16 @@
 <meta charset="UTF-8">
 	<title>글작성</title>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="./SE/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 	<%-- <script src="<%=request.getContextPath() %>/board/script.js"></script> --%>
+	<script>
+		$(() => { 
+			nhn.husky.EZCreator.createInIFrame({ 
+				oAppRef: editor, elPlaceHolder: 'board_content', 
+				sSkinURI: '/SE/SmartEditor2Skin.html', 
+				fCreator: 'createSEditor2' }); }); 
+	</script>
+
 </head>
 <body>
 	<form  action="<%=request.getContextPath() %>/TipAddAction.seed" method="post" ><!-- enctpye:첨부파일 사용시 추가.  enctype="multipart/form-data"-->
