@@ -34,7 +34,7 @@
 					<select name="board_category" style="height:31px;">
 						<option>일상얘기</option>
 						<option>직장얘기</option>
-					</select>카테고리 선택
+					  </select>카테고리 선택
 				</div>
 
 			</div>
