@@ -424,7 +424,7 @@ public class QnADAO {
 			return result;
 		}
 		
-		public int commentModify(QnADTO comment) {
+		public int commentModify(int re_num, QnADTO comment) {
 			int result = 0;
 			
 			Connection con = null;
@@ -433,10 +433,10 @@ public class QnADAO {
 			try {
 				con = getConnection();
 				
-				String sql ="update qa_re set board_content=? where board_num=? and re_num=?";
+				String sql ="update qa_re set re_content=?, re_register=sysdate where board_num=? and re_num=?";
 				
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, comment.getBoard_content());
+				pstmt.setString(1, comment.getRe_content());
 				pstmt.setInt(2, comment.getBoard_num());
 				pstmt.setInt(3, comment.getRe_num());
 				

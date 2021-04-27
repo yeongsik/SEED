@@ -22,14 +22,23 @@ public class CommentModifyAction implements SeedAction {
 		
 		PrintWriter out = response.getWriter();
 		
+		int re_num = Integer.parseInt(request.getParameter("re_num"));
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String page = request.getParameter("page");
+		String comment_content = request.getParameter("comment_content");
+		
+		System.out.println("re_num : " + re_num);
+		System.out.println("board_num : " + board_num);
+		System.out.println("page : " + page);
+		System.out.println("comment_content : " + comment_content);
 		
 		QnADTO comment = new QnADTO();
-		comment.setRe_content(request.getParameter("smartEditor"));
+		comment.setRe_content(comment_content);
+		comment.setBoard_num(board_num);
+		comment.setRe_num(re_num);
 		
 		QnADAO dao = QnADAO.getInstance();
-		int result = dao.commentModify(comment);
+		int result = dao.commentModify(re_num, comment);
 		
 		if(result == 1) {
 			System.out.println("댓글 수정 성공");
