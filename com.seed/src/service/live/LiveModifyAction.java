@@ -14,21 +14,20 @@ public class LiveModifyAction implements SeedAction{
 	public SeedActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("LiveModifyAction");
-		response.setContentType("text/html; charset=utf-8");
 		request.setCharacterEncoding("utf-8");
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String page = request.getParameter("page");
 		
 		LiveDAO dao = LiveDAO.getInstance();
-		LiveDTO board = dao.getDetail(board_num);
+		LiveDTO live = dao.getDetail(board_num);
 		
-		request.setAttribute("board", board);	    
+		request.setAttribute("live", live);	    
 		request.setAttribute("page", page);
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false); 
-		forward.setPath("/live_board_modify.jsp"); 
+		forward.setPath("./live/live_board_modify.jsp"); 
 		
 		return forward;
 	}

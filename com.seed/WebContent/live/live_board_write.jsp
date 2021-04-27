@@ -1,60 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%
-    String ctx = request.getContextPath();    //콘텍스트명 얻어오기.
+    String ctx = request.getContextPath(); 
 %>
-
 <!DOCTYPE html>
-<html lang="kr">
+<html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>사는얘기게시판</title>
-<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<%=request.getContextPath()%>/live/script.js"></script>
 <script type="text/javascript" src="<%=ctx %>/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 
-<script type="text/javascript">
-var oEditors = [];
-$(function(){
-      nhn.husky.EZCreator.createInIFrame({
-          oAppRef: oEditors,
-          elPlaceHolder: "ir1", //textarea에서 지정한 id와 일치해야 합니다. 
-          //SmartEditor2Skin.html 파일이 존재하는 경로
-          sSkinURI: "/com.seed/SE2/SmartEditor2Skin.html",  
-          htParams : {
-              // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseToolbar : true,             
-              // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseVerticalResizer : true,     
-              // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-              bUseModeChanger : true,         
-              fOnBeforeUnload : function(){
-                   
-              }
-          }, 
-          fOnAppLoad : function(){
-              //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-              oEditors.getById["ir1"].exec("PASTE_HTML", ["기존 DB에 저장된 내용을 에디터에 적용할 문구"]);
-          },
-          fCreator: "createSEditor2"
-      });
-      
-      //저장버튼 클릭시 form 전송
-      $("#save").click(function(){
-          oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-          $("#frm").submit();
-      });    
-});
- 
- 
- 
-</script>
-
+<title>사는얘기 게시판</title>
 </head>
-<body style="width:500px;">
+<body>
 	<header>
 		<div>
 			<a href="#">SEED</a>
@@ -67,9 +26,8 @@ $(function(){
 				<li><a href="#">About</a></li>
 			</ul>
 		</div>
-
 	</header>
-	<form action="<%=request.getContextPath()%>./LiveListAction.seed" method="post">
+	<form action="<%=request.getContextPath()%>/LiveListAction.seed" method="post" id="live_write_form" style="width:650px;">
 		<div style="border: 1px solid;">
 			<div style="align: center; width: 497px; height: 30px; border: 1px solid; display: inline-block;">
 				<div>
@@ -92,19 +50,16 @@ $(function(){
 					<div>내용</div>
 				</div>
 				<div>
-					<textarea rows="10" cols="30" id="ir1" name="content" style="width:650px; height:350px; "></textarea>
+					<textarea rows="10" cols="30" id="smartEditor" name="smartEditor" style="width:643px; height:350px; "></textarea>
 				</div>
-			</div>
-
-			<div>
-				<div></div>
 			</div>
 			<div>
 				<div>
-					<input type=submit value="등록"> <input type=reset value="취소">
+					<input type=submit value="등록" id="#submit_btn"> <input type=reset value="취소">
 				</div>
 			</div>
 		</div>
+		<script defer src="<%=request.getContextPath() %>../live/smarteditor.js"></script>
 	</form>
 </body>
 </html>

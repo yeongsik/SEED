@@ -49,7 +49,7 @@ public class LiveLogInAction implements SeedAction {
 		session.setAttribute(id, mdto.getId());
 		
 		SeedActionForward forward = new SeedActionForward();
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		System.out.println("리스트액션");
 		forward.setPath("./live/LiveListAction.seed");
 		

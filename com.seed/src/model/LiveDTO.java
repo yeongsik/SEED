@@ -8,7 +8,6 @@ public class LiveDTO {
 	private String name;
 	private String board_subject;
 	private String board_content;
-	private String board_file;
 	private Timestamp board_register;
 	private int board_view;
 	private int board_like;
@@ -44,12 +43,7 @@ public class LiveDTO {
 	public void setBoard_content(String board_content) {
 		this.board_content = board_content;
 	}
-	public String getBoard_file() {
-		return board_file;
-	}
-	public void setBoard_file(String board_file) {
-		this.board_file = board_file;
-	}
+
 	public Timestamp getBoard_register() {
 		return board_register;
 	}

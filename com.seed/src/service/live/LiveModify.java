@@ -16,7 +16,7 @@ public class LiveModify implements SeedAction{
 	@Override
 	public SeedActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardModify");
+		System.out.println("LiveModify");
 		
 		response.setContentType("text/html; charset=utf-8");
 		request.setCharacterEncoding("utf-8");
@@ -26,11 +26,11 @@ public class LiveModify implements SeedAction{
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String page = request.getParameter("page");
 		
-		LiveDTO board = new LiveDTO();
-		board.setBoard_num(board_num);
-		board.setName(request.getParameter("board_name"));
-		board.setBoard_subject(request.getParameter("board_subject"));
-		board.setBoard_content(request.getParameter("board_content"));
+		LiveDTO live = new LiveDTO();
+		live.setBoard_num(board_num);
+		live.setName(request.getParameter("board_name"));
+		live.setBoard_subject(request.getParameter("board_subject"));
+		live.setBoard_content(request.getParameter("board_content"));
 		
 		LiveDAO dao = LiveDAO.getInstance();
 		LiveDTO old = dao.getDetail(board_num);

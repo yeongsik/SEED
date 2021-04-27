@@ -54,7 +54,7 @@ public class LiveListAction implements SeedAction{
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false); 
 		System.out.println("리스트 총 페이지");
-		forward.setPath("./live/live_board_write.jsp");
+		forward.setPath("../LiveAddAction.seed");
 		
 		return forward;
 	}

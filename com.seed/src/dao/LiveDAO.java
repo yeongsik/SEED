@@ -154,7 +154,7 @@ String sql="update live set board_view=board_view+1 ";
 		}
 		
 	}
-	
+	//상세
 	public LiveDTO getDetail(int board_num) {
 		LiveDTO live = new LiveDTO();
 		Connection con = null;
@@ -191,7 +191,7 @@ String sql="update live set board_view=board_view+1 ";
 		
 		return live;
 	}
-	
+	//수정
 	public int update(LiveDTO board) {
 		int result = 0;
 		Connection con = null;
@@ -220,7 +220,7 @@ String sql="update live set board_view=board_view+1 ";
 		return result;
 	}
 	
-	
+	//삭제
 	public int delete(int board_num) {
 		int result = 0;
 		Connection con = null;
