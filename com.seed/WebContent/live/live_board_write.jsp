@@ -36,7 +36,7 @@
 						<option>직장얘기</option>
 					  </select>카테고리 선택
 				</div>
-
+ 
 			</div>
 			<div>
 				<div>글 제목</div>

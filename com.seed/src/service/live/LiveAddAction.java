@@ -38,7 +38,7 @@ public class LiveAddAction implements SeedAction {
 		System.out.println("리스트액션");
 		forward.setPath("./LiveListAction.seed");
 		
-		return forward;
+		return forward; 
 	}
 
 }

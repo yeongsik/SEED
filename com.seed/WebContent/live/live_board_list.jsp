@@ -17,7 +17,7 @@
 		<li><a href="#">About</a></li>
 	</ul>
 </div>
-
+ 
 
 <div>
 	<a href="../live_board_write.seed"

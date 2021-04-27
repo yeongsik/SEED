@@ -19,7 +19,7 @@
 			</ul>
 		</div>
 
-
+ 
 <table border=1 width=400 align=center>
 	<caption>상세 페이지</caption>
 	<tr>

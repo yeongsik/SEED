@@ -46,7 +46,7 @@ String ctx = request.getContextPath();
 				<td><input name="board_subject" id="board_subject" type="text"
 					size="10" maxlength="10" value="" /></td>
 			</tr>
-			<tr>
+			<tr> 
 				<td>
 					<div align="center">비밀번호</div>
 				</td>

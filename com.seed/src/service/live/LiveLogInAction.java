@@ -32,7 +32,7 @@ public class LiveLogInAction implements SeedAction {
 		mdto.setId(request.getParameter("id"));
 		mdto.setPw(request.getParameter("pw"));
 		int result = mdao.memberAuth(id,pw);
-		
+		 
 		if(result==-1) {
 			out.println("<script>");
 			out.println("alert('아이디/비밀번호가 일치하지않습니다.')");

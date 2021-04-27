@@ -25,7 +25,7 @@ public class LiveModify implements SeedAction{
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String page = request.getParameter("page");
-		
+		 
 		LiveDTO live = new LiveDTO();
 		live.setBoard_num(board_num);
 		live.setName(request.getParameter("board_name"));

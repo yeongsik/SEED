@@ -24,7 +24,7 @@ public class LiveModifyAction implements SeedAction{
 		
 		request.setAttribute("live", live);	    
 		request.setAttribute("page", page);
-		
+		 
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false); 
 		forward.setPath("./live/live_board_modify.jsp"); 

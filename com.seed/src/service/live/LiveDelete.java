@@ -29,9 +29,6 @@ public class LiveDelete implements SeedAction{
 		LiveDAO dao = LiveDAO.getInstance();
 		LiveDTO old = dao.getDetail(board_num);
 		
-		
-		
-		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/LiveListAction.seed?page="+page);

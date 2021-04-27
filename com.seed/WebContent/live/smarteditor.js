@@ -19,7 +19,7 @@ nhn.husky.EZCreator.createInIFrame({
 
 	}
 });
-
+ 
 //네이버 에디터 작성 데이터 전송하기 
 $("#submit_btn").click(function() {
 	oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
