@@ -20,3 +20,4 @@ insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페�
 
 insert into live values(live_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
 
+create sequence live_re_seq;

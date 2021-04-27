@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import model.LiveDTO;
+import model.Live_reDTO;
 
 public class LiveDAO {
 
@@ -35,7 +36,7 @@ public class LiveDAO {
 			con = getConnection();
 
 String sql="insert into live values(live_seq.nextval,?,?,?,?, ";	
-       sql+=" sysdate,?,?,?)";
+       sql+=" sysdate,live_seq.nextval,?,?,?)";
        
        		pstmt = con.prepareStatement(sql);
        		pstmt.setString(1, live.getBoard_category());
@@ -244,5 +245,96 @@ String sql="update live set board_view=board_view+1 ";
 		
 		return result;
 	}
+	// 댓글 작성
+		public int LiveReply(Live_reDTO liveRe) {
+			int result = 0;
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+		
+			    
+	  String sql="insert into live_re values(live_re_seq.nextval,?,?,sysdate,?,?,live_re_seq.nextval?, ";
+	   sql+=" ?,?,?)";
+	   
+	   			pstmt = con.prepareStatement(sql);
+	   			pstmt.setString(1, liveRe.getName());
+	   			pstmt.setString(2, liveRe.getRe_content());
+	   			pstmt.setInt(3, 0);
+	   			pstmt.setInt(4, 0);
+	   			pstmt.setInt(5, 0);    	
+	   			pstmt.setInt(6, 0);  	
+	   			pstmt.setInt(7, liveRe.getBoard_num());
+	   			result = pstmt.executeUpdate();	
+	   
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(pstmt!=null) try { pstmt.close(); }catch(Exception e) {}
+				if(con!=null) try { con.close(); }catch(Exception e) {}
+			}
+			
+			return result;
+		}
+		
+		//댓글 리스트
+		public List<Live_reDTO> getLiveReList (int board_num) {
+			List<Live_reDTO> liveReList = new ArrayList<Live_reDTO>();
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				String sql = "select * from live_re where board_num=? order by";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board_num);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(rs!=null) try { rs.close(); }catch(Exception e) {}
+				if(pstmt!=null) try { pstmt.close(); }catch(Exception e) {}
+				if(con!=null) try { con.close(); }catch(Exception e) {}
+			}
+			
+			
+			return liveReList;
+		}
+		public int getLiveReCount(int board_num ) {
+			int result = 0;
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				String sql = "select count(*) from live_re where board_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board_num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					rs.getInt(1);
+				}
+				
+				
+			}catch(Exception e) {
+				
+			}finally {
+				if(rs!=null) try { rs.close(); }catch(Exception e) {}
+				if(pstmt!=null) try { pstmt.close(); }catch(Exception e) {}
+				if(con!=null) try { con.close(); }catch(Exception e) {}
+			}
+			
+			
+			return result;
+		}
+		
 	
 }
