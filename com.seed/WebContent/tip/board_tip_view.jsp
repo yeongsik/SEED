@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div style="border:1px solid; width:800;height:650 ; textalign:center;">
+<div style="width:600px;height: 550px; border: solid 1px;margin:0 auto; padding:20px;">
 	<h1>상세 페이지</h1>
 	<div>제목</div>
 	<div>${dto.board_subject }</div>

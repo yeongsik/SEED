@@ -3,43 +3,51 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<a href="./BoardForm.seed">글쓰기</a> <br>
-글 개수 : ${listcount} 개 <br>
+
+
 <div>
-	<div style="border:1px solid; width:800;height:550 ; textalign:center;">
-		<h1 style="text-align: center;">게시판 목록</h1><hr>
-		<ul style="list-style-type: none;">
-			<li style="float: left;">번호&emsp;</li>
-			<li style="float: left;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;제목&emsp;&emsp;&emsp;&emsp;&emsp;</li>
-			<li style="float: left;">&emsp;&emsp;작성자&emsp;&emsp;</li>
-			<li style="float: left;">&emsp;&emsp;날짜&emsp;&emsp;&emsp;</li>
-			<li style="float: left;">&emsp;조회수&emsp;</li>
-			<li style="float: left;">&emsp;좋아요&emsp;</li>
-			<li style="float: left;">&emsp;싫어요&emsp;</li>
+	<div style="border:1px solid; width:900;height:650 ; textalign:center;margin:0 auto; padding: 20px;">
+		<h1 style="text-align: center;">TIP 게시판</h1><hr>
+		<br>글 개수 : ${listcount} 개 <br>
+		<ul style="list-style-type: none; text-align: center;">
+			<li style="float: left;width: 50px">번호</li>
+			<li style="float: left;width: 310px;">제목</li>
+			<li style="float: left;width: 120px">작성자</li>
+			<li style="float: left;width: 100px">날짜</li>
+			<li style="float: left;width: 80px">조회수</li>
+			<li style="float: left;width: 80px">좋아요</li>
+			<li style="float: left;width: 80px">싫어요</li>
 		</ul><br><br>
+		<div>
+		
+		</div>
+		
+		
 		<c:set var="num" value="${listcount = (page-1) * 10 }"/>
 		<c:forEach var="b" items="${boardlist }">
-		<div>
+		<div style="text-align: center;">
 <%-- 			<div>${num}	<!-- 후행연산 -- 를 사용할 수없기 때문에 아래 코드를 추가 -->
 				<c:set var="num" value="${num-1 }"/>
 			</div> --%>
 			
-			<div style="display: inline-block;">&emsp;&emsp;${b.board_num}&emsp;&emsp;</div>
-			<div style="display: inline-block;"><a href="./TipDetailAction.seed?board_num=${b.board_num}&page=${page }" style="text-decoration:none">&emsp;&emsp;&emsp;${b.board_subject}&emsp;&emsp;&emsp;</a></div>
-			<div style="display: inline-block;">&emsp;&emsp;${b.name}&emsp;&emsp;</div>
-			<div style="display: inline-block;">
+			<div style="display: inline-block;width: 80px">${b.board_num}</div>
+			<div style="display: inline-block;width: 310px;text-align: left;"><a href="./TipDetailAction.seed?board_num=${b.board_num}&page=${page }" style="text-decoration:none;">${b.board_subject}</a></div>
+			<div style="display: inline-block;width: 80px">${b.name}</div>
+			<div style="display: inline-block;width: 110px">
 				<fmt:formatDate value="${b.board_register}" pattern="MM-dd HH:mm"/>
 			</div>
-			<div style="display: inline-block;">&emsp;&emsp;&emsp;${b.board_view }&emsp;&emsp;</div>
-			<div style="display: inline-block;">&emsp;&emsp;${b.board_like }&emsp;&emsp;</div>
-			<div style="display: inline-block;">&emsp;&emsp;${b.board_hate }&emsp;&emsp;</div>
+			<div style="display: inline-block;width: 80px">${b.board_view }</div>
+			<div style="display: inline-block;width: 80px">${b.board_like }</div>
+			<div style="display: inline-block;width: 80px">${b.board_hate }</div>
 		</div><br>
 		</c:forEach>
-	
+	<div style="float: right;">
+		<a href="./BoardForm.seed" style="">글쓰기</a>
+	</div>
 	</div><br><br>
 
 <!-- 페이징 처리 -->
-	<div>
+	<div style="text-align: center;">
 		<%-- <c:if test="${listcount >0 }"><!-- ${listcount > 0 } 인식못함? --> --%>
 			<!-- 1페이지로 이동 -->	
 			<a href="./TipListAction.seed?page=1" style="text-decoration: none;"> << </a>			
