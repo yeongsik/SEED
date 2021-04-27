@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import model.NewsDTO;
+import model.NewsReDTO;
 
 public class NewsDAO {
 	
@@ -254,6 +255,83 @@ public class NewsDAO {
 			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
 			if(con != null) try {con.close();} catch(Exception e) {}
 		}
+		return result;
+	}
+	
+	// 댓글 작성
+	public int newsReWrite (NewsReDTO re) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			String sql = "insert into news_re values(news_re_seq.nextval,?,?,sysdate,?,?,news_re_seq.nextval,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, re.getName());
+			pstmt.setString(2, re.getRe_content());
+			pstmt.setInt(3, 0);
+			pstmt.setInt(4, 0);
+			pstmt.setInt(5, 0);
+			pstmt.setInt(6, 0);
+			pstmt.setInt(7, re.getBoard_num());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	// 댓글 getlist 
+	public List<NewsReDTO> getReList (int board_num) {
+		List<NewsReDTO> reList = new ArrayList<NewsReDTO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			String sql = "selelct * from news_re where board_num=? order by ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();} catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
+		}
+		return reList;
+	}
+	public int getReCount (int board_num) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con=getConnection();
+			String sql ="select count(*) from new_re where board_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();} catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
+		}
+		
 		return result;
 	}
 }
