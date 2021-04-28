@@ -25,6 +25,14 @@ public class QnADTO {
 	private int re_seq;
 //  private int board_num;
 
+	// 멤버
+	private String id;
+//	private String name;
+	private String pw;
+	private Timestamp signup_date;
+	private String profile;
+	
+	
 	public int getBoard_num() {
 		return board_num;
 	}
@@ -167,5 +175,37 @@ public class QnADTO {
 
 	public void setRe_name(String re_name) {
 		this.re_name = re_name;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
+	public Timestamp getSignup_date() {
+		return signup_date;
+	}
+
+	public void setSignup_date(Timestamp signup_date) {
+		this.signup_date = signup_date;
+	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
 	}
 }

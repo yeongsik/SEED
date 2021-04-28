@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.QnADAO;
 import model.QnADTO;
@@ -21,12 +22,17 @@ public class AddAction implements SeedAction {
 		request.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+		
+		String user_name = (String) session.getAttribute("user_name");
 		
 		QnADTO board = new QnADTO();
 		board.setBoard_category(request.getParameter("category"));
-		board.setName("하마");
+		board.setName(user_name);
 		board.setBoard_subject(request.getParameter("subject"));
 		board.setBoard_content(request.getParameter("smartEditor"));
+		
+		System.out.println("user_name : " + user_name);
 		
 		QnADAO dao = QnADAO.getInstance();
 		

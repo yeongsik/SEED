@@ -6,6 +6,18 @@
 
 <a href="./BoardWrite.seed">글쓰기</a>	<br>
 
+<c:if test="${id != null}"> 
+	<h2>환영합니다 ${user_name}님</h2> 
+	<a href="./qna/qna_board_logout.jsp">로그아웃</a>
+</c:if>
+<c:if test="${id == null}"> 
+	<h2>로그인이 필요합니다.</h2>
+	<a href="./qna/qna_board_login.jsp">로그인</a> <br>
+	<a href="./MemberFormAction.seed">회원가입</a>
+</c:if>
+
+
+
 <h2>전체글보기</h2> <br>
 ${listcount}개의 글	<br>
 

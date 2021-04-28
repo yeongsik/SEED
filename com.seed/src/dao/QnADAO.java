@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.naming.ldap.PagedResultsControl;
 import javax.sql.DataSource;
 
+import model.MemberDTO;
 import model.QnADTO;
 
 public class QnADAO {
@@ -25,6 +26,136 @@ public class QnADAO {
 		Context init = new InitialContext();
   		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/orcl");
   		return ds.getConnection();
+	}
+	
+	public int memberInsert(QnADTO member) {
+		int result = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "insert into member values(?,?,?,sysdate,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getPw());
+			pstmt.setString(4, member.getProfile());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+			if(con != null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	public int memberCheck(String id, String pw) {
+		int result = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql ="select * from member where id=? and pw=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {	// 회원인증 성공
+				return 1;
+			} else {		// 회원인증 실패
+				return -1;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();}catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+			if(con != null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	public int idCheck(String id) {
+		int result = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "select * from member where id=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {		// 중복 ID
+				result = 1;
+			} else {			// 사용 가능한 ID
+				result = -1;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();}catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+			if(con != null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	public String getUserName(String id) {
+		QnADTO member = new QnADTO();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "select * from member where id=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member.setName(rs.getString("name"));
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();}catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+			if(con != null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return member.getName();
 	}
 	
 	public int insert(QnADTO board) {
@@ -424,7 +555,7 @@ public class QnADAO {
 			return result;
 		}
 		
-		public int commentModify(QnADTO comment) {
+		public int commentModify(int re_num, QnADTO comment) {
 			int result = 0;
 			
 			Connection con = null;
@@ -433,10 +564,10 @@ public class QnADAO {
 			try {
 				con = getConnection();
 				
-				String sql ="update qa_re set board_content=? where board_num=? and re_num=?";
+				String sql ="update qa_re set re_content=?, re_register=sysdate where board_num=? and re_num=?";
 				
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, comment.getBoard_content());
+				pstmt.setString(1, comment.getRe_content());
 				pstmt.setInt(2, comment.getBoard_num());
 				pstmt.setInt(3, comment.getRe_num());
 				
