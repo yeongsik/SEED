@@ -9,7 +9,7 @@
   <script type="text/javascript" src="<%=request.getContextPath()%>/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
- <form method="post" action="<%=request.getContextPath()%>/AddAction.seed" id="qna_write_form">   
+ <form method="post" action="<%=request.getContextPath() %>/AddAction.seed" id="qna_write_form">   
     <header></header>
     <nav></nav>
     <section class="container">
@@ -38,6 +38,7 @@
         </div>
         <div class="section_body_btn">
         	<input type="submit" id="submit_btn" value="작성">
+        	<input type="button" value="취소" onClick="location.href='<%=request.getContextPath()%>/ListAction.seed'">
         </div>
       </div>
     </section>

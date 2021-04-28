@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <title>상세 페이지</title>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<!-- <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
+	<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script>
 		var num = ${board.board_num};
 	</script>
@@ -30,9 +30,9 @@
 								"<input type='submit' value='확인' onClick='up("+id+")'>" + 
 								"<input type='button' value='취소' onClick='location.href=\'history.go(-1);\''>" +
 							"</li>" +
-						"</form>"
+						"</form>" 
 				);
-				
+				return false;
 			});
 		});
 		
@@ -76,8 +76,10 @@
 <div>
 	<i class="far fa-thumbs-up" id="like_btn"></i>
 	<i class="far fa-thumbs-down" id="hate_btn"></i>
-	<input type="button" value="수정" onClick="location.href='./ModifyFormAction.seed?board_num=${board.board_num}&page=${page}'">
-	<input type="button" value="삭제" onClick="location.href='./DeleteAction.seed?board_num=${board.board_num}&page=${page}'">
+	<c:if test="${board.name == user_name}">
+		<input type="button" value="수정" onClick="location.href='./ModifyFormAction.seed?board_num=${board.board_num}&page=${page}'">
+		<input type="button" value="삭제" onClick="location.href='./DeleteAction.seed?board_num=${board.board_num}&page=${page}'">
+	</c:if>
 	<input type="button" value="목록" onClick="location.href='./ListAction.seed?page=${page}'">
 </div>
 
@@ -95,7 +97,7 @@
 							<span id="comment_content_${user.re_num}">${user.re_content}</span>
 						</li>
 						<li class="li_style" id="btn_${user.re_num}">
-							<c:if test="${user.re_name == board.name}">
+							<c:if test="${user.re_name == user_name}">
 									<%-- <input type="button" value="수정" onClick="location.href='./CommentModifyFormAction.seed?board_num=${user.board_num}&re_num=${user.re_num}&page=${page}'"> --%>
 									<input type="button" value="수정" class="update_btn" id="${user.re_num}">
 									<input type="button" value="삭제" onClick="location.href='./CommentDeleteAction.seed?board_num=${user.board_num}&re_num=${user.re_num}&page=${page}'">
@@ -105,12 +107,12 @@
 						<hr>
 				</div>
 			</c:forEach>
-		<c:if test="${board.name != null}">	
+		<c:if test="${user_name != null}">	
 			<form method="post" action="<%=request.getContextPath()%>/CommentAddAction.seed">
 				<input type="hidden" id="board_num" name="board_num" value="${board.board_num}">
 				<input type="hidden" id="page" name="page" value="${page}">
 					<div>
-						작성자 : ${board.name}
+						작성자 : ${user_name}
 					</div>
 					<div>
 						<textarea id="smartEditor" name="smartEditor" rows="1" style="width:500px; height:100px;" placeholder="댓글 쓰기"></textarea>
@@ -120,6 +122,9 @@
 					</div>
 				<script defer src="<%=request.getContextPath() %>/qna/smarteditor_ver_view.js"></script>
 			</form>
+		</c:if>
+		<c:if test="${user_name == null }">
+			<div>댓글을 작성하려면 <a href="./qna/qna_board_login.jsp">로그인</a>이 필요합니다.</div>
 		</c:if>
 	</div>
 

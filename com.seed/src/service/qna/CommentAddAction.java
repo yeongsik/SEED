@@ -2,6 +2,7 @@ package service.qna;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.QnADAO;
 import model.QnADTO;
@@ -12,16 +13,18 @@ public class CommentAddAction implements SeedAction {
 
 	@Override
 	public SeedActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubr
 		System.out.println("CommentAddAction");
 		
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String page = request.getParameter("page");
+		String user_name = (String) session.getAttribute("user_name");
 		
 		QnADTO board = new QnADTO();
-		board.setName("하마");
+		board.setName(user_name);
 		board.setRe_content(request.getParameter("smartEditor"));
 		board.setBoard_num(board_num);
 

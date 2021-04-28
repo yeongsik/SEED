@@ -26,9 +26,12 @@ import service.qna.DeleteAction;
 import service.qna.DetailAction;
 import service.qna.HateDownUpdate;
 import service.qna.HateUpdate;
+import service.qna.IdCheckAction;
 import service.qna.LikeDownUpdate;
 import service.qna.LikeUpdate;
 import service.qna.ListAction;
+import service.qna.LoginAction;
+import service.qna.SignUpAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
 
@@ -82,7 +85,34 @@ public class SeedFrontController extends HttpServlet {
 		
     
 		// qa ( 수환님 ) 
-		if(command.equals("/AddAction.seed")) {
+		if(command.equals("/LoginAction.seed")) {
+			try {
+				action = new LoginAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.contentEquals("/MemberFormAction.seed")){
+			forward = new SeedActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./qna/qna_board_memberform.jsp");
+			
+		} else if(command.equals("/SignUpAction.seed")) {
+			try {
+				action = new SignUpAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/IdcheckAction.seed")) {
+			try {
+				action = new IdCheckAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/AddAction.seed")) {
 			try {
 				action = new AddAction();
 				forward = action.execute(request, response);
