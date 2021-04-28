@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.SeedAction;
 import service.SeedActionForward;
+import service.main.MainAction;
 import service.member.MemberLogIn;
 import service.news.NewsAddAction;
 import service.news.NewsDelete;
@@ -271,7 +272,15 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
-		
+		// main 
+		if ( command.equals("/MainAction.seed")) {
+			try {
+				action = new MainAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 	
 				
 		
