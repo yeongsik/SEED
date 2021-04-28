@@ -117,6 +117,47 @@ public class NewsDAO {
 		}
 		return list;
 	}
+	
+	public List<NewsDTO> getBestList ()	{
+		List<NewsDTO> bestlist = new ArrayList<NewsDTO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			String sql ="select * from (select rownum rnum , board.* from"
+					+ " (select * from news "
+					+ " where board_register between sysdate-7 and sysdate"
+					+ " order by board_view desc) board )"
+					+ " where rnum >= 1 and rnum <=5 ";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				NewsDTO news = new NewsDTO();
+				news.setBoard_num(rs.getInt("board_num"));
+				news.setBoard_category(rs.getString("board_category"));
+				news.setName(rs.getString("name"));
+				news.setBoard_subject(rs.getString("board_subject"));
+				news.setBoard_content(rs.getString("board_content"));
+				news.setBoard_register(rs.getTimestamp("board_register"));
+				news.setBoard_view(rs.getInt("board_view"));
+				news.setBoard_like(rs.getInt("board_like"));
+				news.setBoard_hate(rs.getInt("board_hate"));
+				
+				bestlist.add(news);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();} catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
+		}
+		return bestlist;
+	}
+	
 	//조회수 증가
 	public void viewUpdate(int board_num) {
 		Connection con = null;
@@ -169,5 +210,50 @@ public class NewsDAO {
 			if(con != null) try {con.close();} catch(Exception e) {}
 		}
 		return news;
+	}
+	
+	public int modify (NewsDTO news) {
+		int result =0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			String sql = "update news set board_category=? , board_subject=? , board_content=? where board_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, news.getBoard_category());
+			pstmt.setString(2, news.getBoard_subject());
+			pstmt.setString(3, news.getBoard_content());
+			pstmt.setInt(4, news.getBoard_num());
+			result= pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
+		}
+		return result;
+	}
+	
+	
+	public int delete ( int board_num) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			String sql = "delete from news where board_num=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) try {pstmt.close();} catch(Exception e) {}
+			if(con != null) try {con.close();} catch(Exception e) {}
+		}
+		return result;
 	}
 }
