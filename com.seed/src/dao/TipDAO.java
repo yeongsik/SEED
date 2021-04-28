@@ -252,4 +252,70 @@ String sql="insert into tip values(tip_seq.nextval,?,?,?,?,sysdate,?,?,?)";
 		return result;
 	}
 	
+	
+	// 댓글 작성
+	
+	public int commentInsert(TipDTO re_board) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="insert into tip_re values(tip_re_seq.nextval,?,?,sysdate,?,?,?,?,?,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, re_board.getName());
+			pstmt.setString(2, re_board.getRe_content());
+			pstmt.setInt(3, 0);
+			pstmt.setInt(4, 0);
+			pstmt.setInt(5, 0);
+			pstmt.setInt(6, 0);
+			pstmt.setInt(7, 0);
+			pstmt.setInt(8, re_board.getBoard_num());
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	// 총 데이터 개수 구하기
+	public int getRe_Count() {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="select count(*) from tip";
+			
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();				// SQL문 실행
+			
+			if(rs.next()) {
+				result = rs.getInt("count(*)");
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try {rs.close();}catch(Exception e) {}
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+
+		return result;
+	}
+	
+	
+	
 }
