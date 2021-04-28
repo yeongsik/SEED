@@ -1,7 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	
-<script>
-	location.href="../LiveListAction.seed";
-</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		location.href="./TipListAction.seed";
+	</script>
+</body>
+</html>
+
 

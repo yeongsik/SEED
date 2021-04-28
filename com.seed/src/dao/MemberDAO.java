@@ -82,4 +82,31 @@ public class MemberDAO {
 		return member;
 	}
 	
+	// 글삭제
+	public int delete(int board_num) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="delete from tip where board_num=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			result = pstmt.executeUpdate();
+			System.out.println("삭제된 갯수:"+result);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt !=null ) try {pstmt.close(); } catch (Exception e) {}
+			if(con !=null) try {con.close(); } catch (Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	
+	
 }
