@@ -2,9 +2,14 @@ select * from tab;
 select * from MEMBER;
 select * from news;
 
+select * from news_re;
+select * from NEWS_RE;
+
+
 select * from tip;
 select * from tip_re;
 select * from member;
+
 
 
 create sequence news_seq;
@@ -14,6 +19,7 @@ create sequence tip_seq;
 create sequence free_seq;
 create sequence share_seq;
 select * from seq;
+create sequence news_re_seq;
 
 insert into member values ('youngsik@gmail' , '테스트1' , '1234' , sysdate , '테스트파일');
 

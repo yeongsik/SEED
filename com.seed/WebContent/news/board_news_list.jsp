@@ -25,7 +25,7 @@
 		</td>
 		<td>
 		<a href="./NewsDetailAction.seed?board_num=${b.board_num }&page=${page}">
-			${b.board_subject }
+			${b.board_subject}
 		</a>
 		</td>
 		<td>

@@ -44,7 +44,7 @@
 
     <aside></aside>
     <footer></footer>
-   <script defer src="<%=request.getContextPath() %>/qna/smarteditor.js"></script>
   </form>
 </body>
+   <script  src="<%=request.getContextPath() %>/qna/smarteditor.js"></script>
 </html>

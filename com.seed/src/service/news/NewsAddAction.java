@@ -19,6 +19,7 @@ public class NewsAddAction implements SeedAction {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		String name = (String)session.getAttribute("name");
+		
 		NewsDTO news = new NewsDTO();
 		
 		news.setBoard_category(request.getParameter("board_category"));

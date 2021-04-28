@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.SeedAction;
 import service.SeedActionForward;
+import service.main.MainAction;
 import service.member.MemberLogIn;
 import service.news.NewsAddAction;
 import service.news.NewsDelete;
@@ -18,6 +19,9 @@ import service.news.NewsDetailAction;
 import service.news.NewsListAction;
 import service.news.NewsModify;
 import service.news.NewsModifyAction;
+import service.news.NewsReAddAction;
+import service.news.NewsReListAction;
+
 
 import service.tip.TipAddAction;
 import service.tip.TipDelete;
@@ -25,6 +29,7 @@ import service.tip.TipDetailAction;
 import service.tip.TipListAction;
 import service.tip.TipModify;
 import service.tip.TipModifyAction;
+
 
 import service.qna.AddAction;
 import service.qna.CommentAddAction;
@@ -269,6 +274,8 @@ public class SeedFrontController extends HttpServlet {
 
 		// -------------------------------------------------------------------------------------
 		// -------------------------------------------------------------------------------------
+		
+		
 		// news 게시판 ( ys )
 
 		// news 게시판 ( 영식 )
@@ -315,6 +322,7 @@ public class SeedFrontController extends HttpServlet {
 		} else if (command.equals("/NewsModify.seed")) {
 			try {
 				action = new NewsModify();
+				forward= action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -327,12 +335,39 @@ public class SeedFrontController extends HttpServlet {
 		} else if (command.equals("/NewsDelete.seed")) {
 			try {
 				action = new NewsDelete();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		// news re_write
+		} else if (command.equals("/NewsReAddAction.seed")) {
+			try {
+				action = new NewsReAddAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		// news_re_list
+		} else if (command.equals("/NewsReListAction.seed")) {
+			try {
+				action = new NewsReListAction();
+				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		
-		
+    
+    
+		// main 화면 컨트롤러 
+		if ( command.equals("/MainAction.seed")) {
+			try {
+				action = new MainAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 	
 				
 		
