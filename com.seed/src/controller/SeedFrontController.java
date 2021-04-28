@@ -21,6 +21,16 @@ import service.news.NewsModify;
 import service.news.NewsModifyAction;
 import service.news.NewsReAddAction;
 import service.news.NewsReListAction;
+
+
+import service.tip.TipAddAction;
+import service.tip.TipDelete;
+import service.tip.TipDetailAction;
+import service.tip.TipListAction;
+import service.tip.TipModify;
+import service.tip.TipModifyAction;
+
+
 import service.qna.AddAction;
 import service.qna.CommentAddAction;
 import service.qna.CommentDeleteAction;
@@ -34,6 +44,7 @@ import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
+
 
 /**
  * Servlet implementation class SeedFrontController
@@ -73,9 +84,83 @@ public class SeedFrontController extends HttpServlet {
 		}
 		
 		
+
 		
 		
 		// tip ( 승국님 ) 
+    		// 글작성
+		
+		if(command.equals("/TipAddAction.seed")) {
+			try {
+				action = new TipAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 글작성 폼
+		}else if(command.equals("/BoardForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/tip/board_tip_write.jsp");
+			
+			
+		// 글 목록
+		}else if(command.equals("/TipListAction.seed")) {
+			try {
+				action = new TipListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 상세 페이지
+		}else if(command.equals("/TipDetailAction.seed")) {
+			try {
+				action = new TipDetailAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 수정 폼
+		}else if(command.equals("/TipModifyAction.seed")) {
+			try {
+				action = new TipModifyAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 수정
+		}else if(command.equals("/TipModify.seed")) {
+			try {
+				action = new TipModify();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 삭제 폼
+		}else if(command.equals("/TipDeleteAction.seed")) {
+			try {
+				forward = new SeedActionForward();
+				forward.setRedirect(false);// param 사용하기위해서 false
+				forward.setPath("./tip/board_tip_delete.jsp");
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 삭제
+		}else if(command.equals("/TipDelete.seed")) {
+			try {
+				action = new TipDelete();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 
 		// free ( 혜영님 ) 
 		
@@ -272,7 +357,9 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
-		// main 
+    
+    
+		// main 화면 컨트롤러 
 		if ( command.equals("/MainAction.seed")) {
 			try {
 				action = new MainAction();
