@@ -42,7 +42,7 @@
 	</td>
 </tr>
 </table>
-<form method="post" action="<%=request.getContextPath() %>/NewsReAddAction.seed">
+<%-- <form method="post" action="<%=request.getContextPath() %>/NewsReAddAction.seed">
 <input type="hidden" name="board_num" value="${news.board_num }">
 <input type="hidden" name="page" value="${page}">
 <table border=1 align=center width = 800>
@@ -83,5 +83,5 @@
 	</c:if>
 </table>
 </form>
-
+ --%>
 

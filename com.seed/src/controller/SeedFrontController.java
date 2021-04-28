@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.SeedAction;
 import service.SeedActionForward;
 import service.main.MainAction;
+import service.main.MainWeeklyBestList;
 import service.member.MemberLogIn;
 import service.news.NewsAddAction;
 import service.news.NewsDelete;
@@ -397,7 +398,16 @@ public class SeedFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
+		// weekly best (ajax)
+		} else if (command.equals("/MainWeeklyBestList.seed")) {
+			try {
+				action = new MainWeeklyBestList();
+				forward = action.execute(request, response);
+				// ajax 구현이라 forward == null 
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	
 				
 		

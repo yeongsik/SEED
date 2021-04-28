@@ -19,8 +19,13 @@ public class NewsDetailAction implements SeedAction{
 		// TODO Auto-generated method stub
 		System.out.println("NewsDetailAction");
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
-		String page = request.getParameter("page");
-//		HttpSession session = request.getSession();
+		String page = null;
+		if(request.getParameter("page")== null) {
+			page = "1";
+		} else {
+			page = request.getParameter("page");
+		}
+//		HttpSession session = request.getSession();		
 //		String session_name = (String)session.getAttribute("name");
 		
 		NewsDAO dao = NewsDAO.getInstance();
@@ -32,12 +37,12 @@ public class NewsDetailAction implements SeedAction{
 		
 		dao.viewUpdate(board_num);
 		
-		int relistcount = dao.getReCount(board_num);
-		List<NewsReDTO> relist = dao.getReList(board_num);
-		
-		
-		request.setAttribute("relistcount", relistcount);
-		request.setAttribute("relist", relist);
+//		int relistcount = dao.getReCount(board_num);
+//		List<NewsReDTO> relist = dao.getReList(board_num);
+//		
+//		
+//		request.setAttribute("relistcount", relistcount);
+//		request.setAttribute("relist", relist);
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);

@@ -20,7 +20,7 @@ public class MainAction implements SeedAction {
 		NewsDAO newsDAO = NewsDAO.getInstance();
 		
 		List<NewsDTO> bestNewsList = newsDAO.getBestList(10);
-		
+		System.out.println(bestNewsList);
 		request.setAttribute("bestNewsList", bestNewsList);
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
