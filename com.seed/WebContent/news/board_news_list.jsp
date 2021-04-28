@@ -3,7 +3,9 @@
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix ="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:if test="${sessionScope.id != null }">
 <a href ="./NewsAddActionForm.seed">글쓰기</a><br>
+</c:if>
 글 갯수 : ${listcount} 개 <br>
 
 <table border=1 width = 700 align = center>
@@ -23,7 +25,7 @@
 		</td>
 		<td>
 		<a href="./NewsDetailAction.seed?board_num=${b.board_num }&page=${page}">
-			${b.board_subject }
+			${b.board_subject}
 		</a>
 		</td>
 		<td>
@@ -60,7 +62,24 @@
 	<tr>
 		<th>Weekly Best</th>
 	</tr>
+	<c:forEach var="best" items="${weeklybest_newslist}">
 	<tr>
-		<td></td>
+		<td>
+			${best.board_category}
+		</td>
+		<td>
+			<a href="./NewsDetailAction.seed?board_num=${best.board_num }&page=${page}">
+				${best.board_subject}
+			</a>
+		</td>
+		<td>
+			${best.name}
+		</td>
+		<td>
+			${best.board_view }
+		</td>
+		<td>
+			<fmt:formatDate value="${best.board_register}" pattern="yyyy-MM-dd"/>
 	</tr>
+	</c:forEach>
 </table>

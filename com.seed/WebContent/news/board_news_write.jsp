@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>News 게시판</title>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
 <form method="post" action="<%=request.getContextPath() %>/NewsAddAction.seed">
@@ -25,21 +28,23 @@
 <tr>
 	<td>글제목</td>
 	<td>
-		<input type="text" id="board_subject" , name="board_subject" value="제목을 입력하세요.">
+		<input type="text" id="board_subject" name="board_subject" value="제목을 입력하세요.">
 	</td>
 </tr>
 <tr>
 	<td>글내용</td>
 	<td>
-		<textarea cols="50" rows="20" id="board_content" name="board_content"></textarea>
+		<textarea style="width : 100%; height:500px;" id="board_content" name="board_content">내용을 입력해주세요</textarea>
 	</td>
 </tr>
 <tr>
 	<td>
-		<input type="submit" value="글작성">
+		<input type="submit" id="submit_btn" value="글작성">
 		<input type="reset" value="취소">
 	</td>
 </table>
 </form>
 </body>
+<script type="text/javascript" src ="../news/se.js"></script>
 </html>
+

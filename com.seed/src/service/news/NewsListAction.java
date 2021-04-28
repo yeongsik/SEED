@@ -34,7 +34,8 @@ public class NewsListAction implements SeedAction{
 		List<NewsDTO> newslist = dao.getList(startRow ,endRow);
 		System.out.println("newslist : " + newslist);
 		/* List<NewsDTO> weeklylist = dao.getBest(); */
-		
+		List<NewsDTO> weeklybest_newslist = dao.getBestList(5);
+		System.out.println("weeklybest : " + weeklybest_newslist);
 		int pageCount = listcount / limit + ((listcount%limit ==0) ? 0:1);
 		
 		int startPage = ((page -1)/10) * 10 +1;
@@ -48,7 +49,7 @@ public class NewsListAction implements SeedAction{
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
-		
+		request.setAttribute("weeklybest_newslist", weeklybest_newslist);
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
 		forward.setPath("./news/board_news_list.jsp");
