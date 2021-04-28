@@ -46,7 +46,7 @@ public class MemberLogIn implements SeedAction{
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./main/main.jsp");
+		forward.setPath("/MainAction.seed");
 		return forward;
 	}
 

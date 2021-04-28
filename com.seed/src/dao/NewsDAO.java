@@ -119,7 +119,7 @@ public class NewsDAO {
 		return list;
 	}
 	
-	public List<NewsDTO> getBestList ()	{
+	public List<NewsDTO> getBestList (int num)	{
 		List<NewsDTO> bestlist = new ArrayList<NewsDTO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -131,8 +131,9 @@ public class NewsDAO {
 					+ " (select * from news "
 					+ " where board_register between sysdate-7 and sysdate"
 					+ " order by board_view desc) board )"
-					+ " where rnum >= 1 and rnum <=5 ";
+					+ " where rnum >= 1 and rnum <=? ";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

@@ -10,6 +10,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maxium-scale=1">
     <title>Seed</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
@@ -32,7 +33,7 @@
             <div class="header-main-nav header-content">
                 <div class="nav-list">
                     <div class="nav-list-content">
-                        <a href="">Home</a>
+                        <a href="<%=request.getContextPath()%>/MainAction.seed">Home</a>
                     </div>
                     <div class="nav-list-content">
                         <a href="">Share</a>
@@ -72,7 +73,9 @@
         </header>
         <div class="main-ad">
             <div class="main-ad-content">
-
+				<img class="mySlides" src="<%=request.getContextPath()%>/css/img/seed-ad.title.jpg">
+				<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+				<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
             </div>
         </div>
         <section class="main-section">
@@ -84,136 +87,27 @@
                     </div>
                     <div class="board-article-container weeklybest-content fade-in">
                         <div class="weeklybest-content_category">
-                            <div class="category-list">
-                                <a href="">
-                                    Q&A
-                                </a>
-                            </div>
-                            <div class="category-list">
-                                <a href ="">팁 게시판</a>
-                            </div>
-                            <div class="category-list">
-                                <a href="">사는 얘기</a>
-                            </div>
-                            <div class="category-list">
-                                <a href="">뉴스</a>                          
-                            </div>
-                            <div class="category-list">
-                                <a href="">자유게시판</a>
-                            </div>
+                            <input type="button" class="category-list" id="board_tip" value="Q&A">
+                            <input type="button" class="category-list" id="board_tip" value="팁 게시판">
+                            <input type="button" class="category-list" id="board_tip" value="사는 얘기">
+                            <input type="button" class="category-list" id="board_tip" value="News">
+                            <input type="button" class="category-list" id="board_tip" value="자유게시판">
                         </div>
                         
                         <div class="weeklybest-content_board-container">
+                            <c:forEach var="news" items="${bestNewsList}">
                             <div class="weeklybest-content_board">
                                 <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
+                                    <a href="">${news.board_subject }</a>
                                 </div>
                                 <div class="weeklybest_cell-2">
-                                    작성자
+                                    ${news.name}
                                 </div>
                                 <div class="weeklybest_cell-3">
-                                    2021-04-26
+                                    <fmt:formatDate value="${news.board_register }" pattern="yyyy-MM-dd"/>
                                 </div>
                             </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">글제목</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    작성자
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    2021-04-26
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </article>
