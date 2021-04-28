@@ -9,12 +9,12 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	
 	<!-- 외부 자바스크립트 파일 불러오기 -->
-	<script src="<%=request.getContextPath() %>/member/login.js"></script>
+	<script src="<%=request.getContextPath() %>./member/login.js"></script>
 	
 	</head>
 	<body>
 	
-	<form method="post" action="<%=request.getContextPath() %>/MemberLogIn.seed">
+	<form method="post" action="<%=request.getContextPath() %>./MemberLogIn.seed">
 	<table border=1 width=350 align=center>
 		<caption>로그인</caption>
 		<tr>
@@ -28,7 +28,7 @@
 		<tr>
 			<td colspan=2 align=center>
 				<input type="button" value="회원가입" 
-				       onClick="location.href='<%=request.getContextPath()%>/MemberForm.seed' ">
+				       onClick="location.href='<%=request.getContextPath()%>./MemberForm.seed' ">
 				<input type="submit" value="로그인">
 				<input type="reset" value="취소">
 			</td>

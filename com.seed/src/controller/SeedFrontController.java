@@ -11,12 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.SeedActionForward;
 
+import service.live.LiveAddAction;
+import service.live.LiveDelete;
+import service.live.LiveDetailAction;
+import service.live.LiveListAction;
+import service.live.LiveModify;
+import service.live.LiveModifyAction;
+
+
 import service.free.FreeAddAction;
 import service.free.FreeDetailAction;
 import service.free.FreeListAction;
 import service.free.FreeModifyAction;
 
 import service.main.MainAction;
+
 
 import service.member.MemberLogIn;
 import service.SeedAction;
@@ -219,8 +228,81 @@ public class SeedFrontController extends HttpServlet {
 		
 
 		// live ( 유중님 ) 
+
+				// 글작성 폼	
+				if(command.equals("/LiveAddActionForm.seed")) {
+						forward = new SeedActionForward();
+						forward.setRedirect(false);
+						forward.setPath("/live_board_write.seed");
+		
+				// 글작성		
+				}else if(command.equals("/LiveAddAction.seed")) {
+					try {
+						action = new LiveAddAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				
+					
+				// 글목록	
+				}else if(command.equals("/LiveListAction.seed")) {
+					try {
+						action = new LiveListAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				// 상세 페이지	
+				}else if(command.equals("/LiveDetailAction.seed")) {
+					try {
+						action = new LiveDetailAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+				}
+				//수정 폼	
+					
+				  }else if(command.equals("/LiveModifyAction.seed")) { 
+					 try { action = new LiveModifyAction(); 
+					 	 forward = action.execute(request, response);
+				  
+				  }catch(Exception e) { 
+					    e.printStackTrace(); 
+				  }
+				 
+				  // 수정 
+				  }else if(command.equals("/LiveModify.seed")) {
+				  	 try { action = new LiveModify(); 
+				  		 forward = action.execute(request, response); 
+				  
+				  	 } catch(Exception e) { 
+				  		 e.printStackTrace(); 
+				  	}
+				  	 // 삭제 폼
+				  }else if(command.equals("/LiveDeleteAction.seed")) { 
+						 try { action = new LiveModifyAction(); 
+						 	 forward = action.execute(request, response);
+					  
+					  }catch(Exception e) { 
+						    e.printStackTrace(); 
+					  }	 
+				  
+				  // 삭제 
+				  }else if(command.equals("/LiveDelete.seed")) { 
+					  try { action = new LiveDelete(); 
+					  forward = action.execute(request, response); 
+					  
+					  } catch(Exception e) { 
+						  e.printStackTrace(); }
+				 
+				  }	
+
 		
     
+
 		// qa ( 수환님 ) 
 		if(command.equals("/LoginAction.seed")) {
 			try {
@@ -467,16 +549,20 @@ public class SeedFrontController extends HttpServlet {
 		
 	
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("get");
 		doProcess(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("post");
 		doProcess(request, response);
