@@ -5,7 +5,9 @@
 	<head>
 		<title>Seed Free write form</title>
 		<link href="../css/free_board_write.css" rel="stylesheet" type="text/css">
-		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<!-- SmartEditor를 사용하기 위해서 다음 js파일을 추가 (경로 확인) -->
+		<%-- <script type="text/javascript" src="<%=ctx %>/SE2/js/HuskyEZCreator.js" charset="utf-8"></script> --%>
 <!-- 		<script src="check.js"></script> -->
 		<script>
 		$(function(){
@@ -66,7 +68,9 @@
 		  <input type="submit" class="submit" value="글쓰기">
 		  <input type="reset" class="reset" value="취소">
 		   <input type="button" class="list" value="목록" onClick="location.href='free_board_list.jsp'">
-		</td></tr></table>   
-		</form>      
+		 </td>
+		</tr>		
+		</table>   
+	  </form>      
 	</body>
 </html>

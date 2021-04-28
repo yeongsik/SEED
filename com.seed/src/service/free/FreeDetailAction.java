@@ -19,7 +19,7 @@ public class FreeDetailAction implements SeedAction{
 		String page = request.getParameter("page");
 		
 		FreeDAO dao = FreeDAO.getInstance();
-		dao.readcountUpdate(board_num);			  	// 조회수 증가
+		dao.viewUpdate(board_num);			  	// 조회수 증가
 		FreeDTO board = dao.getDetail(board_num);	// 상세정보 구하기
 		
 		// 글내용에서 줄바꿈
@@ -32,7 +32,7 @@ public class FreeDetailAction implements SeedAction{
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);  // dispatcher 방식으로 포워딩
-		forward.setPath("./board/qna_board_view.jsp");
+		forward.setPath("./free/free_board_list.jsp");
 		
 		return forward;
 	}

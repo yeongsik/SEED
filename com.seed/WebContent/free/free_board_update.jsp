@@ -29,7 +29,7 @@
    <tr class="name" align="center">아이디</tr>
 	<tr>
     <td  width="330">
-       <input readonly="readonly" type="text" size="10" maxlength="10" id="name" name="name" value="<%=board.getName()%>"></td>
+       <input type="text" size="10" maxlength="10" id="name" name="name" value="<%=board.getName()%>"></td>
   </tr>
     <tr>
     <td width="330">

@@ -2,6 +2,7 @@ package service.free;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -18,25 +19,23 @@ public class FreeAddAction implements SeedAction {
 		// TODO Auto-generated method stub
 		System.out.println("FreeAddAction");
 		
-		String path = request.getRealPath("boardupload");
-		System.out.println("path:"+path);
-		
-		int size = 1024 * 1024;		// 1MB
-		
-		//									업로드	 디렉토리, 파일크기(1MB),	한글,		중복파일 문제해결
-		MultipartRequest multi = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
+		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		String name = (String)session.getAttribute("name");
 		
 		FreeDTO dto = new FreeDTO();
-		dto.setName(multi.getParameter("Name"));	// 사용자 이름
-		dto.setBoard_category(multi.getParameter("category"));	// 카테고리
-		dto.setBoard_subject(multi.getParameter("board_subject"));	// 제목
-		dto.setBoard_content(multi.getParameter("board_content"));	// 내용
-//		dto.setBoard_num(multi.getParameter("num"));
+		
+		dto.setName(request.getParameter("Name"));	// 사용자 이름
+		dto.setBoard_category(request.getParameter("category"));	// 카테고리
+		dto.setBoard_subject(request.getParameter("board_subject"));	// 제목
+		dto.setBoard_content(request.getParameter("board_content"));	// 내용
 		
 		FreeDAO dao = FreeDAO.getInstance();
 		int result = dao.insert(dto);
 		if(result == 1) {
 			System.out.println("글 작성 성공");
+		} else {
+			System.out.println("글 작성 실패");
 		}
 		
 		SeedActionForward forward = new SeedActionForward();

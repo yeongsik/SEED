@@ -53,7 +53,7 @@ public class FreeListAction implements SeedAction{
 		
 		// dispatcher 방식으로 포워딩이 되어야, view 페이지에서 공유한 값에 접근할 수 있다.
 		forward.setRedirect(false);  // dispatcher 방식으로 포워딩
-		forward.setPath("./board/qna_board_list.jsp");
+		forward.setPath("./free/free_board_list.jsp");
 		
 		return forward;
 	}

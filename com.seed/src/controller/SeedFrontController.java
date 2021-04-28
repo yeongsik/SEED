@@ -14,9 +14,9 @@ import service.free.FreeAddAction;
 import service.free.FreeDetailAction;
 import service.free.FreeListAction;
 import service.free.FreeModifyAction;
+import service.member.MemberLogIn;
 import service.SeedAction;
 import service.SeedActionForward;
-import service.member.MemberLogIn;
 import service.news.NewsAddAction;
 import service.news.NewsDetailAction;
 import service.news.NewsListAction;
@@ -44,17 +44,16 @@ public class SeedFrontController extends HttpServlet {
 		SeedAction action = null;
 		SeedActionForward forward = null;
 		
-		// Member 
+		// Member
 		// login form
-		if (command.equals("/MemberLogInForm.seed")) {
+		if (command.equals("/MemberLoginForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/loginform.jsp");
-		} else if (command.equals("/MemberLogIn.seed")) {
+		} else if (command.equals("/MemberLogin.seed")) {
 			try {
 				action = new MemberLogIn();
 				forward = action.execute(request, response);
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -65,7 +64,7 @@ public class SeedFrontController extends HttpServlet {
 		
 		// free ( 혜영님 ) 
 		// free write 		첨부파일 및 내용 수정
-		if(command.equals("/FreeAddAction.do")) {
+		if(command.equals("/FreeAddAction.seed")) {
 			try {
 				action = new FreeAddAction();
 				forward = action.execute(request, response);
@@ -74,13 +73,13 @@ public class SeedFrontController extends HttpServlet {
 			}
 			
 		// free write form 
-		}else if(command.equals("/BoardForm.do")) {
+		}else if(command.equals("/BoardForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/freeboard/free_board_write.jsp");
 			
 		// free list	위치 설정 변경
-		}else if(command.equals("/FreeListAction.do")) {
+		}else if(command.equals("/FreeListAction.seed")) {
 			try {
 				action = new FreeListAction();
 				forward = action.execute(request, response);
@@ -89,7 +88,7 @@ public class SeedFrontController extends HttpServlet {
 			}
 			
 		// free view		위치 설정 변경
-		}else if(command.equals("/FreeDetailAction.do")) {
+		}else if(command.equals("/FreeDetailAction.seed")) {
 			try {
 				action = new FreeDetailAction();
 				forward = action.execute(request, response);
@@ -98,7 +97,7 @@ public class SeedFrontController extends HttpServlet {
 			}
 			
 		// free modify form		위치 설정 변경
-		} else if(command.equals("/FreeModifyAction.do")) {
+		} else if(command.equals("/FreeModifyAction.seed")) {
 			try {
 				action = new FreeModifyAction();
 				forward = action.execute(request, response);
