@@ -24,7 +24,7 @@
     <div class="container-main">
 
 	
-        <%-- <header class="header-main">
+        
 
    	 	<%@ include file="/main/main-header.jsp" %>
 <%-- 

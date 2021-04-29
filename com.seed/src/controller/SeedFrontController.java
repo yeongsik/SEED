@@ -14,7 +14,6 @@ import service.SeedActionForward;
 import service.main.MainAction;
 
 import service.main.MainWeeklyBestList;
-import service.member.MemberLogIn;
 
 import service.member.IdCheckAction;
 import service.member.LoginAction;
