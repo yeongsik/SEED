@@ -12,7 +12,7 @@
 <script type="text/javascript" src="<%=ctx %>/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
-	<table border=1 width=400 align=center>
+	<table border=1 width=650 align=center>
 		<caption>상세 페이지</caption>
 		<tr>
 			<td>제목 ${board_subject}</td>
@@ -21,10 +21,10 @@
 			<td>내용 ${board_content}</td>
 		</tr>
 		<tr>
-			<td><textarea id="smarteditor" name="board_content" placeholder=""></textarea></td>
+			<td><textarea  width=650 id="smartEditor" name="board_content" placeholder=""></textarea></td>
 		</tr>
 		<tr>
-			<td><button id="cmtCnt">댓글달기</button></td>
+			<td><button id="">댓글달기</button></td>
 		</tr>
 		<tr>
 			<td colspan=2 align=center><input type="button" value="수정"
@@ -39,5 +39,6 @@
 			</td>
 		</tr>
 	</table>
+	<script defer src="<%=request.getContextPath()%>/live/smarteditor.js"></script>
 </body>
 </html>
