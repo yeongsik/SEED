@@ -79,6 +79,14 @@ ul,ol,li {
     width: 110px;
     overflow: hidden;
 }
+/* ------------ */
+.header-main-member-content-icon {
+    text-align: center;
+    width: 110px;
+    overflow: hidden;
+}
+
+/* ------------ */
 .nav-list-content-detail {
     display: none;
     padding-top: 31px;
@@ -88,6 +96,17 @@ ul,ol,li {
     background-color: rgba(255, 255, 255, 0.85);
     opacity: 100%;
 }
+/* ----------------------- */
+.header-main-member-content-icon-detail {
+    display: none;
+    padding-top: 31px;
+    width : 110px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85);
+    opacity: 100%;
+}
+/* ----------------------- */
 .nav-list-content-detail a {
     text-align: center;
     display: block;
@@ -97,9 +116,26 @@ ul,ol,li {
     background-color: green;
     color:white;
 }
-.nav-list-community:hover .nav-list-content-detail  {
+/* -------------------------- */
+.header-main-member-content-icon-detail a {
+	font-size : var(--font-size-h3);
+    text-align: center;
+    display: block;
+    padding: 15px 10px;
+}
+.header-main-member-content-icon-detail a:hover {
+    background-color: green;
+    color:white;
+}
+/* -------------------------- */
+.nav-list-community:hover .nav-list-content-detail {
     display: block;
 }
+/* ---------- */
+.header-main-member-content-icon:hover .header-main-member-content-icon-detail {
+    display: block;
+}
+/* ----------- */
 .header-main-member-content {
     padding-right: 30px;
     font-size : 20px;

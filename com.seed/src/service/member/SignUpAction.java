@@ -1,4 +1,4 @@
-package service.qna;
+package service.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +32,7 @@ public class SignUpAction implements SeedAction {
 		
 		SeedActionForward forward =new SeedActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/qna/qna_board_login.jsp");
+		forward.setPath("/member/member_login_form.jsp");
 		
 		return forward;
 	}
