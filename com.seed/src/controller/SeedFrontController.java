@@ -43,6 +43,8 @@ import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
+import service.share.ShareAddAction;
+import service.share.ShareListAction;
 import service.tip.TipAddAction;
 import service.tip.TipDelete;
 import service.tip.TipDetailAction;
@@ -273,7 +275,36 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
+		
+		// share ( 승국님 ) 
 
+		// 글 목록
+		if(command.equals("/ShareListAction.seed")) {
+			try {
+				action = new ShareListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 글작성 폼
+		}else if(command.equals("/ShareWriteForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/share/board_share_write.jsp");
+			
+		
+		// 글 작성
+		}else if(command.equals("/ShareAddAction.seed")) {
+			try {
+				action = new ShareAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+			
+			
 		// free ( 혜영님 ) 
 		
 		

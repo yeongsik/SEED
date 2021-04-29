@@ -26,11 +26,11 @@
 		<c:set var="num" value="${listcount = (page-1) * 10 }"/>
 		<c:forEach var="b" items="${boardlist }">
 		<div style="text-align: center;">
-<%-- 			<div>${num}	<!-- 후행연산 -- 를 사용할 수없기 때문에 아래 코드를 추가 -->
+			<div style="display: inline-block;width: 80px">${num}	<!-- 후행연산 -- 를 사용할 수없기 때문에 아래 코드를 추가 -->
 				<c:set var="num" value="${num-1 }"/>
-			</div> --%>
+			</div>
 			
-			<div style="display: inline-block;width: 80px">${b.board_num}</div>
+<%-- 			<div style="display: inline-block;width: 80px">${b.board_num}</div> --%>
 			<div style="display: inline-block;width: 310px;text-align: left;"><a href="./TipDetailAction.seed?board_num=${b.board_num}&page=${page }" style="text-decoration:none;">${b.board_subject}</a></div>
 			<div style="display: inline-block;width: 80px">${b.name}</div>
 			<div style="display: inline-block;width: 110px">
