@@ -30,7 +30,7 @@
 <script src="<%=request.getContextPath()%>/js/main.js"></script>
 <script src="https://kit.fontawesome.com/78e568182c.js"
 	crossorigin="anonymous"></script>
-
+<!--  -->
 </head>
 <body>
 	<div class="board-container">
