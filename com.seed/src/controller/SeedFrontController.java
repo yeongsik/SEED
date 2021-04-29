@@ -9,27 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.SeedAction;
 import service.SeedActionForward;
-
+import service.free.FreeAddAction;
+import service.free.FreeDetailAction;
+import service.free.FreeListAction;
+import service.free.FreeModifyAction;
 import service.live.LiveAddAction;
 import service.live.LiveDelete;
 import service.live.LiveDetailAction;
 import service.live.LiveListAction;
 import service.live.LiveModify;
 import service.live.LiveModifyAction;
-
-
-import service.free.FreeAddAction;
-import service.free.FreeDetailAction;
-import service.free.FreeListAction;
-import service.free.FreeModifyAction;
-
 import service.main.MainAction;
-
-
 import service.member.MemberLogIn;
-import service.SeedAction;
-import service.SeedActionForward;
 import service.news.NewsAddAction;
 import service.news.NewsDelete;
 import service.news.NewsDetailAction;
@@ -38,16 +31,6 @@ import service.news.NewsModify;
 import service.news.NewsModifyAction;
 import service.news.NewsReAddAction;
 import service.news.NewsReListAction;
-
-
-import service.tip.TipAddAction;
-import service.tip.TipDelete;
-import service.tip.TipDetailAction;
-import service.tip.TipListAction;
-import service.tip.TipModify;
-import service.tip.TipModifyAction;
-
-
 import service.qna.AddAction;
 import service.qna.CommentAddAction;
 import service.qna.CommentDeleteAction;
@@ -61,9 +44,17 @@ import service.qna.LikeDownUpdate;
 import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.LoginAction;
-import service.qna.SignUpAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
+import service.qna.SignUpAction;
+import service.share.ShareAddAction;
+import service.share.ShareListAction;
+import service.tip.TipAddAction;
+import service.tip.TipDelete;
+import service.tip.TipDetailAction;
+import service.tip.TipListAction;
+import service.tip.TipModify;
+import service.tip.TipModifyAction;
 
 
 /**
@@ -180,7 +171,46 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
+		
+		
+		// share ( 승국님 ) 
 
+		// 글 목록
+		if(command.equals("/ShareListAction.seed")) {
+			try {
+				action = new ShareListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 글작성 폼
+		}else if(command.equals("/ShareWriteForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/share/board_share_write.jsp");
+			
+		
+		// 글 작성
+		}else if(command.equals("/ShareAddAction.seed")) {
+			try {
+				action = new ShareAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		
+		}
+		/*
+		 * else if(command.equals("/ShareDetailAction.seed")) { try { action = new
+		 * TipDetailAction(); forward = action.execute(request, response);
+		 * }catch(Exception e) { e.printStackTrace(); } }
+		 */
+		
+		
+		
+		
 		// free ( 혜영님 ) 
 		
 			// free write 		첨부파일 및 내용 수정

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.FreeDTO;
-import model.ReplyDTO;
 
 public class FreeDAO {
 

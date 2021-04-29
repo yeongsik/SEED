@@ -36,7 +36,7 @@
                         <a href="<%=request.getContextPath()%>/MainAction.seed">Home</a>
                     </div>
                     <div class="nav-list-content">
-                        <a href="">Share</a>
+                        <a href="./ShareListAction.seed">Share</a>
                     </div>
                     <div class="nav-list-content nav-list-community">
                         <a href="" class="community-sub">Community</a>

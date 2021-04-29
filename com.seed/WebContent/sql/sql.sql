@@ -10,7 +10,8 @@ select * from tip;
 select * from tip_re;
 select * from member;
 
-
+select * from SHARE_LINK;
+select count(*) from share_link;
 
 create sequence news_seq;
 create sequence live_seq;
@@ -22,7 +23,9 @@ select * from seq;
 create sequence news_re_seq;
 
 select * from live;
-
+insert into SHARE_LINK values(SHARE_seq.nextval , '댓글맨', 'Okky', '설명테스트', 'https://okky.kr/', 0, sysdate );
+insert into SHARE_LINK values(SHARE_seq.nextval , '댓글맨', 'Okky', '설명테스트', 'https://okky.kr/', 0, sysdate );
+insert into SHARE_LINK values(SHARE_seq.nextval , '댓글맨', 'Okky', '설명테스트', 'https://okky.kr/', 0, sysdate );
 insert into member values ('youngsik@gmail' , '테스트1' , '1234' , sysdate , '테스트파일');
 
 insert into member values ('replyman@naver.com' , '댓글맨' , '1234', sysdate , '테스트맨');
