@@ -53,8 +53,6 @@
 					</select></li>
 				</ul>
 
-
-
 				<ul class="nav-hr">
 					<li class="article-board-boardnum">게시물번호</li>
 					<li class="article-board-num">카테고리</li>
