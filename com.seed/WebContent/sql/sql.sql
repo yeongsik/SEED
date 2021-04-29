@@ -22,6 +22,7 @@ select * from seq;
 create sequence news_re_seq;
 
 select * from live;
+delete from live where board_num = '69';
 
 insert into member values ('youngsik@gmail' , '테스트1' , '1234' , sysdate , '테스트파일');
 

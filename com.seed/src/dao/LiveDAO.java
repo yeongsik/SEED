@@ -35,10 +35,9 @@ public class LiveDAO {
 		try {
 			con = getConnection();
 
-String sql="insert into live values(live_seq.nextval,?,?,?,?, ";	
-       sql+=" sysdate,live_seq.nextval,?,?,?)";
+String sql="insert into live values(live_seq.nextval,?,?,?,?,sysdate,?,?,?)";	
        
-       		pstmt = con.prepareStatement(sql);
+      		pstmt = con.prepareStatement(sql);
        		pstmt.setString(1, live.getBoard_category());
        		pstmt.setString(2, live.getName());
        		pstmt.setString(3, live.getBoard_subject());

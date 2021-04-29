@@ -19,10 +19,11 @@ public class LiveReplyAction implements SeedAction{
 		String page = request.getParameter("page");
 		
 		LiveDAO dao = LiveDAO.getInstance();
-		Live_reDTO live = dao.LiveReply(board_num); 
+		/* Live_reDTO live = dao.LiveReply(board_num); */ 
 		
-		request.setAttribute("board", board);
-		request.setAttribute("page", page);
+		/*
+		 * request.setAttribute("board", board); request.setAttribute("page", page);
+		 */
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);   // dispatcher 방식으로 포워딩

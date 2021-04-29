@@ -15,12 +15,12 @@ public class LiveListAction implements SeedAction{
 	@Override
 	public SeedActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("LiveListAction이래");
+		System.out.println("LiveListAction");
 		
 		request.setCharacterEncoding("utf-8");
 		
 		int page = 1; 		
-		int limit = 15;     
+		int limit = 10;     
 		
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
@@ -54,7 +54,7 @@ public class LiveListAction implements SeedAction{
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false); 
 		System.out.println("리스트 총 페이지");
-		forward.setPath("../LiveAddAction.seed");
+		forward.setPath("/live/live_board_list.jsp");
 		
 		return forward;
 	}

@@ -233,7 +233,7 @@ public class SeedFrontController extends HttpServlet {
 				if(command.equals("/LiveAddActionForm.seed")) {
 						forward = new SeedActionForward();
 						forward.setRedirect(false);
-						forward.setPath("/live_board_write.seed");
+						forward.setPath("/live/live_board_write.jsp");
 		
 				// 글작성		
 				}else if(command.equals("/LiveAddAction.seed")) {

@@ -45,7 +45,7 @@
                             <a href="">News</a>
                             <a href="">Free</a>
                             <a href="">Q&A</a>
-                            <a href="">Live</a>
+                            <a href="./LiveListAction.seed">Live</a>
                         </div>
                     </div>
                     <div class="nav-list-content">

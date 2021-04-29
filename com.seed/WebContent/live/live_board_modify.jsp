@@ -27,12 +27,12 @@ String ctx = request.getContextPath();
 			</ul>
 		</div>
 	</header>
-	<form action="<%=request.getContextPath()%>/live/LiveModify.seed"
+	<form action="<%=request.getContextPath()%>./LiveModify.seed"
 		method="post">
-		<input type="hidden" name="board_num" value="${live.board_name }">
-		<input type="hidden" name="page" value="${page }">
-
-		<table border=1 style="width:650px; ">
+		<input type="hidden" id="board_num" name="board_num" value="${board.board_num }">
+		<input type="hidden" id="page" name="page" value="${board.page }">
+		
+		<table border=1 style="width: 650px;">
 			<tr align="center" valign="middle">
 				<td colspan="6"><select name="board_category">
 						<option>일상얘기</option>
@@ -46,7 +46,7 @@ String ctx = request.getContextPath();
 				<td><input name="board_subject" id="board_subject" type="text"
 					size="10" maxlength="10" value="" /></td>
 			</tr>
-			<tr> 
+			<tr>
 				<td>
 					<div align="center">비밀번호</div>
 				</td>
@@ -58,7 +58,7 @@ String ctx = request.getContextPath();
 					<div align="center">내용</div>
 				</td>
 				<td><textarea name="smartEditor" id="smartEditor" cols="67"
-						rows="15" >${live.board_content }</textarea></td>
+						rows="15">${live.board_content }</textarea></td>
 			</tr>
 
 			<tr bgcolor="cccccc">
@@ -69,7 +69,8 @@ String ctx = request.getContextPath();
 					type=reset value="취소"></td>
 			</tr>
 		</table>
-		<script defer src="<%=request.getContextPath()%>../live/smarteditor.js"></script>
+		<script defer
+			src="<%=request.getContextPath()%>../live/smarteditor.js"></script>
 	</form>
 </body>
 </html>
