@@ -11,6 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.SeedAction;
 import service.SeedActionForward;
+import service.free.FreeAddAction;
+import service.free.FreeDetailAction;
+import service.free.FreeListAction;
+import service.free.FreeModifyAction;
+import service.live.LiveAddAction;
+import service.live.LiveDelete;
+import service.live.LiveDetailAction;
+import service.live.LiveListAction;
+import service.live.LiveModify;
+import service.live.LiveModifyAction;
 import service.main.MainAction;
 import service.main.MainWeeklyBestList;
 import service.member.MemberLogIn;
@@ -22,16 +32,6 @@ import service.news.NewsModify;
 import service.news.NewsModifyAction;
 import service.news.NewsReAddAction;
 import service.news.NewsReListAction;
-
-
-import service.tip.TipAddAction;
-import service.tip.TipDelete;
-import service.tip.TipDetailAction;
-import service.tip.TipListAction;
-import service.tip.TipModify;
-import service.tip.TipModifyAction;
-
-
 import service.qna.AddAction;
 import service.qna.CommentAddAction;
 import service.qna.CommentDeleteAction;
@@ -45,9 +45,17 @@ import service.qna.LikeDownUpdate;
 import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.LoginAction;
-import service.qna.SignUpAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
+import service.qna.SignUpAction;
+import service.share.ShareAddAction;
+import service.share.ShareListAction;
+import service.tip.TipAddAction;
+import service.tip.TipDelete;
+import service.tip.TipDetailAction;
+import service.tip.TipListAction;
+import service.tip.TipModify;
+import service.tip.TipModifyAction;
 
 
 /**
@@ -71,17 +79,16 @@ public class SeedFrontController extends HttpServlet {
 		SeedAction action = null;
 		SeedActionForward forward = null;
 		
-		// Member 
+		// Member
 		// login form
-		if (command.equals("/MemberLogInForm.seed")) {
+		if (command.equals("/MemberLoginForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/loginform.jsp");
-		} else if (command.equals("/MemberLogIn.seed")) {
+		} else if (command.equals("/MemberLogin.seed")) {
 			try {
 				action = new MemberLogIn();
 				forward = action.execute(request, response);
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -165,14 +172,168 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 		
+		
+		
+		// share ( 승국님 ) 
 
+		// 글 목록
+		if(command.equals("/ShareListAction.seed")) {
+			try {
+				action = new ShareListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 글작성 폼
+		}else if(command.equals("/ShareWriteForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/share/board_share_write.jsp");
+			
+		
+		// 글 작성
+		}else if(command.equals("/ShareAddAction.seed")) {
+			try {
+				action = new ShareAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		
+		}
+		/*
+		 * else if(command.equals("/ShareDetailAction.seed")) { try { action = new
+		 * TipDetailAction(); forward = action.execute(request, response);
+		 * }catch(Exception e) { e.printStackTrace(); } }
+		 */
+		
+		
+		
+		
 		// free ( 혜영님 ) 
 		
+			// free write 		첨부파일 및 내용 수정
+		if(command.equals("/FreeAddAction.seed")) {
+			try {
+				action = new FreeAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// free write form 
+		}else if(command.equals("/BoardForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/freeboard/free_board_write.jsp");
+			
+		// free list	위치 설정 변경
+		}else if(command.equals("/FreeListAction.seed")) {
+			try {
+				action = new FreeListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// free view		위치 설정 변경
+		}else if(command.equals("/FreeDetailAction.seed")) {
+			try {
+				action = new FreeDetailAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// free modify form		위치 설정 변경
+		} else if(command.equals("/FreeModifyAction.seed")) {
+			try {
+				action = new FreeModifyAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
-		
+
 		// live ( 유중님 ) 
+
+				// 글작성 폼	
+				if(command.equals("/LiveAddActionForm.seed")) {
+						forward = new SeedActionForward();
+						forward.setRedirect(false);
+						forward.setPath("/live_board_write.seed");
+		
+				// 글작성		
+				}else if(command.equals("/LiveAddAction.seed")) {
+					try {
+						action = new LiveAddAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				
+					
+				// 글목록	
+				}else if(command.equals("/LiveListAction.seed")) {
+					try {
+						action = new LiveListAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				// 상세 페이지	
+				}else if(command.equals("/LiveDetailAction.seed")) {
+					try {
+						action = new LiveDetailAction();
+						forward = action.execute(request, response);
+					}catch(Exception e) {
+						e.printStackTrace();
+				}
+				//수정 폼	
+					
+				  }else if(command.equals("/LiveModifyAction.seed")) { 
+					 try { action = new LiveModifyAction(); 
+					 	 forward = action.execute(request, response);
+				  
+				  }catch(Exception e) { 
+					    e.printStackTrace(); 
+				  }
+				 
+				  // 수정 
+				  }else if(command.equals("/LiveModify.seed")) {
+				  	 try { action = new LiveModify(); 
+				  		 forward = action.execute(request, response); 
+				  
+				  	 } catch(Exception e) { 
+				  		 e.printStackTrace(); 
+				  	}
+				  	 // 삭제 폼
+				  }else if(command.equals("/LiveDeleteAction.seed")) { 
+						 try { action = new LiveModifyAction(); 
+						 	 forward = action.execute(request, response);
+					  
+					  }catch(Exception e) { 
+						    e.printStackTrace(); 
+					  }	 
+				  
+				  // 삭제 
+				  }else if(command.equals("/LiveDelete.seed")) { 
+					  try { action = new LiveDelete(); 
+					  forward = action.execute(request, response); 
+					  
+					  } catch(Exception e) { 
+						  e.printStackTrace(); }
+				 
+				  }	
+
 		
     
+
 		// qa ( 수환님 ) 
 		if(command.equals("/LoginAction.seed")) {
 			try {
@@ -428,16 +589,20 @@ public class SeedFrontController extends HttpServlet {
 		
 	
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("get");
 		doProcess(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("post");
 		doProcess(request, response);

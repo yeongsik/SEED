@@ -10,7 +10,8 @@ select * from tip;
 select * from tip_re;
 select * from member;
 
-
+select * from SHARE_LINK;
+select count(*) from share_link;
 
 create sequence news_seq;
 create sequence live_seq;
@@ -21,6 +22,10 @@ create sequence share_seq;
 select * from seq;
 create sequence news_re_seq;
 
+select * from live;
+insert into SHARE_LINK values(SHARE_seq.nextval , '댓글맨', 'Okky', '설명테스트', 'https://okky.kr/', 0, sysdate );
+insert into SHARE_LINK values(SHARE_seq.nextval , '댓글맨', 'Okky', '설명테스트', 'https://okky.kr/', 0, sysdate );
+insert into SHARE_LINK values(SHARE_seq.nextval , '댓글맨', 'Okky', '설명테스트', 'https://okky.kr/', 0, sysdate );
 insert into member values ('youngsik@gmail' , '테스트1' , '1234' , sysdate , '테스트파일');
 
 insert into member values ('replyman@naver.com' , '댓글맨' , '1234', sysdate , '테스트맨');
@@ -53,6 +58,13 @@ insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페�
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
 
 insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
+
+insert into news values(news_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
+
+insert into live values(live_seq.nextval , '개발동향' , '테스트1' , '페이징확인용' , '페이징확인용' , sysdate , 0 , 0 , 0);
+
+create sequence live_re_seq;
+
 
 insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
 insert into tip values(tip_seq.nextval,'Tip1','name1','글작성테스트','테스트하고있습니다.',sysdate,0,0,0);
@@ -97,5 +109,6 @@ select * from (select rownum rnum , board.* from
 					 where rnum >= 1 and rnum <=5;
 					 
  select  board_category , board_subject , name , board_view from news where board_register between sysdate-7 and sysdate order by board_view desc;
+
 
 
