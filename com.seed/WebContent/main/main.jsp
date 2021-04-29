@@ -23,9 +23,11 @@
 <body>
     <div class="container-main">
 
+
 		
    	 	<%@ include file="/main/main_header.jsp" %>
 		
+
         <div class="main-ad">
             <div class="main-ad-content">
 				<img class="mySlides" src="<%=request.getContextPath()%>/css/img/seed-ad.title.jpg">
