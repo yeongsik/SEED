@@ -98,7 +98,7 @@
                             <c:forEach var="news" items="${bestNewsList}">
                             <div class="weeklybest-content_board">
                                 <div class="weeklybest_cell-1">
-                                    <a href="">${news.board_subject }</a>
+                                    <a href="">${news.board_subject}</a>
                                 </div>
                                 <div class="weeklybest_cell-2">
                                     ${news.name}
