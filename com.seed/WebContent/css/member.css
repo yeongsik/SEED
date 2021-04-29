@@ -1,0 +1,204 @@
+@import url(../css/main.css);
+span {
+    display: block;
+}
+.member-section {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.member-container {
+    margin-top : 150px;
+    width : 750px;
+    background-color: white;
+    border-radius: 10px;
+}
+.member-content {
+    padding : 30px 40px;
+}
+.member_subject {
+    font-size : var(--font-size-h1);
+    font-family: var(--main-font-eng);
+    margin-bottom : 10px;
+}
+.member_subject-kr {
+    font-family: var(--sub-font-kor);
+}
+.login-content-container{
+    margin: 15px 0 ;
+    display: flex;
+    justify-content: space-between;
+}
+.login_check{
+    display: flex;
+    justify-content: center;
+}
+.login_input {
+    width : 60%;
+}
+.login_join {
+    width : 35%;
+}
+.login-content_subject {
+    font-size : var(--font-size-h3);
+    font-family: var(--sub-font-kor);
+}
+.check_btn {
+    margin : 12px;
+    width : 80px;
+    height: 30px;
+    border-radius: 3px;
+    color : white;
+    background-color : darkgray;
+    border : 0;
+    outline : 0;
+    transition: all 0.3s;
+}
+.check_btn:hover {
+    background-color: green;
+}
+.login_input-content {
+    margin-bottom : 20px;
+}
+.content_input {
+    margin : 5px 0;
+    width : 60%;
+    border : 0;
+    border-bottom : 1.5px solid gray;
+    outline : 0;
+    padding : 10px 0;
+    font-size : 12px;
+    font-family: var(--sub-font-kor);
+    transition : all 0.5s;
+}
+
+.content_input:focus {
+    width : 90%;
+}
+.login_join-content {
+    margin-bottom: 68px;
+}
+.otherlogin_icon {
+    margin-top : 15px;
+    font-size : 30px;
+}
+.otherlogin_svg {
+    margin-right: 15px;
+    transition: all 0.3s;
+}
+.otherlogin_svg:hover {
+    color:green;
+}
+
+
+
+/* 마이페이지  */
+
+.mypage-subject-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.mypage_welcomeMsg {
+    font-family:var(--sub-font-kor);
+    text-align: right;
+    padding-top : 5px;
+    font-size:var(--font-size-h2);
+}
+.mypage-content-wrapper{
+    display : flex;
+    justify-content: space-between;
+    margin: 35px 0;
+}
+.mypage-content-nav-wrapper {
+    width : 25%;
+    border-right: 1px solid grey;
+    height : 250px;
+}
+.mypage-content-nav {
+    
+    padding : 10px 5px 12px 5px;
+    font-size:var(--font-size-h3);
+    font-family: var(--sub-font-kor);
+    transition: all .3s;
+    
+}
+.mypage-content-nav:hover {
+    background-color: green;
+}
+.mypage-content-activity {
+    width : 70%;
+}
+.mypage_act_subject{
+    font-family: var(--sub-font-kor);
+    font-size: 20px;
+}
+.mypage_activity{
+    padding-left : 10px;
+    margin-top : 50px;
+    width : 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.mypage_activity_content {
+    font-size: var(--font-size-h3);
+    font-family: var(--sub-font-kor);
+    text-align: center;
+}
+.mypage_activity_content span {
+    margin-bottom: 15px;
+
+}
+
+
+
+
+/* 업데이트 & 회원탈퇴 비밀번호 체크 */
+
+.pw-check_input {
+    border : 0;
+    border-bottom: 1.5px solid grey;
+    outline: 0px;
+    width : 300px;
+}
+.updatecheck-content-wrapper {
+    text-align: center;
+    margin-top : 50px;
+}
+.updatecheck-content {
+    padding : 15px 0;
+}
+.updatecheck_subejct {
+    font-size: 18px;
+    font-family: var(--sub-font-kor);
+}
+
+/* 회원정보 수정 & 회원가입 */
+.member-signup-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.member-signup_input_text {
+    border : 0;
+    border-bottom: 1.5px solid grey;
+    outline: 0px;
+    width : 250px;
+}
+.member-signup_input_content {
+    padding : 10px 0;
+    font-family: var(--sub-font-kor);
+
+}
+.member-signup_input_text {
+    padding-top : 20px;
+}
+.member-signup_checkbtn {
+    margin-left: 20px;
+    padding : 4px;
+    font-size:var(--font-size-h5);
+    font-family:var(--sub-font-kor);
+    border-radius: 3px;
+    border : 0;
+    outline : 0;
+    background-color : green;
+    color: white;
+}
