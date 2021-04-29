@@ -21,7 +21,7 @@
 %>
 		<script>
 			alert("글 수정 성공");
-			location.href="free_board_content.jsp?board_num=<%=board.getBoard_num()%>&page=<%=nowpage%>";
+			location.href="free_board_view.jsp?board_num=<%=board.getBoard_num()%>&page=<%=nowpage%>";
 		</script>
 <%	} else {	// 작성 된 글이 없을 시	 %>
 		<script>

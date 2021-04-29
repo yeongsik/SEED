@@ -26,7 +26,7 @@ public class FreeModifyAction implements SeedAction {
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);		// dispatcher 방식으로 포워딩
-		forward.setPath("./board/qna_board_modify.jsp");	// 수정 폼
+		forward.setPath("./board/free_board_content.jsp");	// 수정 폼
 		
 		return forward;
 	}

@@ -41,11 +41,11 @@
                     <div class="nav-list-content nav-list-community">
                         <a href="" class="community-sub">Community</a>
                         <div class="nav-list-content-detail">
-                            <a href="">Tip</a>
-                            <a href="">News</a>
-                            <a href="">Free</a>
-                            <a href="">Q&A</a>
-                            <a href="">Live</a>
+                            <a href="./tip/board_tip_list.jsp">Tip</a>
+                            <a href="./news/board_news_list.jsp">News</a>
+                            <a href="./free/free_board_list.jsp">Free</a>
+                            <a href="./qna/qna_board_list.jsp">Q&A</a>
+                            <a href="./live/live_board_list.jsp">Live</a>
                         </div>
                     </div>
                     <div class="nav-list-content">

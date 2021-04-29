@@ -10,7 +10,8 @@ select * from tip;
 select * from tip_re;
 select * from member;
 
-
+select * from free;
+select * from free_re;
 
 create sequence news_seq;
 create sequence live_seq;
@@ -96,6 +97,33 @@ CREATE TABLE Tip (
 	board_like NUMBER NOT NULL, /* 좋아요 */
 	board_hate NUMBER NOT NULL /* 싫어요 */
 );
+
+----------------------------------------------------
+/* Free */
+create table free(
+	board_num number not null,
+	name varchar2(20) not null,
+	board_category varchar2(30) not null,
+	board_subject varchar2(200) not null,
+	board_content varchar2(200) not null,
+	board_register timestamp not null,
+	board_view number not null,
+	board_like number not null,
+	board_hate number not null,
+	primary key(board_num) );
+
+/* Free Re */
+create table free_re (
+	re_num number not null,
+	name varchar2(20) not null,
+	re_content varchar2(300) not null,
+	re_register timestamp not null,
+	re_like number not null,
+	re_hate number not null,
+	re_ref number not null,
+	re_lev number not null,
+	re_seq number not null );
+------------------------------------------------------
 
 
 
