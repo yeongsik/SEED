@@ -23,10 +23,9 @@
 <body>
     <div class="container-main">
 
+      <%@ include file="/main/main_header.jsp" %>
+		
 
-		
-   	 	<%@ include file="/main/main_header.jsp" %>
-		
 
         <div class="main-ad">
             <div class="main-ad-content">
