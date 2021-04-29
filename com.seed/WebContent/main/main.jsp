@@ -24,10 +24,10 @@
     <div class="container-main">
 
 	
-        <%-- <header class="header-main">
+       
 
    	 	<%@ include file="/main/main-header.jsp" %>
-<%-- 
+<%--
         <header class="header-main">
 
             <div class="header-icon header-content">
