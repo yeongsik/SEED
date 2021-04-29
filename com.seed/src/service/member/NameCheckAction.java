@@ -1,4 +1,4 @@
-package service.qna;
+package service.member;
 
 import java.io.PrintWriter;
 
@@ -9,23 +9,23 @@ import dao.QnADAO;
 import service.SeedAction;
 import service.SeedActionForward;
 
-public class IdCheckAction implements SeedAction{
+public class NameCheckAction implements SeedAction{
 
 	@Override
 	public SeedActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("IdCheck");
+		System.out.println("NameCheck");
 		
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter();
 		
-		String id = request.getParameter("id");
-		System.out.println("id : " + id);
+		String name = request.getParameter("name");
+		System.out.println("name : " + name);
 		
 		QnADAO dao = QnADAO.getInstance();
-		int result = dao.idCheck(id);
+		int result = dao.nameCheck(name);
 		
 		System.out.println("result : " + result);	// 1 : 중복 ID, -1 : 사용 가능
 		

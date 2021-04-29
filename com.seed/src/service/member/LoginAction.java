@@ -1,4 +1,4 @@
-package service.qna;
+package service.member;
 
 import java.io.PrintWriter;
 
@@ -54,7 +54,8 @@ public class LoginAction implements SeedAction {
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/ListAction.seed");
+		forward.setPath("./main/main.jsp");
+		
 		
 		return forward;
 	}

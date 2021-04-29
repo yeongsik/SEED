@@ -12,7 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import service.SeedAction;
 import service.SeedActionForward;
 import service.main.MainAction;
-import service.member.MemberLogIn;
+import service.member.IdCheckAction;
+import service.member.LoginAction;
+import service.member.MyPageForm;
+import service.member.NameCheckAction;
+import service.member.SignOutMemberCourse2;
+import service.member.SignOutMemberCourse3;
+import service.member.SignUpAction;
+import service.member.UpdateMemberInfoCourse2;
+import service.member.UpdateMemberInfoCourse3;
 import service.news.NewsAddAction;
 import service.news.NewsDelete;
 import service.news.NewsDetailAction;
@@ -39,12 +47,9 @@ import service.qna.DeleteAction;
 import service.qna.DetailAction;
 import service.qna.HateDownUpdate;
 import service.qna.HateUpdate;
-import service.qna.IdCheckAction;
 import service.qna.LikeDownUpdate;
 import service.qna.LikeUpdate;
 import service.qna.ListAction;
-import service.qna.LoginAction;
-import service.qna.SignUpAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
 
@@ -70,23 +75,121 @@ public class SeedFrontController extends HttpServlet {
 		SeedAction action = null;
 		SeedActionForward forward = null;
 		
-		// Member 
-		// login form
-		if (command.equals("/MemberLogInForm.seed")) {
-			forward = new SeedActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./member/loginform.jsp");
-		} else if (command.equals("/MemberLogIn.seed")) {
+		// main 화면 컨트롤러 
+		if ( command.equals("/MainAction.seed")) {
 			try {
-				action = new MemberLogIn();
+				action = new MainAction();
 				forward = action.execute(request, response);
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} 
+		
+		// Member (수환)
+		
+		if (command.equals("/MemberLogInForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/member_login_form.jsp");
+			
+		} else if(command.equals("/LoginAction.seed")) {
+			try {
+				action = new LoginAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.contentEquals("/MemberFormAction.seed")){
+			forward = new SeedActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./member/signup_form.jsp");
+			
+		} else if(command.equals("/SignUpAction.seed")) {
+			try {
+				action = new SignUpAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/IdcheckAction.seed")) {
+			try {
+				action = new IdCheckAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}  
+		
+		else if(command.equals("/MemberLogout.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/member_logout.jsp");
+			
+		} else if(command.equals("/MyPageForm.seed")) {
+			try {
+				action = new MyPageForm();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/MyPageAction.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/member_mypage.jsp");
+			
+		} else if(command.equals("/UpdateMemberInfoCourse1.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/member_UpdateMemberInfoCourse1.jsp");
+			
+		} else if(command.equals("/UpdateMemberInfoCourse2.seed")) {
+			try {
+				action = new UpdateMemberInfoCourse2();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/UpdateMemberInfoCourse3.seed")) {
+			try {
+				action = new UpdateMemberInfoCourse3();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/NameCheckAction.seed")) {
+			try {
+				action = new NameCheckAction();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		} else if(command.equals("/SignOutMemberCourse1.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/member_SignOutMemberCourse1.jsp");
+			
+		} else if(command.equals("/SignOutMemberCourse2.seed")) {
+			try {
+				action = new SignOutMemberCourse2();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/SignOutMemberCourse3.seed")) {
+			try {
+				action = new SignOutMemberCourse3();
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace(); 
+			}
 		}
-		
-		
+	
 
 		
 		
@@ -173,34 +276,7 @@ public class SeedFrontController extends HttpServlet {
 		
     
 		// qa ( 수환님 ) 
-		if(command.equals("/LoginAction.seed")) {
-			try {
-				action = new LoginAction();
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.contentEquals("/MemberFormAction.seed")){
-			forward = new SeedActionForward();
-			forward.setRedirect(true);
-			forward.setPath("./qna/qna_board_memberform.jsp");
-			
-		} else if(command.equals("/SignUpAction.seed")) {
-			try {
-				action = new SignUpAction();
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-		} else if(command.equals("/IdcheckAction.seed")) {
-			try {
-				action = new IdCheckAction();
-				forward = action.execute(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/AddAction.seed")) {
+		if(command.equals("/AddAction.seed")) {
 			try {
 				action = new AddAction();
 				forward = action.execute(request, response);
@@ -388,21 +464,6 @@ public class SeedFrontController extends HttpServlet {
 		}
 		
     
-    
-		// main 화면 컨트롤러 
-		if ( command.equals("/MainAction.seed")) {
-			try {
-				action = new MainAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} 
-	
-				
-		
-		
-		
 		if (forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());

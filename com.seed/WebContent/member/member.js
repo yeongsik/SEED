@@ -18,7 +18,7 @@ $(function() {
 						$("#id").val("").focus();
 					} else {
 						$("#myid").text("사용 가능한 ID 입니다.");
-						$("#pw").focus();
+						$("#name").focus();
 					}
 				}	
 			});
@@ -36,11 +36,23 @@ $(function() {
 			$("#pw").focus();
 			return false;
 		}
+		if($("#checkPw").val() == "") {
+			alert("비밀번호 확인란을 입력하세요.");
+			$("#checkPw").focus();
+			return false;
+		}
 		if($("#name").val() == "") {
 			alert("닉네임을 입력하세요.");
 			$("#name").focus();
 			return false;
 		}
+		if($("#pw").val() != $("#checkPw").val()) {
+			alert("비밀번호를 정확히 입력하세요.");
+			$("#checkPw").val("");
+			$("#pw").val("").focus();
+			return false;
+		}
+		
 		
 	});
 	

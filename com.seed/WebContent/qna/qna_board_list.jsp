@@ -4,15 +4,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="qna/style.css">
 
-<a href="./BoardWrite.seed">글쓰기</a>	<br>
-
+<c:if test="${id != null}">
+	<a href="./BoardWrite.seed">글쓰기</a>	<br>
+</c:if>
 <c:if test="${id != null}"> 
 	<h2>환영합니다 ${user_name}님</h2> 
-	<a href="./qna/qna_board_logout.jsp">로그아웃</a>
+	<a href="./MainAction.seed">홈페이지로</a> <br>
+	<a href="./MemberLogout.seed">로그아웃</a>
 </c:if>
 <c:if test="${id == null}"> 
 	<h2>로그인이 필요합니다.</h2>
-	<a href="./qna/qna_board_login.jsp">로그인</a> <br>
+	<a href="./MemberLogInForm.seed">로그인</a> <br>
 	<a href="./MemberFormAction.seed">회원가입</a>
 </c:if>
 

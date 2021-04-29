@@ -126,6 +126,40 @@ public class QnADAO {
 		return result;
 	}
 	
+	public int nameCheck(String id) {
+		int result = 0;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "select * from member where name=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {		// 중복 ID
+				result = 1;
+			} else {			// 사용 가능한 ID
+				result = -1;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) try {rs.close();}catch(Exception e) {}
+			if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+			if(con != null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
 	public String getUserName(String id) {
 		QnADTO member = new QnADTO();
 		
@@ -653,18 +687,998 @@ public class QnADAO {
 			return list;
 		}
 		
+		public int getCountContentFromQA(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from qa where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+					
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountContentFromFree(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from free where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+					
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountContentFromLive(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from live where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountContentFromNews(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from news where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountContentFromTip(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from tip where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountCommentFromQA(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from qa_re where re_name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+					
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountCommentFromFree(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from free_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountCommentFromLive(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from live_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountCommentFromNews(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from news_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getCountCommentFromTip(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select count(*) from tip_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("count(*)");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
 		
 		
+		public MemberDTO getMemberIdPw(String user_name) {
+			MemberDTO member = new MemberDTO();
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "select id,pw from member where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					member.setId(rs.getString("id"));
+					member.setPw(rs.getString("pw"));
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return member;
+		}
+		
+		public int changeUserName(String before_name, String after_name, String after_pw) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update member set name=?, pw=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_name);
+				pstmt.setString(2, after_pw);
+				pstmt.setString(3, before_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeContentNameAtQA(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update qa set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeContentNameAtFREE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update free set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeContentNameAtLIVE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update live set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeContentNameAtTIP(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update tip set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeContentNameAtNEWS(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update news set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
 		
 		
+		public int changeCommentNameAtQA_RE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update qa_re set re_name=? where re_name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeCommentNameAtFREE_RE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update free_re set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeCommentNameAtLIVE_RE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update live_re set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeCommentNameAtTIP_RE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update tip_re set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int changeCommentNameAtNEWS_RE(String after_user_name, String before_user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "update news_re set name=? where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, after_user_name);
+				pstmt.setString(2, before_user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+				
+			}
+			
+			return result;
+		}
+		
+		public int getMemberDays(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = getConnection();
+				
+				String sql = "select to_char(sysdate, 'yyyymmdd') - to_char(signup_date, 'yyyymmdd') 가입일수 from member where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = rs.getInt("가입일수");
+				} 
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(rs != null) try {rs.close();}catch(Exception e) {}
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
 		
+		public int DeleteMember(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from member where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
+		public int DeleteContentAtQA(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from qa where name=?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
+		public int DeleteContentAtFREE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from free where name=?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
+		public int DeleteContentAtLIVE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from live where name=?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
+		public int DeleteContentAtTIP(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from tip where name=?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
+		public int DeleteContentAtNEWS(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from news where name=?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
+		public int DeleteCommentAtFREE_RE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from free_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
+		
+		public int DeleteCommentAtLIVE_RE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from live_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
+		
+		public int DeleteCommentAtTIP_RE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from tip_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
+		
+		public int DeleteCommentAtNEWS_RE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from news_re where name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
+		
+		public int DeleteCommentAtQA_RE(String user_name) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con = getConnection();
+				
+				String sql = "delete from qa_re where re_name=?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_name);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt != null) try {pstmt.close();}catch(Exception e) {}
+				if(con != null) try {con.close();}catch(Exception e) {}
+			}
+			
+			return result;
+		}
 		
 		
 }

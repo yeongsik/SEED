@@ -7,5 +7,5 @@
 
 <script>
 	alert("성공적으로 로그아웃 되었습니다.");
-	location.href="./qna_board_login.jsp";
+	location.href="./MainAction.seed";
 </script>
