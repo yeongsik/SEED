@@ -72,7 +72,7 @@ if (count == 0) {
 			SimpleDateFormat sd = // 1 page :  number = 183 - (1-1) * 10 = 183
 					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // 2 page :  number = 183 - (2-1) * 10 = 173
 
-			for (int i = 0; i < list.size(); i++) {
+			for (int i = 0; i < list.size(); i++) {	//foreach로 사용해야함.
 				FreeDTO board = list.get(i); %>
 			<tr>
 				<td><%=board.getBoard_num()%></td>
