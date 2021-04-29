@@ -20,11 +20,11 @@
                     <div class="nav-list-content nav-list-community">
                         <a href="" class="community-sub">Community</a>
                         <div class="nav-list-content-detail">
-                            <a href="">Tip</a>
+                            <a href="<%=request.getContextPath()%>/TipListAction.seed">Tip</a>
                             <a href="<%=request.getContextPath()%>/NewsListAction.seed">News</a>
-                            <a href="">Free</a>
-                            <a href="">Q&A</a>
-                            <a href="">Live</a>
+                            <a href="<%=request.getContextPath()%>/FreeListAction.seed">Free</a>
+                            <a href="<%=request.getContextPath()%>/ListAction.seed">Q&A</a>
+                            <a href="<%=request.getContextPath()%>/LiveListAction.seed">Live</a>
                         </div>
                     </div>
                     <div class="nav-list-content">
