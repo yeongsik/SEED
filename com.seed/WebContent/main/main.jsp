@@ -22,6 +22,8 @@
 </head>
 <body>
     <div class="container-main">
+   	 	<%@ include file="/main/main-header.jsp" %>
+<%-- 
         <header class="header-main">
             <div class="header-icon header-content">
                 <div class="icon-content icon-img">
@@ -77,7 +79,7 @@
               		
                 </div>
             </div>
-        </header>
+        </header> --%>
         <div class="main-ad">
             <div class="main-ad-content">
 				<img class="mySlides" src="<%=request.getContextPath()%>/css/img/seed-ad.title.jpg">
