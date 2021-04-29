@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+#header {
+    margin: auto 0px;
+    border: 1px solid red;
+    font-size: 50px;
+}
+
+select * {
+    text-align: center;
+}
+
+
+/* .login-wrapper .sns-wrapper { */
+#login-box {
+    background: rgb(11, 104, 104);
+    top:100px;
+    height: 500px;
+    margin: 0 auto 0 auto;
+    border: 1px solid red;
+    width: 70%;
+    position: relative;
+    /* left: 25%; */
+    align-items: center;
+}
+
+
+#login-box > input {
+    color: saddlebrown;
+}
+
+#login-box .login-wrapper {
+    float: left;
+}
+
+#login-box .sns-wrapper {
+    float: left;
+    padding-left: 25px;
+} 
+
+.btn-green {
+    color: #9bdcb4;
+    background-color: #27ae61;
+}
+
+.btn-gray {
+    color: #8e8e8e;
+    background-color: #5e5e5e;
+}
