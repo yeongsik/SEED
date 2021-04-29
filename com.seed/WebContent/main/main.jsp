@@ -23,12 +23,6 @@
 <body>
     <div class="container-main">
 
-	
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/youngsik0266/SEED.git
-
    	 	<%@ include file="/main/main-header.jsp" %>
 <%-- 
         <header class="header-main">

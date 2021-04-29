@@ -13,10 +13,7 @@ import service.SeedAction;
 import service.SeedActionForward;
 import service.main.MainAction;
 import service.main.MainWeeklyBestList;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/youngsik0266/SEED.git
 import service.member.IdCheckAction;
 import service.member.LoginAction;
 import service.member.MyPageForm;
