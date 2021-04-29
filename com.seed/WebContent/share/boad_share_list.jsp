@@ -103,8 +103,6 @@
                     <div class="article-subject share_subject fade-in">
                         Best Share
                     </div>
-                    <!-- 보시는 분 참고용 -->
-                    <div>※스마트에디터로 작성시 내용에 p태그가 입혀져 다음줄로 넘어가게됨</div>
 					<div style="float: right;">
 						<a href="./ShareWriteForm.seed" style="">글쓰기</a>
 					</div>
