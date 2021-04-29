@@ -36,7 +36,7 @@ public class MainWeeklyBestList implements SeedAction{
 		} else if (category_name.equals("자유 게시판")) {
 			table_name = "free";
 		}  	
-		
+		System.out.println("table_name : " +table_name);
 		MainDAO dao = MainDAO.getInstance();
 		list = dao.weeklyBestList(table_name);
 		out.print(list);

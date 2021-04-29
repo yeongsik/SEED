@@ -3,30 +3,30 @@
  */
 $(document).ready(function() {
 	$(".category-list").on("click",function(){
-		$(".weeklybest-content_board-container").remove();
+		$("#ajax").remove();
 		let category_name = $(this).attr('value');
 		alert($(this).attr('value'));
+		
 		$.ajax ({
 			url:"./MainWeeklyBestList.seed",
 			type : "POST",
 			dataType : "json",
 			data : {category_name},
 			success : function(list){
-				var div1 = '<div class="weeklybest-content_board">';
-				var close = '</div>';
-				$.each(list,function(item){
-					var cell1 = '<div class="weeklybest_cell-1"><a href="<%=request.getContextPath()%>/NewsDetailAction.seed?board_num"'
-								+item.board_num+'>${'+item.board_subject+'}</a></div>';
-					var cell2 = '<div class="weeklybest_cell-2">${'+item.name+'}</div>';
-					var cell3 = '<div class="weeklybest_cell-3"><fmt:formatDate value="${'+item.board_register+'}" pattern="yyyy-MM-dd"</div>';
+				alert(list);
+				var cell= '';
+				$.each(list,function(index,item){
+					//let date = item.board_register;
+					cell += '<div id="ajax"><div class="weeklybest-content_board">'
+					cell +=	'<div class="weeklybest_cell-1">'
+					cell +=	'<a href="<%=request.getContextPath()%>/NewsDetailAction.seed?board_num='+item.board_num+'">'+item.board_subject+'</a></div>';
+					cell += '<div class="weeklybest_cell-2">'+item.name+'</div>';
+					cell += '<div class="weeklybest_cell-3">'+item.board_register+'</div></div></div>';
 					
-					$("#weeklybest").append(div1);
-					$("#weeklybest").append(cell1);
-					$("#weeklybest").append(cell2);
-					$("#weeklybest").append(cell3);
-					$("#weeklybest").append(close);
-					
+					//$(".weeklybest-content_board-container").append(cell);
+					console.log(cell)
 				});
+					$(".weeklybest-content_board-container").html(cell);
 			}
 		});
 	});
@@ -53,5 +53,13 @@ function handleScroll() {
 
 window.addEventListener('scroll' , handleScroll);
 
-
+/*function getFormatDate(date) {
+	var year =date.getFullYear();
+	var month = (1 + date.getMonth());
+	month = month >= 10 ? month : '0' + month;
+	var day = date.getDate();
+	day = day >= 10 ? day : '0' +day;
+	return year + '-' + month + '-' + day;
+}
+*/
 

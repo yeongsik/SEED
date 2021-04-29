@@ -93,23 +93,25 @@
                             <input type="button" class="category-list"  value="팁 게시판">
                             <input type="button" class="category-list"  value="사는 얘기">
                             <input type="button" class="category-list"  value="News">
-                            <input type="button" class="category-list"  value="자유게시판">
+                            <input type="button" class="category-list"  value="자유 게시판">
                         </div>
                         
                         <div class="weeklybest-content_board-container" id="weeklybest">
-                            <c:forEach var="news" items="${bestNewsList}">
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="<%=request.getContextPath()%>/NewsDetailAction.seed?board_num=${news.board_num}">${news.board_subject }</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    ${news.name}
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    <fmt:formatDate value="${news.board_register }" pattern="yyyy-MM-dd"/>
-                                </div>
-                            </div>
-                            </c:forEach>
+                        	<div id="ajax">
+	                            <c:forEach var="news" items="${bestNewsList}">
+	                            <div class="weeklybest-content_board">
+	                                <div class="weeklybest_cell-1 weeklybest_cell">
+	                                    <a href="<%=request.getContextPath()%>/NewsDetailAction.seed?board_num=${news.board_num}">${news.board_subject }</a>
+	                                </div>
+	                                <div class="weeklybest_cell-2 weeklybest_cell">
+	                                    ${news.name}
+	                                </div>
+	                                <div class="weeklybest_cell-3 weeklybest_cell">
+	                                    <fmt:formatDate value="${news.board_register}" pattern="yyyy-MM-dd"/>
+	                                </div>
+	                            </div>
+	                            </c:forEach>
+                        	</div>
                         </div>
                     </div>
                 </article>

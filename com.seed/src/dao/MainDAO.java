@@ -3,6 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -27,6 +30,8 @@ private static MainDAO instance = new MainDAO();
 	public JSONArray weeklyBestList(String table_name) {
 		System.out.println("weeklyBestList");
 		JSONArray list = new JSONArray();
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -40,11 +45,15 @@ private static MainDAO instance = new MainDAO();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				Timestamp board_reg = rs.getTimestamp("board_register");
+				String board_register = format.format(board_reg);
+				System.out.println(board_register);
+				
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put("board_num", rs.getString("board_num"));
 				jsonObject.put("board_subject", rs.getString("board_subject"));
 				jsonObject.put("name", rs.getString("name"));
-				jsonObject.put("board_register", rs.getString("board_register"));
+				jsonObject.put("board_register", board_register);
 				list.add(jsonObject);
 			}
 		} catch (Exception e) {

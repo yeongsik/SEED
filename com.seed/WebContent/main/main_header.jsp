@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
  <header class="header-main">
             <div class="header-icon header-content">
@@ -39,7 +40,7 @@
                     <input type="text" value="search">
                     <input type="button" value="검색">
                 </div>
-                <div class="header-main-member-content member-content">
+                <div class="header-main-member-content header-member-content">
 	             	<c:if test="${sessionScope.id == null }">
                 		<a href="<%=request.getContextPath()%>/MemberLogInForm.seed">Log In</a>
                 	</c:if>
