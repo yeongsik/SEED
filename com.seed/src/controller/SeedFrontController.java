@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import service.SeedAction;
 import service.SeedActionForward;
 import service.main.MainAction;
+
+import service.main.MainWeeklyBestList;
+import service.member.MemberLogIn;
+
 import service.member.IdCheckAction;
 import service.member.LoginAction;
 import service.member.MyPageForm;
@@ -21,6 +25,7 @@ import service.member.SignOutMemberCourse3;
 import service.member.SignUpAction;
 import service.member.UpdateMemberInfoCourse2;
 import service.member.UpdateMemberInfoCourse3;
+
 import service.news.NewsAddAction;
 import service.news.NewsDelete;
 import service.news.NewsDetailAction;
@@ -83,7 +88,16 @@ public class SeedFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
+		// weekly best (ajax)
+		} else if (command.equals("/MainWeeklyBestList.seed")) {
+			try {
+				action = new MainWeeklyBestList();
+				forward = action.execute(request, response);
+				// ajax 구현이라 forward == null 
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		// Member (수환)
 		
@@ -464,6 +478,13 @@ public class SeedFrontController extends HttpServlet {
 		}
 		
     
+
+	
+				
+		
+		
+		
+
 		if (forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());

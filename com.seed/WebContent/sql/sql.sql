@@ -5,7 +5,7 @@ select * from news;
 select * from news_re;
 select * from NEWS_RE;
 
-
+select * from share_link;
 select * from tip;
 select * from tip_re;
 select * from member;

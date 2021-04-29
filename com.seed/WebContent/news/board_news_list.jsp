@@ -3,6 +3,8 @@
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix ="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+<%@ include  file="/main/main_header.jsp"%>
 <c:if test="${sessionScope.id != null }">
 <a href ="./NewsAddActionForm.seed">글쓰기</a><br>
 </c:if>

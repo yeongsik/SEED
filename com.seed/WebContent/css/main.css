@@ -144,7 +144,7 @@ ul,ol,li {
 	font-size : 30px;
 }
 .main-ad {
-    background-color: lightgoldenrodyellow;
+    
     width:1fr;
     height:550px;
 }
@@ -207,17 +207,17 @@ ul,ol,li {
     border-bottom : 1px solid grey;
     font-size:var(--font-size-h4);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     
 }
 .weeklybest_cell-1 {
-    flex-grow: 15;
+    width : 80%;
 }
 .weeklybest_cell-2 {
-    flex-grow: 0.5;
+   	width : 15%;
 }
 .weeklybest_cell-3 {
-    flex-grow: 0.5;
+  	width : 20%;
 }
 .editorpick-content {
     border-radius: 3px;
@@ -306,5 +306,7 @@ ul,ol,li {
     display: none;
 }
 .mySlides {
+	width:100%;
+	height:100%;
 	object-fit:cover;
 }

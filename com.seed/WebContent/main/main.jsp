@@ -22,9 +22,14 @@
 </head>
 <body>
     <div class="container-main">
+
+	
+        <%-- <header class="header-main">
+
    	 	<%@ include file="/main/main-header.jsp" %>
 <%-- 
         <header class="header-main">
+
             <div class="header-icon header-content">
                 <div class="icon-content icon-img">
                     <i class="fas fa-seedling"></i>
@@ -43,7 +48,7 @@
                         <a href="" class="community-sub">Community</a>
                         <div class="nav-list-content-detail">
                             <a href="">Tip</a>
-                            <a href="">News</a>
+                            <a href="<%=request.getContextPath()%>/NewsListAction.seed">News</a>
                             <a href="">Free</a>
                             <a href="./ListAction.seed">Q&A</a>
                             <a href="">Live</a>
@@ -95,28 +100,30 @@
                         Weekly Best
                     </div>
                     <div class="board-article-container weeklybest-content fade-in">
-                        <div class="weeklybest-content_category">
-                            <input type="button" class="category-list" id="board_tip" value="Q&A">
-                            <input type="button" class="category-list" id="board_tip" value="팁 게시판">
-                            <input type="button" class="category-list" id="board_tip" value="사는 얘기">
-                            <input type="button" class="category-list" id="board_tip" value="News">
-                            <input type="button" class="category-list" id="board_tip" value="자유게시판">
+                        <div class="weeklybest-content_category" id="category_btn">
+                            <input type="button" class="category-list"  value="Q&A">
+                            <input type="button" class="category-list"  value="팁 게시판">
+                            <input type="button" class="category-list"  value="사는 얘기">
+                            <input type="button" class="category-list"  value="News">
+                            <input type="button" class="category-list"  value="자유 게시판">
                         </div>
                         
-                        <div class="weeklybest-content_board-container">
-                            <c:forEach var="news" items="${bestNewsList}">
-                            <div class="weeklybest-content_board">
-                                <div class="weeklybest_cell-1">
-                                    <a href="">${news.board_subject }</a>
-                                </div>
-                                <div class="weeklybest_cell-2">
-                                    ${news.name}
-                                </div>
-                                <div class="weeklybest_cell-3">
-                                    <fmt:formatDate value="${news.board_register }" pattern="yyyy-MM-dd"/>
-                                </div>
-                            </div>
-                            </c:forEach>
+                        <div class="weeklybest-content_board-container" id="weeklybest">
+                        	<div id="ajax">
+	                            <c:forEach var="news" items="${bestNewsList}">
+	                            <div class="weeklybest-content_board">
+	                                <div class="weeklybest_cell-1 weeklybest_cell">
+	                                    <a href="<%=request.getContextPath()%>/NewsDetailAction.seed?board_num=${news.board_num}">${news.board_subject }</a>
+	                                </div>
+	                                <div class="weeklybest_cell-2 weeklybest_cell">
+	                                    ${news.name}
+	                                </div>
+	                                <div class="weeklybest_cell-3 weeklybest_cell">
+	                                    <fmt:formatDate value="${news.board_register}" pattern="yyyy-MM-dd"/>
+	                                </div>
+	                            </div>
+	                            </c:forEach>
+                        	</div>
                         </div>
                     </div>
                 </article>
