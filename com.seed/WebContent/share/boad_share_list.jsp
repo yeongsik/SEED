@@ -112,8 +112,8 @@
 					<c:forEach var="b" items="${boardlist }">
 						<div class="article-share-content-container share-first-container fade-in" id="viewpage" style="display: inline-block;">
 							<div class="article-share-content article-transition-box" 
-									style="background-color: green;" onclick="location.href='${b.share_link}'" ><!-- onclick="shareLink()" -->
-								<div class="share-content article-transition">
+									style="background-color:#4c8c4a ;" onclick="location.href='${b.share_link}'"><!-- onclick="shareLink()" -->
+								<div class="share-content article-transition" style="margin:0 auto">
 									<div class="share-content_channel">채널명 : ${b.share_site}</div>
 									<div class="share-content_desc" style="display: inline-block;">채널 소개 : ${b.share_des }</div>
 									<div style="display: inline-block;float: right;">${b.share_view } View</div>
@@ -124,8 +124,7 @@
 					<div class="article-share-content-arrow fade-in">
 						<div class="article-share-content-arrow_btn" >More</div>
 <!-- 						<div class="article-share-content-arrow_btn" ><a id="more">More</a></div> -->
-						<i class="fas fa-angle-double-dow
-						n"></i>
+						<i class="fas fa-angle-double-down"></i>
 					</div>
 				</div>
             </article>
