@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,16 @@
 <meta name="viewport"
 	content="user-scalable=no, initial-scale=1, maxium-scale=1">
 <title>Seed</title>
+
 <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/board.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/member.css">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -21,7 +31,7 @@
 <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/board.css">
-<!--  -->
+
 </head>
 <body>
 	<div class="board-container">
@@ -115,10 +125,13 @@
 	<aside>
 		<div class="aside-container">
 			<div class="aside-title">Weekly Best</div>
-			<ul class="aside-hr">
-				<li class="aside-list">게시글 제목</li>
-				
-			</ul>
+			<c:forEach var="wb" items="${weeklybest}">
+				<table>
+					<tr class="aside-hr">
+						<td class="aside-list">${wb.board_subject}</td>
+					</tr>
+				</table>
+			</c:forEach>
 		</div>
 	</aside>
 

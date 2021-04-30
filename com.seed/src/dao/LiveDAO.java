@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -333,6 +334,46 @@ String sql="update live set board_view=board_view+1 ";
 			
 			
 			return result;
+		}
+		
+		public List<LiveDTO> getWeeklyBest() {
+			List<LiveDTO> list = new ArrayList<LiveDTO>();
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				String sql = "select * from (select rownum rnum, board.* from ";
+				sql += " (select * from live order by board_view desc) board ) where rnum<6";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					LiveDTO live = new LiveDTO();
+					live.setBoard_num(rs.getInt("board_num"));
+					live.setBoard_category(rs.getString("board_category"));
+					live.setBoard_subject(rs.getString("board_subject"));
+					live.setBoard_content(rs.getString("board_content"));
+					live.setBoard_register(rs.getTimestamp("board_register"));
+					live.setBoard_view(rs.getInt("board_view"));
+					live.setBoard_view(rs.getInt("board_like"));
+					live.setBoard_view(rs.getInt("board_hate"));
+					
+					list.add(live);
+				}
+				
+				
+			}catch(Exception e) {
+				
+			}finally {
+				if(rs!=null) try { rs.close(); }catch(Exception e) {}
+				if(pstmt!=null) try { pstmt.close(); }catch(Exception e) {}
+				if(con!=null) try { con.close(); }catch(Exception e) {}
+			}
+			
+			
+			return list;
 		}
 		
 	
