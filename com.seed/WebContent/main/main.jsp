@@ -9,7 +9,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maxium-scale=1">
     <title>Seed</title>
     
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -23,9 +23,9 @@
 <body>
     <div class="container-main">
 
-	
+		
 
-   	 	<%@ include file="/main/main-header.jsp" %>
+   	 	<%@ include file="/main/main_header.jsp" %>
 <%-- 
         <header class="header-main">
 

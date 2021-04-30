@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ include file="/main/main_header.jsp" %>
 <%@ include file="color.jsp"%>
 <%@page import="model.FreeDTO"%>
 <%@page import="dao.FreeDAO"%>
@@ -13,10 +13,10 @@
 	
 	FreeDAO dao = FreeDAO.getInstance();
 	
-	String listClickFlag = request.getParameter("listClickFlag");
-	if("Y".equals(listClickFlag)){	//조회수 update.
+/* 	String listClickFlag = request.getParameter("listClickFlag");
+	if("Y".equals(listClickFlag)){	//조회수 update.		free_board_view.jsp?listClickFlag=Y
 		dao.viewUpdate(board_num);
-	}
+	} */
 	
 	FreeDTO board = dao.getDetail(board_num);		// 본문
 	
@@ -34,7 +34,7 @@
 	<!-- <script src="check.js"></script> -->
 </head>   
 <body bgcolor="<%=bodyback_c%>">
-<form method="post" name="freeboardupdate" action="free_board_update.jsp">
+<form method="post" name="freeboardupdate" action="./FreeDetailAction.Seed">
 <input type="hidden" name="board_num" value="<%=board_num%>">
 <input type="hidden" name="page" value="<%=nowpage%>">
  <div id="writeform">
@@ -50,8 +50,9 @@
         </div> <br>
 	   </div>
 	   <div id="button">
-	   	<input type="submit" class="submit" value="수정하기"> &nbsp;
-		<input type="button" class="list" value="목록" OnClick="window.location='free_board_list.jsp'">
+	   	<input type="button" value="수정" onClick = "location.href='./FreeModifyAction.seed?board_num=${dto.board_num }&page=${page}'"> &nbsp;
+        <input type="button" value="삭제" onClick = "location.href='./FreeDeleteAction.seed?board_num=${dto.board_num }&page=${page}'"> &nbsp;
+        <input type="button" value="목록" onClick = "location.href='./FreeListAction.seed?&page=${page}'">
 	   </div>
 	  </div>
 	  </div>

@@ -3,6 +3,7 @@
 <%@page import="dao.FreeDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@include file="/main/main_header.jsp"%>
 
 <%
 // 1. 한 화면에 출력할 데이터 갯수
@@ -42,8 +43,10 @@ if (count == 0) {
 <head>
 <title>Free_Board_List</title>
 <link href="./css/free_board_list.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
+<header></header>
 <body>
 	<a href="free_board_write.jsp">글쓰기</a> 글갯수 :
 	<%=count%>
@@ -77,7 +80,7 @@ if (count == 0) {
 			<tr>
 				<td><%=board.getBoard_num()%></td>
 				<!-- 제목 클릭시 글 상세페이지로 이동. -->
-				<td><a href="free_board_view.jsp?listClickFlag=Y&board_num=<%=board.getBoard_num()%>&page=<%=currentPage%>">
+				<td><a href="./FreeListAction.seed?&board_num=<%=board.getBoard_num()%>&page=<%=currentPage%>">
 						<%=board.getBoard_subject()%></a></td>
 				<td><%=board.getName()%></td>
 				<td><%=sd.format(board.getBoard_register())%></td>
@@ -102,27 +105,27 @@ if (count == 0) {
 				endPage = pageCount;
 			} %>
 		<!-- 1페이지로 이동 -->
-		<a href="free_board_list.jsp?page=1" style="text-decoration: none"> << </a>
+		<a href="./FreeListAction.seed?page=1" style="text-decoration: none"> << </a>
 
 		<% if (startPage > 10) { // 이전 블럭으로 이동 %> 
-		<a href="free_board_list.jsp?page=<%=startPage - 10%>">[이전]</a>
+		<a href="./FreeListAction.seed?page=<%=startPage - 10%>">[이전]</a>
 		<% } %>
 		<% // 각 블럭당 10개의 페이지 출력
 		for (int i = startPage; i <= endPage; i++) {
 			if (i == currentPage) { // 현재 페이지 %>
 		[<%=i%>]
 		<% } else { %>
-		<a href="free_board_list.jsp?page=<%=i%>">[<%=i%>]
+		<a href="./FreeListAction.seed?page=<%=i%>">[<%=i%>]
 		</a>
 		<% }
 		} // for end
 			// 다음 블럭으로 이동하는 부분
 		if (endPage < pageCount) { %>
-		<a href="free_board_list.jsp?page=<%=startPage + 10%>"> [다음] </a>
+		<a href="./FreeListAction.seed?page=<%=startPage + 10%>"> [다음] </a>
 
 		<% } %>
 		<!-- 마지막 페이지로 이동 -->
-		<a href="free_board_list.jsp?page=<%=pageCount%>" style="text-decoration: none"> >> </a>
+		<a href="./FreeListAction.seed?page=<%=pageCount%>" style="text-decoration: none"> >> </a>
 		<% } // if end %>
 	</center>
 </body>

@@ -18,7 +18,7 @@
 %>
 		<script>
 			alert("글 작성 성공");
-			location.href="free_board_list.jsp";
+			location.href="./free_board_list.seed";
 		</script>
 
 <%	}else{ %>
