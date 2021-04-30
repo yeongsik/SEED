@@ -34,7 +34,7 @@
                             <div class="login_input">
                                 <div class="login_input-content login-content_subject">
                                     <span>E-mail</span>
-                                    <input type="text" class="content_input" id="id" name="id" value="이메일을 입력하세요" >
+                                    <input type="text" class="content_input" id="id" name="id" placeholder="이메일을 입력하세요" >
                                 </div>
                                 <div class="login_input-content login-content_subject">
                                     <span>Password</span>

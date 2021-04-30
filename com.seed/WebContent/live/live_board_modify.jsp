@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
 <%
 String ctx = request.getContextPath();
@@ -8,25 +8,25 @@ String ctx = request.getContextPath();
 <head>
 <meta charset="UTF-8">
 <title>게시글 수정</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>    
+<script src="<%=request.getContextPath() %>/js/main.js"></script>
+<script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
+    
 <script src="<%=request.getContextPath()%>/live/script.js"></script>
 <script type="text/javascript" src="<%=ctx%>/SE2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 </head>
 <body>
-	<header>
-		<div>
-			<a href="#">SEED</a>
-		</div>
-		<div class="header_Front">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Share</a></li>
-				<li><a href="#">Community</a></li>
-				<li><a href="#">About</a></li>
-			</ul>
-		</div>
-	</header>
+	<%@ include file="/main/main_header.jsp" %>
+	
 	<form action="<%=request.getContextPath()%>./LiveModify.seed"
 		method="post">
 		<input type="hidden" id="board_num" name="board_num" value="${board.board_num }">

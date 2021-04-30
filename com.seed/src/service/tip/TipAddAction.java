@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.TipDAO;
 import model.TipDTO;
@@ -20,12 +21,15 @@ public class TipAddAction implements SeedAction{
 		response.setContentType("text/html; charset=utf-8");
 		
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+		
+		String name = (String) session.getAttribute("user_name");
 		
 		//DTO 생성
 		TipDTO dto = new TipDTO();
 
 		dto.setBoard_category(request.getParameter("board_category"));
-		dto.setName("name1");
+		dto.setName(name);
 		dto.setBoard_subject(request.getParameter("board_subject"));
 		dto.setBoard_content(request.getParameter("board_content"));
 		System.out.println("카테고리:"+dto.getBoard_category());

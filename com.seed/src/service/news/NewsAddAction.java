@@ -18,7 +18,9 @@ public class NewsAddAction implements SeedAction {
 		System.out.println("NewsAddAction");
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		String name = (String)session.getAttribute("name");
+		String name = (String)session.getAttribute("user_name");
+		System.out.println("name : " + name);
+		
 		
 		NewsDTO news = new NewsDTO();
 		
