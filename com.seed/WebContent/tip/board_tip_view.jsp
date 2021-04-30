@@ -23,13 +23,9 @@
 	<div>${board_content }</div>
 	
 	<div>
-		<input type="button" value="수정"
-		onClick = "location.href='./TipModifyAction.seed?board_num=${dto.board_num }&page=${page}'">
-		<input type="button" value="삭제"
-		onClick = "location.href='./TipDeleteAction.seed?board_num=${dto.board_num }&page=${page}'">
-		<input type="button" value="목록"
-		onClick = "location.href='./TipListAction.seed?&page=${page}'">
-	
+		<input type="button" value="수정" onClick = "location.href='./TipModifyAction.seed?board_num=${dto.board_num }&page=${page}'">
+		<input type="button" value="삭제" onClick = "location.href='./TipDeleteAction.seed?board_num=${dto.board_num }&page=${page}'">
+		<input type="button" value="목록" onClick = "location.href='./TipListAction.seed?&page=${page}'">
 	</div>
 	<form action="<%=request.getContextPath() %>/CommentAddAction.seed" >
 		<!-- 댓글목록이 있을 경우 출력 -->

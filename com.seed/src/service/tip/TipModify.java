@@ -46,8 +46,6 @@ public class TipModify implements SeedAction{
 			out.close();
 		}
 		
-		
-		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/TipDetailAction.seed?board_num="+board_num+"&page="+page);

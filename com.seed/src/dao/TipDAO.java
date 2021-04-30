@@ -316,6 +316,50 @@ String sql="insert into tip values(tip_seq.nextval,?,?,?,?,sysdate,?,?,?)";
 		return result;
 	}
 	
+	// WeeklyBest
+	public List<TipDTO> getWeeklyBestList(){
+		List<TipDTO> list = new ArrayList<TipDTO>();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="select * from (select rownum rnum, tip.*from ";
+					sql+="(select * from tip order by board_view desc) tip) where rnum<6";
+			
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				TipDTO dto = new TipDTO();
+				dto.setBoard_num(rs.getInt("board_num"));
+				dto.setBoard_category(rs.getString("board_category"));
+				dto.setName(rs.getString("name"));
+				dto.setBoard_subject(rs.getString("board_subject"));
+				dto.setBoard_content(rs.getString("board_content"));
+				dto.setBoard_register(rs.getTimestamp("board_register"));
+				dto.setBoard_view(rs.getInt("board_view"));
+				dto.setBoard_like(rs.getInt("board_like"));
+				dto.setBoard_hate(rs.getInt("board_hate"));
+				
+				list.add(dto);		
+			}		
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try {rs.close();}catch(Exception e) {}
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return list;
+	}
+	
+	
 	
 	
 }
