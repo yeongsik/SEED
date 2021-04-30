@@ -63,6 +63,7 @@
 </head>
 <body>
     <div class="container-main">
+    <%@ include file="/main/main_header.jsp" %>
         <section class="member-section">
             <form method="POST" action="<%=request.getContextPath()%>/UpdateMemberInfoCourse3.seed">
                 <div class="member-container">
@@ -108,6 +109,7 @@
                 </div>
             </form>
         </section>
+         <%@ include file="/main/main_footer.jsp" %>
     </div>
 </body>
 </html>
