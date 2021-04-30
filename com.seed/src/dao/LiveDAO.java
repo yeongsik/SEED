@@ -315,7 +315,7 @@ String sql="update live set board_view=board_view+1 ";
 			try {
 				con = getConnection();
 				String sql = "select * from (select rownum rnum, board.* from ";
-				sql += " (select * from live order by board_view desc) board ) where rnum<6";
+				sql += " (select * from live order by board_num desc) board ) where rnum<6";
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
@@ -344,6 +344,31 @@ String sql="update live set board_view=board_view+1 ";
 			
 			
 			return list;
+		}
+		
+		//좋아요 증가 
+		public int LiveLikeUpdate(int board_num) {
+			int result = 0;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				con =getConnection();
+				
+				String sql = "update qa set board_like=board_like+1 where board_num?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board_num);
+				result = pstmt.executeUpdate();
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				if(pstmt!=null) try { pstmt.close(); }catch(Exception e) {}
+				if(con!=null) try { con.close(); }catch(Exception e) {}
+			}
+			
+			return result;
 		}
 		
 	
