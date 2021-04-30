@@ -306,6 +306,37 @@ String sql="update live set board_view=board_view+1 ";
 			
 			return liveReList;
 		}
+
+		public int getLiveReCount(int board_num ) {
+			int result = 0;
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = getConnection();
+				String sql = "select count(*) from live_re where board_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board_num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					rs.getInt(1);
+				}
+				
+				
+			}catch(Exception e) {
+				
+			}finally {
+				if(rs!=null) try { rs.close(); }catch(Exception e) {}
+				if(pstmt!=null) try { pstmt.close(); }catch(Exception e) {}
+				if(con!=null) try { con.close(); }catch(Exception e) {}
+			}
+			
+			
+			return result;
+		}
+		
+
 		public List<LiveDTO> getWeeklyBest() {
 			List<LiveDTO> list = new ArrayList<LiveDTO>();
 			Connection con = null;
@@ -342,8 +373,8 @@ String sql="update live set board_view=board_view+1 ";
 				if(con!=null) try { con.close(); }catch(Exception e) {}
 			}
 			
-			
 			return list;
+
 		}
 		
 		//좋아요 증가 

@@ -23,7 +23,6 @@ import service.live.LiveModify;
 import service.live.LiveModifyAction;
 import service.main.MainAction;
 import service.main.MainWeeklyBestList;
-
 import service.member.IdCheckAction;
 import service.member.LoginAction;
 import service.member.MyPageForm;
@@ -54,10 +53,9 @@ import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
-
 import service.share.ShareAddAction;
+import service.share.ShareDetailAction;
 import service.share.ShareListAction;
-
 import service.tip.TipAddAction;
 import service.tip.TipDelete;
 import service.tip.TipDetailAction;
@@ -216,7 +214,8 @@ public class SeedFrontController extends HttpServlet {
 		// tip ( 승국님 )
 		// 글작성
 
-		if (command.equals("/TipAddAction.seed")) {
+		if (command.equals("/TipAddAction.see"
+				+ "d")) {
 			try {
 				action = new TipAddAction();
 				forward = action.execute(request, response);
@@ -225,7 +224,9 @@ public class SeedFrontController extends HttpServlet {
 			}
 
 			// 글작성 폼
-		} else if (command.equals("/BoardForm.seed")) {
+
+		} else if (command.equals("/TipWriteForm.seed")) {
+
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/tip/board_tip_write.jsp");
@@ -335,10 +336,13 @@ public class SeedFrontController extends HttpServlet {
 		// live ( 유중님 )
 		// 글작성 폼	
 		if(command.equals("/LiveAddActionForm.seed")) {
-				forward = new SeedActionForward();
-				forward.setRedirect(false);
-				forward.setPath("/live/live_board_write.jsp");
-
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/live/live_board_write.jsp");
+		if(command.equals("/LiveAddActionForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/live/live_board_write.jsp");
 		// 글작성		
 		}else if(command.equals("/LiveAddAction.seed")) {
 			try {
@@ -347,8 +351,6 @@ public class SeedFrontController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			
-		
 			
 		// 글목록	
 		}else if(command.equals("/LiveListAction.seed")) {
@@ -401,8 +403,71 @@ public class SeedFrontController extends HttpServlet {
 			  
 			  } catch(Exception e) { 
 				  e.printStackTrace(); }
-		 
-		  }	
+		  }
+			// 글작성		
+		}else if(command.equals("/LiveAddAction.seed")) {
+				try {
+					action = new LiveAddAction();
+					forward = action.execute(request, response);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+			
+				
+			// 글목록	
+			}else if(command.equals("/LiveListAction.seed")) {
+				try {
+					action = new LiveListAction();
+					forward = action.execute(request, response);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+			// 상세 페이지	
+			}else if(command.equals("/LiveDetailAction.seed")) {
+				try {
+					action = new LiveDetailAction();
+					forward = action.execute(request, response);
+				}catch(Exception e) {
+					e.printStackTrace();
+			}
+			//수정 폼	
+				
+			  }else if(command.equals("/LiveModifyAction.seed")) { 
+				 try { action = new LiveModifyAction(); 
+				 	 forward = action.execute(request, response);
+			  
+			  }catch(Exception e) { 
+				    e.printStackTrace(); 
+			  }
+			 
+			  // 수정 
+			  }else if(command.equals("/LiveModify.seed")) {
+			  	 try { action = new LiveModify(); 
+			  		 forward = action.execute(request, response); 
+			  
+			  	 } catch(Exception e) { 
+			  		 e.printStackTrace(); 
+			  	}
+			  	 // 삭제 폼
+			  }else if(command.equals("/LiveDeleteAction.seed")) { 
+					 try { action = new LiveModifyAction(); 
+					 	 forward = action.execute(request, response);
+				  
+				  }catch(Exception e) { 
+					    e.printStackTrace(); 
+				  }	 
+			  
+			  // 삭제 
+			  }else if(command.equals("/LiveDelete.seed")) { 
+				  try { action = new LiveDelete(); 
+				  forward = action.execute(request, response); 
+				  
+				  } catch(Exception e) { 
+					  e.printStackTrace(); }
+			 
+			  }	
 		
 
 		
@@ -429,6 +494,15 @@ public class SeedFrontController extends HttpServlet {
 		}else if(command.equals("/ShareAddAction.seed")) {
 			try {
 				action = new ShareAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 링크	
+		}else if(command.equals("/ShareDetailAction.seed")) {
+			try {
+				action = new ShareDetailAction();
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();

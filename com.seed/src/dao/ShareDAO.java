@@ -153,7 +153,42 @@ public class ShareDAO {
 	}
 	
 	
-	
+	// 글 상세 구하기
+	public ShareDTO getDetail(int share_num) {
+		ShareDTO dto = new ShareDTO();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="select * from share_link where share_num=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, share_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setShare_num(rs.getInt("share_num"));
+				dto.setName(rs.getString("name"));
+				dto.setShare_site(rs.getString("share_site"));
+				dto.setShare_des(rs.getString("share_des"));
+				dto.setShare_link(rs.getString("share_link"));
+				dto.setShare_view(rs.getInt("share_view"));
+				dto.setShare_register(rs.getTimestamp("share_register"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try {rs.close();}catch(Exception e) {}
+			if(pstmt!=null) try {pstmt.close();}catch(Exception e) {}
+			if(con!=null) try {con.close();}catch(Exception e) {}
+		}
+		
+		return dto;
+	}
 	
 	
 	

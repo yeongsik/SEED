@@ -5,11 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>News 게시판</title>
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>    
+    <script src="<%=request.getContextPath() %>/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
+	<%@ include file="/main/main_header.jsp" %>
+
 <form method="post" action="<%=request.getContextPath() %>/NewsAddAction.seed">
 
 <table border=1 align=center width=800>
@@ -22,7 +32,7 @@
 		</select>
 	</td>
 	<td>
-		작성자 : ${sessionScope.name}
+		작성자 : ${user_name}
 	</td>
 </tr>
 <tr>
@@ -44,6 +54,7 @@
 	</td>
 </table>
 </form>
+	 <%@ include file="/main/main_footer.jsp"%>
 </body>
 <script type="text/javascript" src ="../news/se.js"></script>
 </html>

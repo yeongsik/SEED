@@ -50,7 +50,7 @@ public class ShareListAction implements SeedAction{
 		SeedActionForward forward = new SeedActionForward();	
 
 		forward.setRedirect(false);
-		forward.setPath("./share/boad_share_list.jsp");
+		forward.setPath("./share/board_share_list.jsp");
 		return forward;
 	}
 
