@@ -23,7 +23,9 @@ public class FreeListAction implements SeedAction{
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		
+		System.out.println("page" + page);
+		System.out.println("page" + page);
+		System.out.println("page" + page);
 		int startRow = (page-1) * limit + 1;	// page =1  startRow=1, endRow=10
 		int endRow = page * limit;				// page =2  startRow=11, endRow=20
 		

@@ -14,6 +14,7 @@ import service.SeedActionForward;
 import service.free.FreeAddAction;
 import service.free.FreeDetailAction;
 import service.free.FreeListAction;
+import service.free.FreeModify;
 import service.free.FreeModifyAction;
 import service.live.LiveAddAction;
 import service.live.LiveDelete;
@@ -289,7 +290,7 @@ public class SeedFrontController extends HttpServlet {
 
 		// free ( 혜영님 )
 
-		// free write 첨부파일 및 내용 수정
+		// free write 
 		if (command.equals("/FreeAddAction.seed")) {
 			try {
 				action = new FreeAddAction();
@@ -299,12 +300,12 @@ public class SeedFrontController extends HttpServlet {
 			}
 
 			// free write form
-		} else if (command.equals("/BoardForm.seed")) {
+		} else if (command.equals("/FreeWriteForm.seed")) {
 			forward = new SeedActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/freeboard/free_board_write.jsp");
+			forward.setRedirect(true);
+			forward.setPath("./free/free_board_write.jsp");
 
-			// free list 위치 설정 변경
+			// free list
 		} else if (command.equals("/FreeListAction.seed")) {
 			try {
 				action = new FreeListAction();
@@ -313,7 +314,7 @@ public class SeedFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			// free view 위치 설정 변경
+			// free view 
 		} else if (command.equals("/FreeDetailAction.seed")) {
 			try {
 				action = new FreeDetailAction();
@@ -322,10 +323,20 @@ public class SeedFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			// free modify form 위치 설정 변경
+			// free modify form 
 		} else if (command.equals("/FreeModifyAction.seed")) {
 			try {
 				action = new FreeModifyAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+		
+			// free modify
+		} else if (command.equals("/FreeModify.seed")) {
+			try {
+				action = new FreeModify();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

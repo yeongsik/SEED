@@ -1,11 +1,16 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="color.jsp"%>
+<%@ include file="/main/main_header.jsp" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 	<head>
+	<meta charset="UTF-8">
 		<title>Seed Free write form</title>
 		<link href="./css/free_board_modify.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		z<script type="text/javascript" src="<%=request.getContextPath()%>/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 		<!-- <script src="check.js"></script> -->
 	<script>
 		$(function(){

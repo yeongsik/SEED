@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ include file="/main/main_header.jsp" %>
 <%@ include file="color.jsp"%>
 <%@page import="model.FreeDTO"%>
 <%@page import="dao.FreeDAO"%>
@@ -44,7 +44,7 @@
 		</script>
 </head>   
 <body bgcolor="<%=bodyback_c%>">
-<form method="post" name="freeboardupdate" action="free_update_pro.jsp">
+<form method="post" name="freeboardupdate" action="/FreeModify.seed">
 <input type="hidden" name="board_num" value="<%=board_num%>">
 <input type="hidden" name="page" value="<%=nowpage%>">
  <div id="writeform">

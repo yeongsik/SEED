@@ -21,7 +21,7 @@
 %>
 			<script>
 				alert("글 삭제 성공");
-				location.href="free_board_list.jsp?page=<%=nowpage%>";
+				location.href="./free_board_list.seed?page=<%=nowpage%>";
 			</script>
 <%	}else{	// 문제 시	 %>
 		<script>

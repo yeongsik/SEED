@@ -69,7 +69,7 @@
     cursor: text;
 }
 
-#button {
+#btngroup {
 	margin: 0 auto;
 	font-size: 12px;
 	color: rgb(255, 255, 255);
@@ -78,7 +78,7 @@
     border-radius: 4px;
 }
 
-.submit {
+.button1 {
     background-color: rgb(22, 160, 133);
     overflow: hidden;
     white-space: pre-wrap;
@@ -86,11 +86,7 @@
     cursor: pointer;
 }
 
-.reset {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+.button2 .button3 {
     background-color: rgb(94, 94, 94);
 }
 
@@ -118,7 +114,7 @@ input {
     border-image: initial;
 }
 
-textarea {
+/* textarea {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     color: -internal-light-dark(black, white);
@@ -146,3 +142,4 @@ textarea {
     border-image: initial;
     padding: 2px;
 }
+ */

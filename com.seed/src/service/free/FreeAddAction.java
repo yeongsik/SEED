@@ -40,7 +40,7 @@ public class FreeAddAction implements SeedAction {
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./FreeListAction.do");
+		forward.setPath("./FreeListAction.seed");
 		
 		return forward;
 	}
