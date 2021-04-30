@@ -289,8 +289,8 @@ public class SeedFrontController extends HttpServlet {
 			// free write form
 		} else if (command.equals("/FreeWriteForm.seed")) {
 			forward = new SeedActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/free/free_board_write.jsp");
+			forward.setRedirect(true);
+			forward.setPath("./free/free_board_write.jsp");
 
 			// free list
 		} else if (command.equals("/FreeListAction.seed")) {

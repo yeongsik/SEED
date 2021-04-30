@@ -54,6 +54,10 @@
     cursor: text;
 }
 
+#smart_editor2{
+	margin: 0 auto;
+}
+
  #smartEditor {
 	margin: 0 auto;
 	padding: 6px 12px;

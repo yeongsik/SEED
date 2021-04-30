@@ -32,8 +32,7 @@ public class FreeDetailAction implements SeedAction{
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);  // dispatcher 방식으로 포워딩
-		forward.setPath("./free/free_board_list.jsp");
-		
+		forward.setPath("./free/free_board_view.jsp");
 		return forward;
 	}
 
