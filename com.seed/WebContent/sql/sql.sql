@@ -11,7 +11,6 @@ select * from tip_re;
 select * from member;
 
 
-
 create sequence news_seq;
 create sequence live_seq;
 create sequence qa_seq;

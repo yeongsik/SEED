@@ -30,7 +30,7 @@
 				<input type="reset" value="취소">
 			</div>
 		</div>
-		<script defer src="<%=request.getContextPath() %>/share/smarteditor.js"></script>
+		<script defer src="<%=request.getContextPath() %>/share/smarteditor.js22"></script><!-- 임시중지 -->
 	</form>
 </body>
 </html>

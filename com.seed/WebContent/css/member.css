@@ -1,11 +1,11 @@
 @import url(../css/main.css);
+
 span {
     display: block;
 }
 .member-section {
     display: flex;
     justify-content: center;
-    height: 100vh;
 }
 .member-container {
     margin-top : 150px;
@@ -43,7 +43,7 @@ span {
     font-size : var(--font-size-h3);
     font-family: var(--sub-font-kor);
 }
-.check_btn {
+.check_btn , .check_btn-2{
     margin : 12px;
     width : 80px;
     height: 30px;
@@ -177,6 +177,9 @@ span {
     display: flex;
     justify-content: space-between;
 }
+.member-signup_profile-wrapper {
+    width : 40%;
+}
 .member-signup_input_text {
     border : 0;
     border-bottom: 1.5px solid grey;
@@ -201,4 +204,72 @@ span {
     outline : 0;
     background-color : green;
     color: white;
+}
+.member-signup_profile {
+    width : 80px;
+    height : 80px;
+    background-color: black;
+
+}
+.member-signup_profile_btn {
+    width : 80px;
+    font-size : 12px;
+    margin : 3px 0;
+    padding : 4px;
+    font-family:var(--sub-font-kor);
+    background-color : green;
+    color: white;
+    border : 0;
+    border-radius: 3px;
+}
+
+.signup-otherlogin {
+    margin-top :120px;
+}
+
+/* 회원탈퇴 폼 */
+.deleteform-content-activity-comment {
+    font-family: var(--sub-font-kor);
+    font-size:var(--font-size-h2);
+    padding: 10px 0;
+}
+.deleteform-content-activity_data{
+    display: flex;
+    justify-content: space-around;
+    padding : 50px 0;
+    font-family: var(--sub-font-kor);
+    font-size:var(--font-size-h3);
+
+}
+.deleteform-board-wrapper {
+
+    width : 80px;
+    text-align: center;
+}
+.deleteform-information-container {
+    margin : 15px 0;
+    width : 100%;
+    background-color : lightgrey;
+    height : 300px;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+.deleteform-information-wrapper {
+    padding : 20px;
+}
+.deleteform-check-container {
+
+    display: flex;
+    justify-content: space-between;
+}
+.delete_chk {
+    width : 15px;
+    height: 15px;
+}
+.delete_chk_span {
+    font-family: var(--sub-font-kor);
+}
+.deleteform-btn-container {
+    padding-top : 20px;
+    text-align: center;
 }

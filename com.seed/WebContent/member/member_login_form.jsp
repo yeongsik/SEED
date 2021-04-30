@@ -1,41 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- 	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="UTF-8">
-	<title>로그인</title>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	
-	<!-- 외부 자바스크립트 파일 불러오기 -->
-	<script src="<%=request.getContextPath() %>/qna/login.js"></script>
-	
-	</head>
-	<body>
-		<form method="post" action="<%=request.getContextPath() %>/LoginAction.seed">
-			<div class="">
-				<div>
-					<h2>Log In</h2>
-				</div>
-				<div>
-					E-mail <br>
-					<input type=text size=30 id="id" name="id" autofocus="autofocus">	
-				</div>
-				<div>
-					Password <br>
-					<input type="password" size=30 id="pw" name="pw">
-				</div>
-				<div>
-					<input type="button" value="회원가입" onClick="location.href='<%=request.getContextPath()%>/MemberFormAction.seed'">
-					<input type="submit" value="Login">
-					<input type="reset" value="Cancel" onClick="history.go(-1);">
-				</div>
-			</div>
-		</form>
-	</body>
-	</html> --%>
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,48 +22,7 @@
 </head>
 <body>
     <div class="container-main">
-       <!--  <header class="header-main">
-            <div class="header-icon header-content">
-                <div class="icon-content icon-img">
-                    <i class="fas fa-seedling"></i>
-                </div>
-                <div class="icon-content seed">SEED</div>
-            </div>
-            <div class="header-main-nav header-content">
-                <div class="nav-list">
-                    <div class="nav-list-content">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="nav-list-content">
-                        <a href="">Share</a>
-                    </div>
-                    <div class="nav-list-content nav-list-community">
-                        <a href="" class="community-sub">Community</a>
-                        <div class="nav-list-content-detail">
-                            <a href="">Tip</a>
-                            <a href="">News</a>
-                            <a href="">Free</a>
-                            <a href="">Q&A</a>
-                            <a href="">Live</a>
-                        </div>
-                    </div>
-                    <div class="nav-list-content">
-                        <a href="">About</a>
-                    </div>
-                </div>
-            </div>
-            <div class="header-main-member header-content">
-                <div class="header-main-member-content header_search">
-                    <i class="fas fa-search" id="search_btn"></i>
-                </div>
-                <div class="header-main-member-content search_box">
-                    <input type="text" value="search">
-                    <input type="button" value="검색">
-                </div>
-                <div class="header-main-member-content header-member-content">Log In</div>
-            </div>
-        </header> -->
-        <%@ include file="/main/main-header.jsp" %>
+       <%@ include file="/main/main_header.jsp" %>
         <section class="member-section">
             <form method="POST" action="<%=request.getContextPath() %>/LoginAction.seed">
                 <div class="member-container">
@@ -110,7 +34,7 @@
                             <div class="login_input">
                                 <div class="login_input-content login-content_subject">
                                     <span>E-mail</span>
-                                    <input type="text" class="content_input" id="id" name="id" value="이메일을 입력하세요" >
+                                    <input type="text" class="content_input" id="id" name="id" placeholder="이메일을 입력하세요" >
                                 </div>
                                 <div class="login_input-content login-content_subject">
                                     <span>Password</span>
@@ -141,6 +65,7 @@
                 </div>
             </form>
         </section>
+        <%@ include file="/main/main_footer.jsp" %>
     </div>
 </body>
 </html>
