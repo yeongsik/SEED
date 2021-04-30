@@ -5,10 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>마이 페이지</title>
-
-<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>    
+    <script src="<%=request.getContextPath() %>/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<%@ include file="/main/main_header.jsp" %>
+	
 	<div>
 		<div>
 			${user_name}님 반갑습니다.

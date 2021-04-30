@@ -2,8 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
 
+<script src="http://code.jquery.com/jquery-latest.js"></script>    
+<script src="<%=request.getContextPath() %>/js/main.js"></script>
+<script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
 
+<%@ include file="/main/main_header.jsp" %>
 
 <div>
 	<div style="border:1px solid; width:900;height:650 ; textalign:center;margin:0 auto; padding: 20px;">
@@ -42,7 +52,7 @@
 		</div><br>
 		</c:forEach>
 	<div style="float: right;">
-		<a href="./BoardForm.seed" style="">글쓰기</a>
+		<a href="./TipBoardForm.seed" style="">글쓰기</a>
 	</div>
 	</div><br><br>
 

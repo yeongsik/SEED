@@ -21,11 +21,10 @@
     <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+     <%@ include file="/main/main_header.jsp" %>
     <div class="container-main">
 
-      <%@ include file="/main/main_header.jsp" %>
 		
-
 
         <div class="main-ad">
             <div class="main-ad-content">

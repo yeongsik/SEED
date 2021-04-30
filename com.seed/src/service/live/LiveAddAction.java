@@ -2,7 +2,7 @@ package service.live;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import dao.LiveDAO;
 import model.LiveDTO;
@@ -18,9 +18,12 @@ public class LiveAddAction implements SeedAction {
 		System.out.println("LiveAddAction옴");
 		request.setCharacterEncoding("utf-8"); 
 		
+		HttpSession session = request.getSession();
+		String name = (String) session.getAttribute("user_name");
+		
 		LiveDTO live = new LiveDTO();
 		live.setBoard_category(request.getParameter("board_category"));
-		live.setName("name1");
+		live.setName(name);
 		live.setBoard_subject(request.getParameter("board_subject"));
 		live.setBoard_content(request.getParameter("board_content"));
 		System.out.println("글 쓰게해줘요");

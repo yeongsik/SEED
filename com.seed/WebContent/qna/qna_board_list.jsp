@@ -4,6 +4,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="qna/style.css">
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.js"></script>    
+<script src="<%=request.getContextPath() %>/js/main.js"></script>
+<script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
+
+<%@ include  file="/main/main_header.jsp"%>
+
 <c:if test="${id != null}">
 	<a href="./BoardWrite.seed">글쓰기</a>	<br>
 </c:if>

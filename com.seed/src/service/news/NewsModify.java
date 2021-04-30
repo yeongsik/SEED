@@ -36,7 +36,7 @@ public class NewsModify implements SeedAction {
 		
 		NewsDAO dao = NewsDAO.getInstance();
 		HttpSession session = request.getSession();
-		String session_name = (String)session.getAttribute("name");
+		String session_name = (String)session.getAttribute("user_name");
 		
 		if(session_name.equals(name)) {
 			int result = dao.modify(news);

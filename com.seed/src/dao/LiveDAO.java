@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -307,6 +308,7 @@ String sql="update live set board_view=board_view+1 ";
 			return liveReList;
 		}
 
+
 		public int getLiveReCount(int board_num ) {
 			int result = 0;
 			Connection con = null;
@@ -335,6 +337,8 @@ String sql="update live set board_view=board_view+1 ";
 			
 			return result;
 		}
+		
+
 		public List<LiveDTO> getWeeklyBest() {
 			List<LiveDTO> list = new ArrayList<LiveDTO>();
 			Connection con = null;

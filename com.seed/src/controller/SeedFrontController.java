@@ -225,7 +225,7 @@ public class SeedFrontController extends HttpServlet {
 			}
 
 			// 글작성 폼
-		} else if (command.equals("/BoardForm.seed")) {
+		} else if (command.equals("/TipBoardForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/tip/board_tip_write.jsp");
@@ -335,10 +335,13 @@ public class SeedFrontController extends HttpServlet {
 		// live ( 유중님 )
 		// 글작성 폼	
 		if(command.equals("/LiveAddActionForm.seed")) {
-				forward = new SeedActionForward();
-				forward.setRedirect(false);
-				forward.setPath("/live/live_board_write.jsp");
-
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/live/live_board_write.jsp");
+		if(command.equals("/LiveAddActionForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/live/live_board_write.jsp");
 		// 글작성		
 		}else if(command.equals("/LiveAddAction.seed")) {
 			try {
@@ -347,8 +350,6 @@ public class SeedFrontController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			
-		
 			
 		// 글목록	
 		}else if(command.equals("/LiveListAction.seed")) {
@@ -401,8 +402,71 @@ public class SeedFrontController extends HttpServlet {
 			  
 			  } catch(Exception e) { 
 				  e.printStackTrace(); }
-		 
-		  }	
+		  }
+			// 글작성		
+		}else if(command.equals("/LiveAddAction.seed")) {
+				try {
+					action = new LiveAddAction();
+					forward = action.execute(request, response);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+			
+				
+			// 글목록	
+			}else if(command.equals("/LiveListAction.seed")) {
+				try {
+					action = new LiveListAction();
+					forward = action.execute(request, response);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+			// 상세 페이지	
+			}else if(command.equals("/LiveDetailAction.seed")) {
+				try {
+					action = new LiveDetailAction();
+					forward = action.execute(request, response);
+				}catch(Exception e) {
+					e.printStackTrace();
+			}
+			//수정 폼	
+				
+			  }else if(command.equals("/LiveModifyAction.seed")) { 
+				 try { action = new LiveModifyAction(); 
+				 	 forward = action.execute(request, response);
+			  
+			  }catch(Exception e) { 
+				    e.printStackTrace(); 
+			  }
+			 
+			  // 수정 
+			  }else if(command.equals("/LiveModify.seed")) {
+			  	 try { action = new LiveModify(); 
+			  		 forward = action.execute(request, response); 
+			  
+			  	 } catch(Exception e) { 
+			  		 e.printStackTrace(); 
+			  	}
+			  	 // 삭제 폼
+			  }else if(command.equals("/LiveDeleteAction.seed")) { 
+					 try { action = new LiveModifyAction(); 
+					 	 forward = action.execute(request, response);
+				  
+				  }catch(Exception e) { 
+					    e.printStackTrace(); 
+				  }	 
+			  
+			  // 삭제 
+			  }else if(command.equals("/LiveDelete.seed")) { 
+				  try { action = new LiveDelete(); 
+				  forward = action.execute(request, response); 
+				  
+				  } catch(Exception e) { 
+					  e.printStackTrace(); }
+			 
+			  }	
 		
 
 		

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width , initial-scale=1.0">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maxium-scale=1">
     <title>Seed</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -17,9 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.js"></script>    
     <script src="<%=request.getContextPath() %>/js/main.js"></script>
-    <script 
-    src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous">
-    </script>
+    <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
     <script>
 /*     	function shareLink(){
     		var url = "<c:out value='${b.share_link}'/>";
@@ -42,54 +40,8 @@
 </head>
 <body>
     <div class="container-main">
-        <header class="header-main">
-            <div class="header-icon header-content">
-                <div class="icon-content icon-img">
-                    <i class="fas fa-seedling"></i>
-                </div>
-                <div class="icon-content seed">SEED</div>
-            </div>
-            <div class="header-main-nav header-content">
-                <div class="nav-list">
-                    <div class="nav-list-content">
-                        <a href="<%=request.getContextPath()%>/MainAction.seed">Home</a>
-                    </div>
-                    <div class="nav-list-content">
-                        <a href="./ShareListAction.seed">Share</a>
-                    </div>
-                    <div class="nav-list-content nav-list-community">
-                        <a href="" class="community-sub">Community</a>
-                        <div class="nav-list-content-detail">
-                            <a href="">Tip</a>
-                            <a href="">News</a>
-                            <a href="">Free</a>
-                            <a href="">Q&A</a>
-                            <a href="">Live</a>
-                        </div>
-                    </div>
-                    <div class="nav-list-content">
-                        <a href="">About</a>
-                    </div>
-                </div>
-            </div>
-            <div class="header-main-member header-content">
-                <div class="header-main-member-content header_search">
-                    <i class="fas fa-search" id="search_btn"></i>
-                </div>
-                <div class="header-main-member-content search_box">
-                    <input type="text" value="search">
-                    <input type="button" value="검색">
-                </div>
-                <div class="header-main-member-content member-content">
-	             	<c:if test="${sessionScope.id == null }">
-                		<a href="<%=request.getContextPath()%>/MemberLogInForm.seed">Log In</a>
-                	</c:if>
-              		<c:if test="${sessionScope.id != null }">
-                		<a href=""><i class="fas fa-user-circle member-icon"></i></a>
-              		</c:if>
-                </div>
-            </div>
-        </header>
+        <%@ include file="/main/main_header.jsp" %>
+        
         <div class="main-ad">
             <div class="main-ad-content">
 				<img class="mySlides" src="<%=request.getContextPath()%>/css/img/seed-ad.title.jpg">
