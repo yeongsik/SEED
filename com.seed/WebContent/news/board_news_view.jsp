@@ -53,6 +53,7 @@
 	</td>
 </tr>
 </table>
+ <%@ include file="/main/main_footer.jsp"%>
 <%-- <form method="post" action="<%=request.getContextPath() %>/NewsReAddAction.seed">
 <input type="hidden" name="board_num" value="${news.board_num }">
 <input type="hidden" name="page" value="${page}">

@@ -37,7 +37,7 @@
 	</td>
 	<td>
 		작성자 : ${news.name}
-		<input type="hidden" name="board_name" value="${news.name}">
+		<input type="hidden" name="name" value="${news.name}">
 	</td>
 </tr>
 <tr>
@@ -61,5 +61,6 @@
 	</td>
 </table>
 </form>
+ <%@ include file="/main/main_footer.jsp"%>
 </body>
 </html>

@@ -97,3 +97,4 @@
 	</tr>
 	</c:forEach>
 </table>
+ <%@ include file="/main/main_footer.jsp"%>
