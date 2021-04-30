@@ -145,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="article-share-content">
+                        <div class="article-share-content" id="share_content_a">
                             <div class="share-content">
                                 <div class="share-content_channel">
                                     채널명
@@ -199,9 +199,7 @@
 
         </section>
 
-        <footer class="footer">
-
-        </footer>
+       <%@ include file="/main/main_footer.jsp"%>
     </div>
 
 </body>

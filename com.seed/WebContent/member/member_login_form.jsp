@@ -65,6 +65,7 @@
                 </div>
             </form>
         </section>
+        <%@ include file="/main/main_footer.jsp" %>
     </div>
 </body>
 </html>

@@ -34,6 +34,6 @@
 	</tr>
 </table>
 </form>
-
+ <%@ include file="/main/main_footer.jsp"%>
 </body>
 </html>

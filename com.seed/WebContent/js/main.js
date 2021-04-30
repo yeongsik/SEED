@@ -2,18 +2,16 @@
  * 
  */
 $(document).ready(function() {
+	
 	$(".category-list").on("click",function(){
 		$("#ajax").remove();
 		let category_name = $(this).attr('value');
-		alert($(this).attr('value'));
-		
 		$.ajax ({
 			url:"./MainWeeklyBestList.seed",
 			type : "POST",
 			dataType : "json",
 			data : {category_name},
 			success : function(list){
-				alert(list);
 				var cell= '';
 				$.each(list,function(index,item){
 					//let date = item.board_register;
@@ -62,4 +60,6 @@ window.addEventListener('scroll' , handleScroll);
 	return year + '-' + month + '-' + day;
 }
 */
+
+
 

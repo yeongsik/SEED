@@ -54,6 +54,7 @@
 	</td>
 </table>
 </form>
+	 <%@ include file="/main/main_footer.jsp"%>
 </body>
 <script type="text/javascript" src ="../news/se.js"></script>
 </html>

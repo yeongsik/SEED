@@ -80,7 +80,7 @@ public class UpdateMemberInfoCourse3 implements SeedAction {
 		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./MainAction.seed");
+		forward.setPath("/MainAction.seed");
 		
 		return forward;
 	}

@@ -30,14 +30,15 @@ public class NewsModify implements SeedAction {
 		NewsDTO news = new NewsDTO();
 		news.setBoard_num(board_num);
 		news.setName(name);
-		news.setBoard_category("board_category");
-		news.setBoard_subject("board_subject");
-		news.setBoard_content("board_content");
+		news.setBoard_category(request.getParameter("board_category"));
+		news.setBoard_subject(request.getParameter("board_subject"));
+		news.setBoard_content(request.getParameter("board_content"));
 		
 		NewsDAO dao = NewsDAO.getInstance();
 		HttpSession session = request.getSession();
 		String session_name = (String)session.getAttribute("user_name");
-		
+		System.out.println(name);
+		System.out.println(session_name);
 		if(session_name.equals(name)) {
 			int result = dao.modify(news);
 			if(result ==1) {
