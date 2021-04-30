@@ -7,8 +7,22 @@
   <title>게시글 작성</title>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script type="text/javascript" src="<%=request.getContextPath()%>/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+  
+   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    
+   <script src="http://code.jquery.com/jquery-latest.js"></script>    
+   <script src="<%=request.getContextPath() %>/js/main.js"></script>
+   <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<%@ include file="/main/main_header.jsp" %>
+
  <form method="post" action="<%=request.getContextPath() %>/AddAction.seed" id="qna_write_form">   
     <header></header>
     <nav></nav>

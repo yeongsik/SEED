@@ -3,11 +3,23 @@
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix ="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/main.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>    
+<script src="<%=request.getContextPath() %>/js/main.js"></script>
+<script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
+
 <%@ include  file="/main/main_header.jsp"%>
+
 <c:if test="${sessionScope.id != null }">
-<a href ="./NewsAddActionForm.seed">글쓰기</a><br>
+	<a href ="./NewsAddActionForm.seed">글쓰기</a><br>
 </c:if>
+
 글 갯수 : ${listcount} 개 <br>
 
 <table border=1 width = 700 align = center>
@@ -85,3 +97,4 @@
 	</tr>
 	</c:forEach>
 </table>
+ <%@ include file="/main/main_footer.jsp"%>

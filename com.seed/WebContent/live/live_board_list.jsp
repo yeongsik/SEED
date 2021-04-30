@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,29 +11,31 @@
 <meta name="viewport"
 	content="user-scalable=no, initial-scale=1, maxium-scale=1">
 <title>Seed</title>
+
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/main.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/board.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/member.css">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<%=request.getContextPath()%>/js/main.js"></script>
-<script src="https://kit.fontawesome.com/78e568182c.js"
-	crossorigin="anonymous"></script>
-<!--  -->
+<script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/board.css">
+
 </head>
 <body>
 	<div class="board-container">
+	<%@ include file="/main/main_header.jsp" %>
 		<div class="nav-article">
 			<div class="nav-title">LIVE 게시판</div>
 			<div class="nav-search">
@@ -123,10 +125,13 @@
 	<aside>
 		<div class="aside-container">
 			<div class="aside-title">Weekly Best</div>
-			<ul class="aside-hr">
-				<li class="aside-list">게시글 제목</li>
-				
-			</ul>
+			<c:forEach var="wb" items="${weeklybest}">
+				<table>
+					<tr class="aside-hr">
+						<td class="aside-list">${wb.board_subject}</td>
+					</tr>
+				</table>
+			</c:forEach>
 		</div>
 	</aside>
 
