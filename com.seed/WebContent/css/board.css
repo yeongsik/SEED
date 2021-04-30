@@ -235,8 +235,9 @@ ul,ol,li {
 	border-bottom:none;
 	border-left:3px solid gray;
 	border-right:none;
-	list-style:none;
+	display:table;
 }
 .aside-list {
 	margin-left:15px;
+	display:table;
 }

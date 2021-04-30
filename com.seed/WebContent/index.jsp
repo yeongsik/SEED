@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-		location.href="./TipListAction.seed";
+		location.href="./LiveListAction.seed";
 	</script>
 </body>
 </html>

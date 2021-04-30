@@ -51,6 +51,12 @@ public class LiveListAction implements SeedAction{
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
+		LiveDAO wbdao = LiveDAO.getInstance();
+		List<LiveDTO> weeklybest = wbdao.getWeeklyBest();
+		System.out.println("weeklybest : " + weeklybest);
+		
+		request.setAttribute("weeklybest", weeklybest);
+		
 		SeedActionForward forward = new SeedActionForward();
 		forward.setRedirect(false); 
 		System.out.println("리스트 총 페이지");
