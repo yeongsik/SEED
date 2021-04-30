@@ -60,7 +60,7 @@
     <meta name="viewport" content="width=device-width , initial-scale=1.0">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maxium-scale=1">
     <title>Seed 회원가입</title>
-    <link rel="stylesheet" type="text/css" href="member.css">
+    <link rel="stylesheet" type="text/css" href="./css/member.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
