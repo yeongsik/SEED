@@ -50,6 +50,13 @@ public class TipListAction implements SeedAction{
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
+		
+		List<TipDTO> weeklybest_tip = dao.getWeeklyBestList();
+		System.out.println("weeklybest_tip:"+weeklybest_tip);
+		
+		request.setAttribute("weeklybest_tip", weeklybest_tip);
+		
+		
 		SeedActionForward forward = new SeedActionForward();	
 		// dispatcher 방식으로 포워딩되어야 view 페이지에서 공유한 값에 접근할 수있다.
 		forward.setRedirect(false);

@@ -17,7 +17,6 @@ import service.free.FreeListAction;
 import service.free.FreeModifyAction;
 import service.main.MainAction;
 import service.main.MainWeeklyBestList;
-
 import service.member.IdCheckAction;
 import service.member.LoginAction;
 import service.member.MyPageForm;
@@ -48,10 +47,9 @@ import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
-
 import service.share.ShareAddAction;
+import service.share.ShareDetailAction;
 import service.share.ShareListAction;
-
 import service.tip.TipAddAction;
 import service.tip.TipDelete;
 import service.tip.TipDetailAction;
@@ -210,7 +208,8 @@ public class SeedFrontController extends HttpServlet {
 		// tip ( 승국님 )
 		// 글작성
 
-		if (command.equals("/TipAddAction.seed")) {
+		if (command.equals("/TipAddAction.see"
+				+ "d")) {
 			try {
 				action = new TipAddAction();
 				forward = action.execute(request, response);
@@ -219,7 +218,7 @@ public class SeedFrontController extends HttpServlet {
 			}
 
 			// 글작성 폼
-		} else if (command.equals("/BoardForm.seed")) {
+		} else if (command.equals("/TipWriteForm.seed")) {
 			forward = new SeedActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/tip/board_tip_write.jsp");
@@ -354,6 +353,15 @@ public class SeedFrontController extends HttpServlet {
 		}else if(command.equals("/ShareAddAction.seed")) {
 			try {
 				action = new ShareAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 링크	
+		}else if(command.equals("/ShareDetailAction.seed")) {
+			try {
+				action = new ShareDetailAction();
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
