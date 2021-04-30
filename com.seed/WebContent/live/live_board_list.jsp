@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,8 @@
 	href="<%=request.getContextPath()%>/css/main.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/board.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/member.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
@@ -123,10 +126,13 @@
 	<aside>
 		<div class="aside-container">
 			<div class="aside-title">Weekly Best</div>
-			<ul class="aside-hr">
-				<li class="aside-list">게시글 제목</li>
-				
-			</ul>
+			<c:forEach var="wb" items="${weeklybest}">
+				<table>
+					<tr class="aside-hr">
+						<td class="aside-list">${wb.board_subject}</td>
+					</tr>
+				</table>
+			</c:forEach>
 		</div>
 	</aside>
 
