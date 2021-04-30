@@ -27,6 +27,7 @@
 			</div>
 			<div>
 				<div>내용</div>
+				<!-- 스마트에디터를 사용할 시 내용이 자동적으로 p태그로 입혀져서 채널소개부분 옆에 붙지 못하고 아랫줄로 이동하게 됨. -->
 				<div style="width: 850px;"><textarea id="board_content" name="board_content" cols="50" rows="20"></textarea></div>
 			</div>
 			<div>
