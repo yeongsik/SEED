@@ -40,7 +40,7 @@
 			<div class="nav-title">LIVE 게시판</div>
 			<div class="nav-search">
 				<input class="nav-input" type="text" placeholder="검색어 입력">
-
+				
 			</div>
 
 			<div class="nav-category-start">
@@ -125,6 +125,7 @@
 	<aside>
 		<div class="aside-container">
 			<div class="aside-title">Weekly Best</div>
+				<div style="margin-left:20px;"><제목></div>
 			<c:forEach var="wb" items="${weeklybest}">
 				<table>
 					<tr class="aside-hr">
