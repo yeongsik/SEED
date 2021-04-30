@@ -18,6 +18,7 @@ import service.free.FreeModify;
 import service.free.FreeModifyAction;
 import service.main.MainAction;
 import service.main.MainWeeklyBestList;
+
 import service.member.IdCheckAction;
 import service.member.LoginAction;
 import service.member.MyPageForm;
@@ -48,12 +49,17 @@ import service.qna.LikeUpdate;
 import service.qna.ListAction;
 import service.qna.ModifyAction;
 import service.qna.ModifyFormAction;
+
+import service.share.ShareAddAction;
+import service.share.ShareListAction;
+
 import service.tip.TipAddAction;
 import service.tip.TipDelete;
 import service.tip.TipDetailAction;
 import service.tip.TipListAction;
 import service.tip.TipModify;
 import service.tip.TipModifyAction;
+
 
 /**
  * Servlet implementation class SeedFrontController
@@ -330,10 +336,52 @@ public class SeedFrontController extends HttpServlet {
 			}
 		}
 
+
 		// live ( 유중님 )
 
-		// qa ( 수환님 )
-		if (command.equals("/AddAction.seed")) {
+		
+
+		
+		
+		// share ( 승국님 ) 
+
+		// 글 목록
+		if(command.equals("/ShareListAction.seed")) {
+			try {
+				action = new ShareListAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		// 글작성 폼
+		}else if(command.equals("/ShareWriteForm.seed")) {
+			forward = new SeedActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/share/board_share_write.jsp");
+			
+		
+		// 글 작성
+		}else if(command.equals("/ShareAddAction.seed")) {
+			try {
+				action = new ShareAddAction();
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+			
+			
+		
+		
+		
+		
+		// live ( 유중님 ) 
+		
+    
+		// qa ( 수환님 ) 
+		if(command.equals("/AddAction.seed")) {
+
 			try {
 				action = new AddAction();
 				forward = action.execute(request, response);

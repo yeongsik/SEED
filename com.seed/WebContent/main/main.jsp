@@ -9,7 +9,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maxium-scale=1">
     <title>Seed</title>
     
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -21,69 +21,11 @@
     <script src="https://kit.fontawesome.com/78e568182c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+     <%@ include file="/main/main_header.jsp" %>
     <div class="container-main">
 
 		
 
-   	 	<%@ include file="/main/main_header.jsp" %>
-<%-- 
-        <header class="header-main">
-
-            <div class="header-icon header-content">
-                <div class="icon-content icon-img">
-                    <i class="fas fa-seedling"></i>
-                </div>
-                <div class="icon-content seed"><a href="<%=request.getContextPath()%>/MainAction.seed">SEED</a></div>
-            </div>
-            <div class="header-main-nav header-content">
-                <div class="nav-list">
-                    <div class="nav-list-content">
-                        <a href="<%=request.getContextPath()%>/MainAction.seed">Home</a>
-                    </div>
-                    <div class="nav-list-content">
-                        <a href="">Share</a>
-                    </div>
-                    <div class="nav-list-content nav-list-community">
-                        <a href="" class="community-sub">Community</a>
-                        <div class="nav-list-content-detail">
-                            <a href="">Tip</a>
-                            <a href="<%=request.getContextPath()%>/NewsListAction.seed">News</a>
-                            <a href="">Free</a>
-                            <a href="./ListAction.seed">Q&A</a>
-                            <a href="">Live</a>
-                        </div>
-                    </div>
-                    <div class="nav-list-content">
-                        <a href="">About</a>
-                    </div>
-                </div>
-            </div>
-            <div class="header-main-member header-content">
-                <div class="header-main-member-content header_search">
-                    <i class="fas fa-search" id="search_btn"></i>
-                </div>
-                <div class="header-main-member-content search_box">
-                    <input type="text" value="search">
-                    <input type="button" value="검색">
-                </div>
-                <div class="header-main-member-content member-content">
-	             	<c:if test="${user_name == null }">
-                		<a href="<%=request.getContextPath()%>/MemberLogInForm.seed">Log In</a>
-                	</c:if>
-                	
-              		<c:if test="${user_name != null }">
-              			<div class="header-main-member-content-icon">
-        	        		<a href="./MyPageForm.seed"><i class="fas fa-user-circle member-icon"></i></a>
-    	            		<div class="header-main-member-content-icon-detail">
-                				<a href="./MyPageForm.seed">My Page</a>
-                				<a href="./MemberLogout.seed">Logout</a>
-	                		</div>
-              			</div>
-              		</c:if>
-              		
-                </div>
-            </div>
-        </header> --%>
         <div class="main-ad">
             <div class="main-ad-content">
 				<img class="mySlides" src="<%=request.getContextPath()%>/css/img/seed-ad.title.jpg">
@@ -203,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="article-share-content">
+                        <div class="article-share-content" id="share_content_a">
                             <div class="share-content">
                                 <div class="share-content_channel">
                                     채널명
@@ -257,11 +199,8 @@
 
         </section>
 
-        <footer class="footer">
-
-        </footer>
+       <%@ include file="/main/main_footer.jsp"%>
     </div>
 
 </body>
 </html>
-
